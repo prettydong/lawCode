@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import JoinUsButton from "./JoinUsButton";
+
 const wenkai = localFont({
   src: [
     { path: "../public/fonts/LXGWWenKai-Regular.ttf", weight: "400", style: "normal" },
@@ -48,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
             <div className="flex items-center gap-5 text-[13px] text-[var(--color-text-muted)]">
               <a href="/" className="hover:text-[var(--color-text)] transition-colors">首页</a>
-              <a href="/fill" className="hover:text-[var(--color-text)] transition-colors">填写文书</a>
+              <JoinUsButton />
             </div>
           </div>
         </nav>
