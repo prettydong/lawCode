@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import JoinUsButton from "./JoinUsButton";
+import UserButton from "./UserButton";
 
 const wenkai = localFont({
   src: [
@@ -28,8 +29,8 @@ const songti = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "智诉 — 法律文书智能生成",
-  description: "在线填写表单，一键生成规范的法律文书 PDF",
+  title: "法智 — 以法为盾，以智护权",
+  description: "AI 智能法律服务平台，提供法律文书生成、案件分析与案件管理",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -40,17 +41,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <nav className="shrink-0 bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border-light)]">
           <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
             <a href="/" className="flex items-center gap-2 group">
-              {/* Logo - 迷你田字格 */}
-              <div className="w-[28px] h-[28px] relative flex items-center justify-center" style={{ border: "1.5px solid #ccc" }}>
-                <div className="absolute left-0 right-0 top-1/2" style={{ borderTop: "0.5px dashed #ccc" }} />
-                <div className="absolute top-0 bottom-0 left-1/2" style={{ borderLeft: "0.5px dashed #ccc" }} />
-                <span className="relative z-10 text-[18px] leading-none" style={{ fontFamily: "var(--font-kaiti), serif", color: "#000", WebkitTextStroke: "0.5px #000" }}>智</span>
+              {/* Logo - 迷你田字格：法智 */}
+              <div className="flex">
+                {[["法", "#c23b22"], ["智", "#000"]].map(([char, color]) => (
+                  <div key={char} className="w-[28px] h-[28px] relative flex items-center justify-center -ml-[0.75px] first:ml-0" style={{ border: "1.5px solid #ccc" }}>
+                    <div className="absolute left-0 right-0 top-1/2" style={{ borderTop: "0.5px dashed #ccc" }} />
+                    <div className="absolute top-0 bottom-0 left-1/2" style={{ borderLeft: "0.5px dashed #ccc" }} />
+                    <span className="relative z-10 text-[18px] leading-none" style={{ fontFamily: "var(--font-kaiti), serif", color, WebkitTextStroke: `0.5px ${color}` }}>{char}</span>
+                  </div>
+                ))}
               </div>
-              <span className="text-[15px] font-semibold tracking-tight text-[var(--color-text)]">智诉</span>
+
             </a>
             <div className="flex items-center gap-5 text-[13px] text-[var(--color-text-muted)]">
               <a href="/" className="hover:text-[var(--color-text)] transition-colors">首页</a>
               <JoinUsButton />
+              <UserButton />
             </div>
           </div>
         </nav>

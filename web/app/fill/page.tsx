@@ -51,8 +51,8 @@ function RadioGroup({ name, options, value, onChange }: {
                     className={`form-check ${value === opt ? "selected" : ""}`}
                     onClick={() => onChange(name, opt)}
                 >
-                    <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${value === opt ? "border-[var(--color-accent)]" : "border-[var(--color-text-muted)]"}`}>
-                        {value === opt && <span className="w-2 h-2 rounded-full bg-[var(--color-accent)]" />}
+                    <span className={`w-4 h-4 border-2 flex items-center justify-center ${value === opt ? "border-[var(--color-accent)]" : "border-[var(--color-text-muted)]"}`}>
+                        {value === opt && <span className="w-2 h-2 bg-[var(--color-accent)]" />}
                     </span>
                     {opt}
                 </button>
@@ -302,7 +302,7 @@ export default function FillPage() {
                 {/* 提交 */}
                 <div className="text-center mt-8 mb-20">
                     {error && (
-                        <div className="mb-4 p-4 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm">
+                        <div className="mb-4 p-4 bg-red-50 border border-red-200 text-red-600 text-sm">
                             ❌ {error}
                         </div>
                     )}

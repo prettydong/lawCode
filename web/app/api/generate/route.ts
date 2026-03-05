@@ -4,6 +4,8 @@ import { writeFile, readFile, mkdir, unlink } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
 import { randomUUID } from "crypto";
+import { getCurrentUser } from "@/lib/auth";
+import { documentDb } from "@/lib/db";
 
 // 模板目录（相对于项目根目录）
 const TEMPLATE_DIR = path.resolve(process.cwd(), "..", "templates", "刑事附带民事自诉状_侮辱案");
@@ -45,6 +47,21 @@ export async function POST(req: NextRequest) {
 
         // 读取 PDF 并返回
         const pdfBuffer = await readFile(outputPath);
+
+        // 如果用户已登录，保存诉状记录到工作区
+        try {
+            const user = await getCurrentUser();
+            if (user) {
+                documentDb.create({
+                    userId: user.userId,
+                    title: data.templateName || "法律文书",
+                    templateId: data.templateId || "",
+                    formData: JSON.stringify(data),
+                });
+            }
+        } catch {
+            // 不影响主流程
+        }
 
         // 清理临时文件
         try {

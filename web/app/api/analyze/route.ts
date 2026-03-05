@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getCurrentUser } from "@/lib/auth";
+import { analysisDb } from "@/lib/db";
 
 const KIMI_API_KEY = "sk-kimi-Tlzxkdt8nbEM6wryMjUlsjuBD95CO7y5GN505sM8IKwLdSIhUbvmqGbo9dwecXKH";
 const KIMI_API_URL = "https://api.kimi.com/coding/v1/chat/completions";
@@ -61,6 +63,21 @@ export async function POST(req: NextRequest) {
         const data = await response.json();
         const content = data.choices?.[0]?.message?.content || "未获取到分析结果";
 
+        // 如果用户已登录，自动保存分析记录到工作区
+        try {
+            const user = await getCurrentUser();
+            if (user) {
+                analysisDb.create({
+                    userId: user.userId,
+                    input: message || "",
+                    mode: mode || "",
+                    result: content,
+                });
+            }
+        } catch {
+            // 不影响主流程
+        }
+
         return NextResponse.json({ result: content });
     } catch (error) {
         console.error("Analysis API error:", error);
@@ -70,3 +87,4 @@ export async function POST(req: NextRequest) {
         );
     }
 }
+
