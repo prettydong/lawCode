@@ -48,7 +48,13 @@ export async function setAuthCookie(token: string) {
 /** 清除 cookie */
 export async function clearAuthCookie() {
     const cookieStore = await cookies();
-    cookieStore.delete(TOKEN_NAME);
+    cookieStore.set(TOKEN_NAME, "", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        maxAge: 0,
+        path: "/",
+    });
 }
 
 /** 从 cookie 获取当前用户 */

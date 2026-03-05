@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
+import { useConfirm } from "./ConfirmDialog";
 
 type Mode = null | "zhisu" | "document" | "analysis" | "cases";
 
@@ -594,6 +595,7 @@ function CasesPage({ onBack }: { onBack: () => void }) {
   const [fileTab, setFileTab] = useState<FileSubTab>("documents");
   const [needLogin, setNeedLogin] = useState(false);
   const [loading, setLoading] = useState(true);
+  const confirm = useConfirm();
 
   // ── 案件追踪 state ──
   const [cases, setCases] = useState<CaseItem[]>([]);
@@ -640,7 +642,7 @@ function CasesPage({ onBack }: { onBack: () => void }) {
   };
 
   const handleDeleteCase = async (id: string) => {
-    if (!confirm("确定删除此案件？")) return;
+    if (!(await confirm("确定删除此案件？"))) return;
     await fetch(`/api/cases/${id}`, { method: "DELETE" });
     fetchCases();
   };
@@ -662,13 +664,13 @@ function CasesPage({ onBack }: { onBack: () => void }) {
   useEffect(() => { if (tab === "files" && !needLogin) fetchFiles(); }, [tab, needLogin, fetchFiles]);
 
   const handleDeleteDoc = async (id: string) => {
-    if (!confirm("确定删除此记录？")) return;
+    if (!(await confirm("确定删除此诉状记录？"))) return;
     await fetch(`/api/files/documents/${id}`, { method: "DELETE" });
     fetchFiles();
   };
 
   const handleDeleteAnalysis = async (id: string) => {
-    if (!confirm("确定删除此记录？")) return;
+    if (!(await confirm("确定删除此分析记录？"))) return;
     await fetch(`/api/files/analyses/${id}`, { method: "DELETE" });
     fetchFiles();
   };
@@ -803,19 +805,21 @@ function CasesPage({ onBack }: { onBack: () => void }) {
               documents.length === 0 ? (
                 <div className="text-center py-12 text-[var(--color-text-muted)] text-[13px]">暂无诉状记录，在智诉中生成文书后自动归档</div>
               ) : (
-                <div className="space-y-3">
+                <div className="border border-[var(--color-border)] divide-y divide-[var(--color-border)]">
                   {documents.map((d) => (
-                    <div key={d.id} className="bg-[var(--color-surface)] border border-[var(--color-border)] px-5 py-4 group hover:border-[#d4d4cf] hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all">
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-[14px] font-medium text-[var(--color-text)] truncate">{d.title}</h4>
-                          <div className="flex items-center gap-3 mt-2">
-                            <span className="text-[11px] px-2 py-0.5 bg-blue-50 text-blue-600">诉状</span>
-                            <span className="text-[11px] text-[var(--color-text-muted)]">{formatDate(d.created_at)}</span>
-                          </div>
+                    <div key={d.id} className="px-4 py-3 group hover:bg-[var(--color-surface-alt)] transition-colors">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex-1 min-w-0 flex items-center gap-3">
+                          <span className="text-[10px] px-1.5 py-0.5 bg-blue-50 text-blue-600 shrink-0">诉状</span>
+                          <h4 className="text-[13px] text-[var(--color-text)] truncate">{d.title}</h4>
+                          <span className="text-[11px] text-[var(--color-text-muted)] shrink-0">{formatDate(d.created_at)}</span>
                         </div>
-                        <button onClick={() => handleDeleteDoc(d.id)}
-                          className="opacity-0 group-hover:opacity-100 text-[var(--color-text-muted)] hover:text-[var(--color-error)] transition-all cursor-pointer text-[13px] shrink-0 mt-0.5" title="删除">✕</button>
+                        <div className="flex items-center gap-3 shrink-0">
+                          <a href={`/fill?docId=${d.id}`}
+                            className="text-[11px] text-[var(--color-accent)] hover:underline transition-colors">编辑</a>
+                          <button onClick={() => handleDeleteDoc(d.id)}
+                            className="opacity-0 group-hover:opacity-100 text-[var(--color-text-muted)] hover:text-[var(--color-error)] transition-all cursor-pointer text-[12px]">✕</button>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -823,27 +827,28 @@ function CasesPage({ onBack }: { onBack: () => void }) {
               )
             )}
 
+
             {/* 分析列表 */}
             {!filesLoading && fileTab === "analyses" && (
               analyses.length === 0 ? (
                 <div className="text-center py-12 text-[var(--color-text-muted)] text-[13px]">暂无分析记录，在智诉中进行案件分析后自动归档</div>
               ) : (
-                <div className="space-y-3">
+                <div className="border border-[var(--color-border)] divide-y divide-[var(--color-border)]">
                   {analyses.map((a) => (
-                    <div key={a.id} className="bg-[var(--color-surface)] border border-[var(--color-border)] px-5 py-4 group hover:border-[#d4d4cf] hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all">
+                    <div key={a.id} className="px-4 py-3 group hover:bg-[var(--color-surface-alt)] transition-colors">
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex-1 min-w-0">
-                          <p className="text-[13px] text-[var(--color-text)] line-clamp-2">{a.input || "(无输入)"}</p>
-                          <div className="flex items-center gap-3 mt-2">
-                            <span className="text-[11px] px-2 py-0.5 bg-amber-50 text-amber-600">{a.mode || "综合分析"}</span>
-                            <span className="text-[11px] text-[var(--color-text-muted)]">{formatDate(a.created_at)}</span>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] px-1.5 py-0.5 bg-amber-50 text-amber-600 shrink-0">{a.mode || "综合"}</span>
+                            <p className="text-[13px] text-[var(--color-text)] truncate">{a.input || "(无输入)"}</p>
+                            <span className="text-[11px] text-[var(--color-text-muted)] shrink-0">{formatDate(a.created_at)}</span>
                           </div>
                           {a.result && (
-                            <p className="text-[11px] text-[var(--color-text-muted)] mt-2 line-clamp-3">{a.result.slice(0, 200)}</p>
+                            <p className="text-[11px] text-[var(--color-text-muted)] mt-1 line-clamp-2">{a.result.slice(0, 150)}</p>
                           )}
                         </div>
                         <button onClick={() => handleDeleteAnalysis(a.id)}
-                          className="opacity-0 group-hover:opacity-100 text-[var(--color-text-muted)] hover:text-[var(--color-error)] transition-all cursor-pointer text-[13px] shrink-0 mt-0.5" title="删除">✕</button>
+                          className="opacity-0 group-hover:opacity-100 text-[var(--color-text-muted)] hover:text-[var(--color-error)] transition-all cursor-pointer text-[12px] shrink-0 mt-0.5">✕</button>
                       </div>
                     </div>
                   ))}

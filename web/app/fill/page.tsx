@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+
 
 // ============================================================
 // 表单区块组件
@@ -147,11 +149,68 @@ export default function FillPage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    // ── 从 URL docId 预填表单 ──
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const docId = searchParams.get("docId");
+        if (!docId) return;
+
+        (async () => {
+            try {
+                const res = await fetch(`/api/files/documents/${docId}`);
+                if (!res.ok) return;
+                const json = await res.json();
+                const doc = json.document;
+                if (!doc?.form_data) return;
+
+                const data = JSON.parse(doc.form_data);
+                if (data.自诉人) setSuPerson(data.自诉人);
+                if (data.诉讼代理人) {
+                    setDlHas(data.诉讼代理人.有无 || "");
+                    const { 有无: _h, ...rest } = data.诉讼代理人;
+                    setDlPerson(rest);
+                }
+                if (data["法定代理人或代为告诉人"]) {
+                    setFdHas(data["法定代理人或代为告诉人"].有无 || "");
+                    const { 有无: _h, ...rest } = data["法定代理人或代为告诉人"];
+                    setFdPerson(rest);
+                }
+                if (data.被告人) setBgPerson(data.被告人);
+                if (data.是否提起附带民事诉讼) setFuDai(data.是否提起附带民事诉讼);
+                if (data.诉讼请求) {
+                    setGongAn(data.诉讼请求.是否需要公安机关协助 || "");
+                    setGongAnClue(data.诉讼请求.具体事项和线索 || "");
+                }
+                if (data.事实与理由) {
+                    setFact(data.事实与理由.事实 || "");
+                    setReason(data.事实与理由.理由 || "");
+                }
+                if (data.是否同意调解) {
+                    setMediateZi(data.是否同意调解.自诉部分 || "");
+                    setMediateFu(data.是否同意调解.附带民事部分 || "");
+                }
+                if (data.签署信息) {
+                    setSigner(data.签署信息.具状人 || "");
+                    setSignYear(data.签署信息.日期年 || "");
+                    setSignMonth(data.签署信息.日期月 || "");
+                    setSignDay(data.签署信息.日期日 || "");
+                }
+            } catch {
+                // 忽略
+            }
+        })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+
+
     const handleSubmit = async () => {
         setLoading(true);
         setError("");
 
         const payload = {
+            templateName: `刑事自诉状 — ${suPerson["姓名"] || "未命名"}`,
+            templateId: "xingshi-wuru",
             自诉人: suPerson,
             诉讼代理人: { 有无: dlHas, ...dlPerson },
             法定代理人或代为告诉人: { 有无: fdHas, ...(fdHas === "有" ? fdPerson : {}) },
