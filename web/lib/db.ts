@@ -203,6 +203,20 @@ export const documentDb = {
     findById(id: string): Document | undefined {
         return db.prepare("SELECT * FROM documents WHERE id = ?").get(id) as Document | undefined;
     },
+
+    update(id: string, data: { title?: string; templateId?: string; formData?: string }): boolean {
+        const existing = this.findById(id);
+        if (!existing) return false;
+        db.prepare(
+            "UPDATE documents SET title = ?, template_id = ?, form_data = ? WHERE id = ?"
+        ).run(
+            data.title ?? existing.title,
+            data.templateId ?? existing.template_id,
+            data.formData ?? existing.form_data,
+            id
+        );
+        return true;
+    },
 };
 
 // ─── 文件管理：分析记录 ────────────────────────────────────

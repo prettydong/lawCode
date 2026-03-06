@@ -48,16 +48,36 @@ export async function POST(req: NextRequest) {
         // 读取 PDF 并返回
         const pdfBuffer = await readFile(outputPath);
 
-        // 如果用户已登录，保存诉状记录到工作区
+        // 如果用户已登录，保存或更新诉状记录到工作区
         try {
             const user = await getCurrentUser();
             if (user) {
-                documentDb.create({
-                    userId: user.userId,
-                    title: data.templateName || "法律文书",
-                    templateId: data.templateId || "",
-                    formData: JSON.stringify(data),
-                });
+                if (data.docId) {
+                    const existingDoc = documentDb.findById(data.docId);
+                    // 仅允许用户更新自己的记录
+                    if (existingDoc && existingDoc.user_id === user.userId) {
+                        documentDb.update(data.docId, {
+                            title: data.templateName || "法律文书",
+                            templateId: data.templateId || "",
+                            formData: JSON.stringify(data),
+                        });
+                    } else {
+                        // 若不存在或无权，退回创建（或做报错处理，这里静默创建）
+                        documentDb.create({
+                            userId: user.userId,
+                            title: data.templateName || "法律文书",
+                            templateId: data.templateId || "",
+                            formData: JSON.stringify(data),
+                        });
+                    }
+                } else {
+                    documentDb.create({
+                        userId: user.userId,
+                        title: data.templateName || "法律文书",
+                        templateId: data.templateId || "",
+                        formData: JSON.stringify(data),
+                    });
+                }
             }
         } catch {
             // 不影响主流程

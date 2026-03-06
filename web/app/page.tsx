@@ -347,7 +347,8 @@ function DocumentPage({ onBack }: { onBack: () => void }) {
       const t = requestAnimationFrame(() => setVisible(true));
       return () => cancelAnimationFrame(t);
     } else {
-      setVisible(false);
+      const t = requestAnimationFrame(() => setVisible(false));
+      return () => cancelAnimationFrame(t);
     }
   }, [hasQuery]);
 
@@ -608,6 +609,7 @@ function CasesPage({ onBack }: { onBack: () => void }) {
   const [documents, setDocuments] = useState<DocumentItem[]>([]);
   const [analyses, setAnalyses] = useState<AnalysisItem[]>([]);
   const [filesLoading, setFilesLoading] = useState(false);
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
 
   // ── 通用 ──
   const formatDate = (iso: string) => {
@@ -667,6 +669,34 @@ function CasesPage({ onBack }: { onBack: () => void }) {
     if (!(await confirm("确定删除此诉状记录？"))) return;
     await fetch(`/api/files/documents/${id}`, { method: "DELETE" });
     fetchFiles();
+  };
+
+  const handleDownloadDoc = async (d: any) => {
+    if (downloadingId) return;
+    setDownloadingId(d.id);
+    try {
+      const payload = JSON.parse(d.form_data);
+      payload.docId = d.id; // 防止产生新副本
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("下载失败");
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${d.title}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (e) {
+      alert("下载失败，请重试");
+    } finally {
+      setDownloadingId(null);
+    }
   };
 
   const handleDeleteAnalysis = async (id: string) => {
@@ -815,6 +845,10 @@ function CasesPage({ onBack }: { onBack: () => void }) {
                           <span className="text-[11px] text-[var(--color-text-muted)] shrink-0">{formatDate(d.created_at)}</span>
                         </div>
                         <div className="flex items-center gap-3 shrink-0">
+                          <button onClick={() => handleDownloadDoc(d)} disabled={downloadingId === d.id}
+                            className="text-[11px] text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:underline transition-colors cursor-pointer disabled:opacity-50">
+                            {downloadingId === d.id ? "生成中..." : "下载"}
+                          </button>
                           <a href={`/fill?docId=${d.id}`}
                             className="text-[11px] text-[var(--color-accent)] hover:underline transition-colors">编辑</a>
                           <button onClick={() => handleDeleteDoc(d.id)}
