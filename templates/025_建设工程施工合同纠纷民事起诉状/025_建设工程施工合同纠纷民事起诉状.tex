@@ -1,0 +1,470 @@
+\documentclass[a4paper,12pt,twoside]{ctexart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\definecolor{inkblack}{rgb}{0.08,0.08,0.08}
+\geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[RO]{\makebox[0pt][l]{\hspace*{28.2pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+\fancyfoot[LE]{\makebox[0pt][r]{\hspace*{33.45pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+
+\newCJKfontfamily\fzdbs[Path=./]{FZDBS.ttf}
+\newCJKfontfamily\fzssk[Path=./]{FZSSK.ttf}
+\AtBeginDocument{\color{inkblack}}
+
+\newcommand{\lawtitle}[2]{
+    \vspace*{0.507cm}
+    \begin{center}
+        {\fzdbs\fontsize{22bp}{22bp}\selectfont #1}\par
+        \vspace{10.37bp}
+        {\fzdbs\fontsize{18bp}{18bp}\selectfont #2}\par
+    \end{center}
+    \vspace{18.4bp}
+}
+
+\newtcolorbox{notesection}[1][]{
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
+    enlarge left by=-19.28bp, before=\vspace*{-13.39bp}\noindent, after=\par,
+    boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1
+}
+
+\newcommand{\lawpar}{\par\vspace*{-4.86bp}}
+
+\newcommand{\subtitlesection}[1]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
+        fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
+    ]
+    #1
+    \end{tcolorbox}%
+}
+
+\newcommand{\subtitlenotesection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp, halign=center,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
+    ]
+    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\\[2bp]
+    {\songti\fontsize{10.5bp}{14bp}\selectfont\color{inkblack}\bfseries #2}
+    \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\begin{document}
+
+% ===== 第 1 页 =====
+\lawtitle{民事起诉状}{（建设工程施工合同纠纷）}
+
+\begin{notesection}
+\hfuzz=50pt
+\color{inkblack}\heiti\fontsize{10.5bp}{16bp}\selectfont 说明：\par
+\vspace*{-0.2bp}
+\songti\mdseries\fontsize{10.5bp}{16bp}\selectfont
+\setlength{\parindent}{20.7bp}
+\sloppy
+\setlength{\parskip}{0pt}
+\vspace*{-5.1bp}为了方便您更好地参加诉讼，保护您的合法权利，请填写本表。
+\lawpar
+1.起诉时需向人民法院提交证明您身份的材料，如身份证复印件、营业执照复印件等。
+\lawpar
+2.本表所列内容是您参加诉讼以及人民法院查明案件事实所需，请务必如实填写。
+\lawpar
+3.本表有些内容可能与您的案件无关，您认为与案件无关的项目可以填"无"或不填；对于本\\[-4.86bp]
+表中勾选项可以在对应项打"√"；您认为另有重要内容需要列明的，可以另附页填写。
+\lawpar
+4.本表 word 电子版填写时，相关栏目可复制粘贴或扩容，但不得改变要素内容、格式设置。例\\[-4.86bp]
+如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
+可根据实际对栏目进行扩容等。
+\lawpar
+$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+\hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
+\hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
+追究责任。
+\end{notesection}
+
+\subtitlesection{当事人信息}
+
+\pairsection{原告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{原告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+\newpage
+% ===== 第 2 页 =====
+
+\pairsection{委托诉讼代理人}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+\pairsection{被告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{被告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+\pairsection{第三人\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{第三人\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：
+}
+
+\newpage
+% ===== 第 3 页 =====
+
+\pairsection{第三人\\（法人、非法人组织）}{
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+\subtitlenotesection{诉讼请求}{（原告为承包人或施工人时，填写第 1 项至第 5 项；原告为发包人时，填写第 6 项至第 9 项；\\第 10 项至第 15 项为共同项）}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsection{1. 支付工程款}{
+\hspace{4em}元（人民币，下同；如外币需特别注明）
+}
+
+\pairsection{2. 迟延支付工程款的利\\息（违约金）}{
+截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，迟延支付工程款的利息\hspace{4em}元、违约\\
+金\hspace{4em}元；自\hspace{4em}之后的逾期利息、违约金，以\hspace{4em}元为基\\
+数按照\hspace{4em}标准计算；\\
+是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
+}
+
+\pairsection{3. 是否主张建设工程价\\款优先受偿权}{
+是$\square$\hspace{1em}内容：\\
+否$\square$
+}
+
+\pairsection{4. 是否请求与原告没有\\建设工程施工合同关系\\的发包人、其他转包方、\\分包方等主体承担责任}{
+是$\square$\hspace{1em}责任主体姓名或者名称：\\
+否$\square$
+}
+
+\pairsection{5. 是否要求赔偿损失}{
+是$\square$\hspace{1em}支付赔偿金\hspace{4em}元\\
+\hspace*{21bp}责任类型：停窝工损失$\square$\hspace{1em}其他$\square$\\
+\hspace*{21bp}具体情形：\\
+\hspace*{21bp}损失计算依据：\\
+否$\square$
+}
+
+\pairsection{6. 是否退还超付的工程\\款}{
+是$\square$\hspace{1em}金额\hspace{4em}元\\
+否$\square$
+}
+
+\pairsection{7. 是否支付超付工程款\\的利息}{
+是$\square$\hspace{1em}截至\hspace{2em}年\hspace{2em}月\hspace{2em}日，返还超付工程款的利息\hspace{4em}元，\\
+\hspace*{21bp}自\hspace{4em}之后的逾期利息，以\hspace{4em}元为基数按照\hspace{4em}标准计算；\\
+\hspace*{21bp}计算方式：\\
+\hspace*{21bp}是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$\\
+否$\square$
+}
+
+\pairsection{8. 是否对建设工程承担\\修复责任}{
+是$\square$\hspace{1em}修复$\square$\hspace{1em}付修复费用$\square$\hspace{1em}减少工程款$\square$\hspace{1em}其他$\square$，数额\hspace{4em}元\\
+否$\square$
+}
+
+\pairsection{9. 是否要求赔偿损失}{
+是$\square$\hspace{1em}支付赔偿金\hspace{4em}元\\
+\hspace*{21bp}责任类型：工程质量不符合约定$\square$\hspace{1em}迟延交付工程$\square$\\
+\hspace*{36bp}拒绝履行$\square$\hspace{1em}其他$\square$\\
+\hspace*{21bp}具体情形：\\
+\hspace*{21bp}损失计算依据：\\
+否$\square$
+}
+
+\pairsection{10. 请求确认建设工程\\施工合同无效}{
+是$\square$\hspace{1em}合同无效的理由：\\
+否$\square$
+}
+
+\pairsection{11. 要求继续履行或是\\解除合同}{
+继续履行$\square$\hspace{2em}日内履行完毕\hspace{4em}付款$\square$竣工$\square$义务\\
+判令解除合同$\square$\\
+确认建设工程施工合同已于\hspace{2em}年\hspace{2em}月\hspace{2em}日解除
+}
+
+\pairsection{12. 是否主张实现债权\\的费用}{
+是$\square$\hspace{1em}费用明细：\\
+否$\square$
+}
+
+\pairsection{13. 是否主张诉讼费用}{
+是$\square$\\
+否$\square$
+}
+
+\pairsection{14. 其他请求}{
+\mbox{}
+}
+
+\pairsection{15. 标的总额}{
+\mbox{}
+}
+
+\subtitlesection{约定管辖、诉前保全及鉴定申请}
+
+\pairsection{1. 有无仲裁、法院管辖\\约定}{
+有$\square$\hspace{4em}合同条款及内容：\\
+无$\square$
+}
+
+\pairsection{2. 是否已经诉前保全}{
+是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
+\hspace*{21bp}保全案号：\\
+否$\square$\\
+（如申请诉讼保全，请另行提交诉讼保全申请及相关材料）
+}
+
+\pairsection{3. 是否申请鉴定}{
+是$\square$\hspace{1em}鉴定事项：\\
+否$\square$
+}
+
+\newpage
+% ===== 第 4 页 =====
+
+\subtitlesection{事实与理由}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsection{1. 合同的签订情况（名\\称、编号、签订时间、\\地点、是否招投标等）}{
+\mbox{}
+}
+
+\pairsection{2. 签订主体}{
+发包人：\\
+承包人：\\
+出借资质的建筑企业：\\
+实际施工人：
+}
+
+\pairsection{3. 建设工程情况（工程\\名称、所在地点、施工\\范围、质量标准等）}{
+\mbox{}
+}
+
+\pairsection{4. 合同约定的工程款及\\支付方式}{
+综合单价$\square$\hspace{2em}元；固定单价$\square$\hspace{2em}元；固定总价$\square$\hspace{2em}元；\\
+其他$\square$：\\
+按施工进度支付工程款$\square$；垫资施工$\square$；其他$\square$；\\
+以现金$\square$\hspace{1em}转账$\square$\hspace{1em}票据$\square$（写明票据类型）\hspace{1em}其他$\square$\hspace{1em}方式\\
+质保金$\square$\hspace{4em}元；质保金支付期限：
+}
+
+\pairsection{5. 工期}{
+开工时间\rule{40bp}{0.5pt}；竣工时间\rule{40bp}{0.5pt}；工期\rule{40bp}{0.5pt}天。
+}
+
+\pairsection{6. 合同约定的工程质量\\标准及竣工验收程序}{
+\mbox{}
+}
+
+\pairsection{7. 合同约定的违约金\\（保证金）}{
+违约金$\square$\hspace{2em}元（合同条款：第\hspace{2em}条）\\
+保证金$\square$\hspace{2em}元（合同条款：第\hspace{2em}条）\\
+迟延履行违约金$\square$\hspace{2em}\%/日（合同条款：第\hspace{2em}条）
+}
+
+\pairsection{8. 工程款支付情况}{
+工程总价\hspace{4em}元；已支付工程款\hspace{4em}元；\\
+欠/超付工程款\hspace{4em}元。\\
+欠/超付工程款利息：\hspace{4em}元。
+}
+
+\pairsection{9. 建设工程质量情况}{
+工程质量是否合格：是$\square$\hspace{1em}否$\square$\\
+工程质量问题：\hspace{4em}。\\
+工程质量造成损失：\hspace{4em}元。
+}
+
+\pairsection{10. 建设工程交付情况}{
+工程是否迟延交付：是$\square$\hspace{1em}否$\square$\hspace{2em}交付时间\hspace{4em}。\\
+工程迟延交付造成损失：\hspace{4em}元。
+}
+
+\pairsection{11. 停窝工等情况}{
+工程是否停窝工：是$\square$\hspace{1em}否$\square$\\
+工程停窝工造成损失：\hspace{4em}元。
+}
+
+\pairsection{12. 是否主张过建设工\\程价款优先受偿权}{
+是$\square$\hspace{1em}主张情况：\hspace{2em}年\hspace{2em}月\hspace{2em}日通过\hspace{4em}方式主张了建设工程价\\
+\hspace*{21bp}款优先受偿权\\
+否$\square$
+}
+
+\pairsection{13. 其他需要说明的内\\容（可另附页）}{
+\mbox{}
+}
+
+\pairsection{14. 请求依据}{
+合同约定：\\
+法律规定：
+}
+
+\pairsection{15. 证据清单（可另附\\页）}{
+\mbox{}
+}
+
+\newpage
+% ===== 第 5 页 =====
+
+\subtitlesection{对纠纷解决方式的意愿}
+
+\pairsection{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+\pairsection{是否了解先行调解解\\决纠纷的好处}{
+1. 立案后选择先行调解的，可以很快启动调解程序。如不同意调解，法院将\\
+依程序开庭审理案件，但可能需要经过较长一段时间的排期等待，且审理、\\
+执行周期相对较长。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+2. 选择先行调解，调解成功且自动履行的免交诉讼费用，申请司法确认的不\\
+交纳诉讼费用，要求出具调解书的减半交纳诉讼费用。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+3. 首次调解不成功，但仍有继续调解意愿的，可以选择更换调解组织和调解\\
+员再进行调解。调解无法达成一致意见的，法院将依程序排期开庭。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+4. 依照法律规定，调解具有保密性要求，调解过程不公开，调解协议未经当\\
+事人同意不得公开。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+5. 调解达成的协议具有法律效力，可以依照法律规定申请司法确认，具有强\\
+制执行效力。\\
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+\pairsection{是否考虑先行调解}{
+是$\square$\\
+否$\square$\\
+暂不确定，想要了解更多内容$\square$
+}
+
+\vspace{10bp}
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字、盖章）：}\par
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 日期：}
+
+\end{document}

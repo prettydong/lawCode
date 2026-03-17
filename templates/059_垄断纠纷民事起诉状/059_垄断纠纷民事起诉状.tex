@@ -1,0 +1,508 @@
+\documentclass[a4paper,12pt,twoside]{ctexart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\definecolor{inkblack}{rgb}{0.08,0.08,0.08}
+\geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[RO]{\makebox[0pt][l]{\hspace*{28.2pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+\fancyfoot[LE]{\makebox[0pt][r]{\hspace*{33.45pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+
+\newCJKfontfamily\fzdbs[Path=./]{FZDBS.ttf}
+\newCJKfontfamily\fzssk[Path=./]{FZSSK.ttf}
+\AtBeginDocument{\color{inkblack}}
+
+\newcommand{\lawtitle}[2]{
+    \vspace*{0.507cm}
+    \begin{center}
+        {\fzdbs\fontsize{22bp}{22bp}\selectfont #1}\par
+        \vspace{10.37bp}
+        {\fzdbs\fontsize{18bp}{18bp}\selectfont #2}\par
+    \end{center}
+    \vspace{18.4bp}
+}
+
+\newtcolorbox{notesection}[1][]{
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
+    enlarge left by=-19.28bp, before=\vspace*{-13.39bp}\noindent, after=\par,
+    boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1
+}
+
+\newcommand{\lawpar}{\par\vspace*{-4.86bp}}
+
+\newcommand{\subtitlesection}[1]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
+        fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
+    ]
+    #1
+    \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\begin{document}
+
+% ===== 第 1 页 =====
+\lawtitle{民事起诉状}{（垄断纠纷）}
+
+\begin{notesection}
+\hfuzz=50pt
+\color{inkblack}\heiti\fontsize{10.5bp}{16bp}\selectfont 说明：\par
+\vspace*{-0.2bp}
+\songti\mdseries\fontsize{10.5bp}{16bp}\selectfont
+\setlength{\parindent}{20.7bp}
+\sloppy
+\setlength{\parskip}{0pt}
+\vspace*{-5.1bp}为了方便您更好地参加诉讼，保护您的合法权利，请填写本表。
+\lawpar
+1.起诉时需向人民法院提交证明您身份的材料，如身份证复印件、营业执照复印件等。
+\lawpar
+2.本表所列内容是您提起诉讼以及人民法院查明案件事实所需，请务必如实填写。
+\lawpar
+3.本表有些内容可能与您的案件无关，您认为与案件无关的项目可以填"无"或不填；对于本\\[-4.86bp]
+表中勾选项可以在对应项打"√"；您认为另有重要内容需要列明的，可以另附页填写。
+\lawpar
+4.本表 word 电子版填写时，相关栏目可复制粘贴或扩容，但不得改变要素内容、格式设置。例\\[-4.86bp]
+如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
+可根据实际对栏目进行扩容等。
+\lawpar
+$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+\hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
+\hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
+追究责任。
+\end{notesection}
+
+\subtitlesection{当事人信息}
+
+\pairsection{原告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{原告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}其他企业法人$\square$\\
+\hspace*{36bp}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\hspace{1em}社会服务机构$\square$\\
+\hspace*{36bp}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+{\heiti\bfseries 如不具有以下情况，可不填：}\\
+外资情况$\square$：中外合资经营企业$\square$\hspace{1em}中外合作经营企业$\square$\\
+\hspace*{52bp}外商独资企业$\square$\hspace{1em}其他形式$\square$\\
+\hspace*{52bp}出资方：\\
+\hspace*{52bp}份额构成：\\
+上市公司$\square$：上市所在交易所：\\
+专精特新中小企业$\square$
+}
+
+\newpage
+% ===== 第 2 页 =====
+
+\pairsection{委托诉讼代理人\\（律师）}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+\pairsection{委托诉讼代理人\\（其他）}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}性别：男$\square$\hspace{1em}女$\square$\\
+\hspace*{21bp}出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+\hspace*{21bp}单位：\hspace{6em}职务：（员工担任代理人需写明部门）\\
+\hspace*{21bp}联系电话：\\
+\hspace*{21bp}与原告关系（近亲属担任委托诉讼代理人）：\\
+\hspace*{21bp}推荐单位（当事人所在社区、单位以及有关社会团体推荐的公民担任\\
+\hspace*{21bp}委托诉讼代理人）：\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+\pairsection{被告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{被告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}其他企业法人$\square$\\
+\hspace*{36bp}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\hspace{1em}社会服务机构$\square$\\
+\hspace*{36bp}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+{\heiti\bfseries 如不具有以下情况，可不填：}\\
+外资情况$\square$：中外合资经营企业$\square$\hspace{1em}中外合作经营企业$\square$\\
+\hspace*{52bp}外商独资企业$\square$\hspace{1em}其他形式$\square$\\
+\hspace*{52bp}出资方：\\
+\hspace*{52bp}份额构成：\\
+上市公司$\square$：上市所在交易所：\\
+专精特新中小企业$\square$
+}
+
+\newpage
+% ===== 第 3 页 =====
+
+\pairsection{第三人\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{第三人\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}其他企业法人$\square$\\
+\hspace*{36bp}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\hspace{1em}社会服务机构$\square$\\
+\hspace*{36bp}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+{\heiti\bfseries 如不具有以下情况，可不填：}\\
+外资情况$\square$：中外合资经营企业$\square$\hspace{1em}中外合作经营企业$\square$\\
+\hspace*{52bp}外商独资企业$\square$\hspace{1em}其他形式$\square$\\
+\hspace*{52bp}出资方：\\
+\hspace*{52bp}份额构成：\\
+上市公司$\square$：上市所在交易所：\\
+专精特新中小企业$\square$
+}
+
+\subtitlesection{诉讼请求}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsection{1. 停止垄断行为}{
+有$\square$\hspace{1em}内容：（{\heiti\bfseries 简述请求停止的垄断行为内容}）\\
+无$\square$
+}
+
+\pairsection{2. 赔偿经济损失}{
+有$\square$\hspace{1em}经济损失\hspace{4em}元\\
+无$\square$
+}
+
+\pairsection{3. 赔偿维权合理开支}{
+有$\square$\hspace{1em}律师费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}经济分析费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}市场调查费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}其他费用\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
+无$\square$
+}
+
+\pairsection{4. 连带责任}{
+有$\square$\hspace{1em}内容：\\
+无$\square$
+}
+
+\pairsection{5. 非金钱给付义务迟延\\履行金}{
+有$\square$\hspace{1em}内容：\\
+无$\square$
+}
+
+\pairsection{6. 是否主张诉讼费用}{
+有$\square$\hspace{1em}内容：\\
+无$\square$
+}
+
+\pairsection{7. 其他请求}{
+有$\square$\hspace{1em}内容：\\
+无$\square$
+}
+
+\subtitlesection{涉外及涉港澳台}
+
+\pairsection{1. 是否涉外}{
+是$\square$\hspace{1em}涉及国家：\\
+否$\square$
+}
+
+\pairsection{2. 是否涉港澳台}{
+是$\square$\hspace{1em}涉港$\square$\hspace{1em}涉澳$\square$\hspace{1em}涉台$\square$\\
+否$\square$
+}
+
+\newpage
+% ===== 第 4 页 =====
+
+\subtitlesection{事实与理由}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsection{1. 被诉垄断行为}{
+具体内容：（{\heiti\bfseries 综述具体所诉垄断行为}）。\\
+实施垄断行为期间：\\
+是否为行政处罚的后继诉讼：是$\square$\hspace{1em}（被诉行为及持续时间是否完全涵盖行\\
+\hspace*{21bp}政处罚所涉期间：是$\square$\hspace{1em}否$\square$；被告是否为\\
+\hspace*{21bp}行政处罚确定的实施主体：是$\square$\hspace{1em}否$\square$）\\
+否$\square$
+}
+
+\pairsection{2. 共同侵权}{
+有$\square$\hspace{1em}主要事实与理由：（{\heiti\bfseries 一并写明共同侵权主体之间是否存在关联关系}）\\
+无$\square$
+}
+
+\pairsection{3. 相关市场界定}{
+本案相关市场为……（{\heiti\bfseries 包括具体时间范围内的商品市场、地域市场}）。\\
+具体说明：\\
+（{\heiti\bfseries 原告主张被诉垄断行为属于反垄断法第十七条第一项至第五项和第十\\
+八条第一款第一项、第二项规定情形的，可以不对相关市场界定提供证据}）
+}
+
+\pairsection{4. 具体垄断行为}{
+被告达成 / 实施了横向垄断协议 / 纵向垄断协议 / 轴辐协议，具体\\
+为：……。上述协议产生了排除、限制竞争效果，具体分析：\\
+（{\heiti\bfseries 适用于垄断协议纠纷}）\\[6bp]
+被告在……相关市场，具有市场支配地位，具体分析：\\
+被告实施滥用市场支配地位的行为，具体包括：\\
+垄断定价$\square$\hspace{1em}具体分析：\\
+掠夺定价$\square$\hspace{1em}具体分析：\\
+拒绝交易$\square$\hspace{1em}具体分析：\\
+限定交易$\square$\hspace{1em}具体分析：\\
+捆绑交易$\square$\hspace{1em}具体分析：\\
+差别待遇$\square$\hspace{1em}具体分析：\\
+被告的行为产生了排除、限制竞争效果，具体分析：\\
+（{\heiti\bfseries 适用于滥用市场支配地位纠纷}）
+}
+
+\pairsection{5. 其他}{
+\mbox{}
+}
+
+\subtitlesection{责任承担}
+
+\pairsection{1. 停止垄断行为}{
+被告应当立即停止垄断行为。具体说明：
+}
+
+% 赔偿责任使用两列格式
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{minipage}[c]{112.9bp}%
+    \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont 2. 赔偿责任%
+\end{minipage}%
+\hspace{0pt}%
+\vrule width 0.5pt%
+\hspace{4bp}%
+\begin{minipage}[t]{168bp}%
+    \vspace{4bp}%
+    \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+    \baselineskip=17bp\setlength{\parindent}{0pt}\color{inkblack}%
+    经济损失：\hspace{2em}元\\
+    计算方法：\\
+    维权合理开支：\hspace{2em}元。包括：\\
+    律师费$\square$\hspace{2em}元\\
+    经济分析费$\square$\hspace{2em}元\\
+    市场调查费$\square$\hspace{2em}元\\
+    其他费用$\square$\hspace{2em}元\\
+    {\heiti\bfseries（如不主张，可不填）}%
+    \vspace{4bp}%
+\end{minipage}%
+\vrule width 0.5pt%
+\hspace{4bp}%
+\begin{minipage}[t]{170bp}%
+    \vspace{4bp}%
+    \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+    \baselineskip=17bp\setlength{\parindent}{0pt}\color{inkblack}%
+    事实与理由：%
+    \vspace{4bp}%
+\end{minipage}%
+\end{tcolorbox}
+
+\pairsection{3. 连带责任}{
+有$\square$\hspace{1em}内容：被告一××、被告二××构成共同侵权，应当连带赔偿原告\\
+\hspace*{21bp}经济损失×元、维权合理开支×元。具体理由：……\\
+无$\square$
+}
+
+\pairsection{4. 其他责任}{
+有$\square$\hspace{1em}内容：\\
+无$\square$
+}
+
+\pairsection{5. 法律依据}{
+\mbox{}
+}
+
+\newpage
+% ===== 第 5 页 =====
+
+\subtitlesection{关联案件 / 程序情况}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+有$\square$（详见附件 2 关联案件信息表）\\
+\hspace*{21bp}截至目前，被告相关垄断行为……，反垄断执法机构正在调查 / 作出处罚。具体情况：\\
+\hspace*{21bp}×\hspace{1em}件垄断民事案件。具体情况：\\
+\hspace*{21bp}×\hspace{1em}件其他关联案件。具体情况：\\
+无$\square$
+\end{tcolorbox}
+
+\subtitlesection{其他需要说明的情况}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+具体情况：
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+{\fzdbs\fontsize{12bp}{17bp}\selectfont 附件}\\
+1.原告证据\\
+2.关联案件信息表（参照发明专利侵权民事起诉状后附表）\\
+……
+\end{tcolorbox}
+
+\subtitlesection{对纠纷解决方式的意愿}
+
+\pairsection{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+\pairsection{是否了解先行调解解\\决纠纷的好处}{
+1. 立案后选择先行调解的，可以很快启动调解程序。如不同意调解，法院将\\
+依程序开庭审理案件，但可能需要经过较长一段时间的排期等待，且审理、\\
+执行周期相对较长。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+2. 选择先行调解，调解成功且自动履行的免交诉讼费用，申请司法确认的不\\
+交纳诉讼费用，要求出具调解书的减半交纳诉讼费用。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+3. 首次调解不成功，但仍有继续调解意愿的，可以选择更换调解组织和调解\\
+员再进行调解。调解无法达成一致意见的，法院将依程序排期开庭。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+4. 依照法律规定，调解具有保密性要求，调解过程不公开，调解协议未经当\\
+事人同意不得公开。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+5. 调解达成的协议具有法律效力，可以依照法律规定申请司法确认，具有强\\
+制执行效力。\\
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+\newpage
+% ===== 第 6 页 =====
+
+\pairsection{是否考虑先行调解}{
+是$\square$\\
+否$\square$\\
+暂不确定，想要了解更多内容$\square$
+}
+
+\vspace{10bp}
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字、盖章）：}\par
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 日期：}
+
+\end{document}

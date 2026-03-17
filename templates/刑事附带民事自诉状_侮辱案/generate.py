@@ -287,19 +287,6 @@ def fill_template(tex: str, data: dict) -> str:
                  f"\\makebox[0.33\\linewidth][c]{{暂不确定{cb(fudai=='暂不确定')}}}")
     tex = tex.replace(old_3cb, new_fudai, 1)
 
-    # ===== 签署信息 =====
-    qz = data.get("签署信息", {})
-    tex = tex.replace(
-        "具状人（签字）：}",
-        f"具状人（签字）：{escape_latex(qz.get('具状人',''))}}}",
-        1
-    )
-    tex = tex.replace(
-        "日期：}",
-        f"日期：{qz.get('日期年','')}年{qz.get('日期月','')}月{qz.get('日期日','')}日}}",
-        1
-    )
-
     return tex
 
 

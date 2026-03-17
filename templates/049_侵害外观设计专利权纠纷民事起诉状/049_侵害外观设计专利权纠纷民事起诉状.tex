@@ -1,0 +1,413 @@
+\documentclass[a4paper,12pt,twoside]{ctexart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\definecolor{inkblack}{rgb}{0.08,0.08,0.08}
+\geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[RO]{\makebox[0pt][l]{\hspace*{28.2pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+\fancyfoot[LE]{\makebox[0pt][r]{\hspace*{33.45pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+
+\newCJKfontfamily\fzdbs[Path=./]{FZDBS.ttf}
+\newCJKfontfamily\fzssk[Path=./]{FZSSK.ttf}
+\AtBeginDocument{\color{inkblack}}
+
+\newcommand{\lawtitle}[2]{
+    \vspace*{0.507cm}
+    \begin{center}
+        {\fzdbs\fontsize{22bp}{22bp}\selectfont #1}\par
+        \vspace{10.37bp}
+        {\fzdbs\fontsize{18bp}{18bp}\selectfont #2}\par
+    \end{center}
+    \vspace{18.4bp}
+}
+
+\newtcolorbox{notesection}[1][]{
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
+    enlarge left by=-19.28bp, before=\vspace*{-13.39bp}\noindent, after=\par,
+    boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1
+}
+
+\newcommand{\lawpar}{\par\vspace*{-4.86bp}}
+
+\newcommand{\subtitlesection}[1]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
+        fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
+    ]
+    #1
+    \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\begin{document}
+
+% ===== 第 1 页 =====
+\lawtitle{民事起诉状}{（侵害外观设计专利权纠纷）}
+
+\begin{notesection}
+\hfuzz=50pt
+\color{inkblack}\heiti\fontsize{10.5bp}{16bp}\selectfont 说明：\par
+\vspace*{-0.2bp}
+\songti\mdseries\fontsize{10.5bp}{16bp}\selectfont
+\setlength{\parindent}{20.7bp}
+\sloppy
+\setlength{\parskip}{0pt}
+\vspace*{-5.1bp}为了方便您更好地参加诉讼，保护您的合法权利，请填写本表。
+\lawpar
+1.起诉时需向人民法院提交证明您身份的材料，如身份证复印件、营业执照复印件等。
+\lawpar
+2.本表所列内容是您提起诉讼以及人民法院查明案件事实所需，请务必如实填写。
+\lawpar
+3.本表有些内容可能与您的案件无关，您认为与案件无关的项目可以填"无"或不填；对于本\\[-4.86bp]
+表中勾选项可以在对应项打"√"；您认为另有重要内容需要列明的，可以另附页填写。
+\lawpar
+4.本表 word 电子版填写时，相关栏目可复制粘贴或扩容，但不得改变要素内容、格式设置。例\\[-4.86bp]
+如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
+可根据实际对栏目进行扩容等。
+\lawpar
+$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+\hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
+\hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
+追究责任。
+\end{notesection}
+
+\subtitlesection{当事人信息}
+
+\pairsection{原告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{原告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}其他企业法人$\square$\\
+\hspace*{36bp}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\hspace{1em}社会服务机构$\square$\\
+\hspace*{36bp}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+{\heiti\bfseries 如不具有以下情况，可不填：}\\
+外资情况$\square$：中外合资经营企业$\square$\hspace{1em}中外合作经营企业$\square$\\
+\hspace*{52bp}外商独资企业$\square$\hspace{1em}其他形式$\square$\\
+\hspace*{52bp}出资方：\\
+\hspace*{52bp}份额构成：\\
+上市公司$\square$：上市所在交易所：\\
+专精特新中小企业$\square$
+}
+
+\newpage
+% ===== 第 2 页 =====
+
+\pairsection{委托诉讼代理人\\（律师）}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+\pairsection{委托诉讼代理人\\（其他）}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}性别：男$\square$\hspace{1em}女$\square$\\
+\hspace*{21bp}出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+\hspace*{21bp}单位：\hspace{6em}职务：（员工担任代理人需写明部门）\\
+\hspace*{21bp}联系电话：\\
+\hspace*{21bp}与原告关系（近亲属担任委托诉讼代理人）：\\
+\hspace*{21bp}推荐单位（当事人所在社区、单位以及有关社会团体推荐的公民担任\\
+\hspace*{21bp}委托诉讼代理人）：\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+\pairsection{被告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{被告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}其他企业法人$\square$\\
+\hspace*{36bp}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\hspace{1em}社会服务机构$\square$\\
+\hspace*{36bp}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+{\heiti\bfseries 如不具有以下情况，可不填：}\\
+外资情况$\square$：中外合资经营企业$\square$\hspace{1em}中外合作经营企业$\square$\\
+\hspace*{52bp}外商独资企业$\square$\hspace{1em}其他形式$\square$\\
+\hspace*{52bp}出资方：\\
+\hspace*{52bp}份额构成：\\
+上市公司$\square$：上市所在交易所：\\
+专精特新中小企业$\square$
+}
+
+\pairsection{第三人\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{第三人\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+\newpage
+% ===== 第 3 页 =====
+
+\subtitlesection{诉讼请求}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsection{1. 停止侵权}{
+有$\square$\hspace{1em}内容：具体陈述侵权对象、停止侵权的方式和内容等，如停止制造、\\
+销售、许诺销售等\\
+无$\square$
+}
+
+\pairsection{2. 赔偿经济损失}{
+有$\square$\hspace{1em}经济损失共计\hspace{4em}元\\
+\hspace*{21bp}原告损失$\square$\hspace{2em}元；被告获利$\square$\hspace{2em}元；许可使用费$\square$\hspace{2em}元（基\\
+\hspace*{21bp}数：\hspace{2em}元，倍数：\hspace{2em}倍）；\\
+\hspace*{21bp}计算依据或参考因素：\\
+\hspace*{21bp}惩罚性赔偿$\square$\hspace{2em}元（基数：\hspace{2em}元，倍数：\hspace{2em}倍）；\\
+\hspace*{21bp}计算依据或参考因素：\\
+无$\square$
+}
+
+\pairsection{3. 支付合理费用}{
+有$\square$\hspace{1em}律师费\hspace{4em}元\hspace{2em}律师费凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}公证费\hspace{4em}元\hspace{2em}公证费凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}差旅费\hspace{4em}元\hspace{2em}差旅费凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}其他费用\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
+无$\square$
+}
+
+\pairsection{4. 是否主张诉讼费用}{
+是$\square$\\
+否$\square$
+}
+
+\pairsection{5. 其他请求}{
+有$\square$\hspace{1em}内容：\\
+无$\square$
+}
+
+\subtitlesection{诉前保全}
+
+\pairsection{是否已经诉前保全}{
+是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
+\hspace*{21bp}保全案号：\\
+否$\square$\\
+（如申请诉讼保全，请另行提交诉讼保全申请及相关材料）
+}
+
+\subtitlesection{事实与理由}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\newpage
+% ===== 第 4 页 =====
+
+\pairsection{1. 原告主体情况}{
+外观设计专利权人$\square$\\
+\hspace*{21bp}1.原始取得$\square$\\
+\hspace*{21bp}2.继受取得$\square$\\
+\hspace*{42bp}原权利人信息：\\
+\hspace*{42bp}转让时间：\\
+\hspace*{42bp}其它：\\
+利害关系人$\square$：\\
+\hspace*{21bp}1.被许可人$\square$：\\
+\hspace*{42bp}①独占使用许可合同的被许可人$\square$\\
+\hspace*{42bp}②排他使用许可合同的被许可人$\square$：和权利人共同起诉$\square$\hspace{1em}单独起诉$\square$\\
+\hspace*{63bp}（权利人已起诉$\square$\hspace{1em}权利人未起诉$\square$）\\
+\hspace*{42bp}③普通使用许可合同的被许可人$\square$：和权利人共同起诉$\square$\hspace{1em}单独起诉$\square$\\
+\hspace*{63bp}（权利人书面授权单独起诉$\square$\hspace{1em}权利人未授权单独起诉$\square$）\\
+\hspace*{21bp}2.其他利害关系人$\square$\hspace{1em}具体情形：
+}
+
+\pairsection{2. 权利基础情况}{
+专利号：\\
+专利名称：\\
+专利申请日：\\
+专利优先权日：\\
+授权公告日：\\
+据以主张权利的权利要求效力状态：有效$\square$\hspace{1em}无效$\square$\hspace{1em}终止$\square$
+}
+
+\pairsection{3. 外观设计专利权评\\价报告}{
+是否提交报告\\
+$\square$是\\
+\hspace*{21bp}$\square$全部外观设计未发现存在不符合授予专利权条件的缺陷。\\
+\hspace*{21bp}$\square$全部外观设计不符合授予专利权条件。\\
+\hspace*{21bp}$\square$该外观设计的\rule{40bp}{0.5pt}不符合授予专利权条件，\rule{40bp}{0.5pt}未发现存在不符合授予\\
+\hspace*{21bp}专利权条件的缺陷。\\
+$\square$否
+}
+
+\pairsection{4. 被告侵犯外观设计\\专利的事实}{
+1.被诉侵权产品实物（附录像，如有）\\
+2.被诉侵权产品图片\\
+3.被告侵权行为方式证据\\
+4.被告侵权期间证据\\
+5.被告财务报表（如无，暂可不交）\\
+6.其他证据
+}
+
+\pairsection{5. 证据清单（可另附\\页）}{
+\mbox{}
+}
+
+\subtitlesection{关联案件信息}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+有$\square$（详见附件 2 关联案件信息表）\\
+×\hspace{1em}次专利确权行政程序。具体情况：（不限于本案被告提起的确权程序，针对涉案专利提起的确权\\
+程序均需列明）\\
+×\hspace{1em}件专利侵权民事案件。具体情况：\\
+×\hspace{1em}件专利权属民事案件。具体情况：\\
+×\hspace{1em}件其他关联案件。具体情况：\\
+无$\square$
+\end{tcolorbox}
+
+\subtitlesection{对纠纷解决方式的意愿}
+
+\pairsection{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+\pairsection{是否了解先行调解解\\决纠纷的好处}{
+1. 立案后选择先行调解的，可以很快启动调解程序。如不同意调解，法院将\\
+依程序开庭审理案件，但可能需要经过较长一段时间的排期等待，且审理、\\
+执行周期相对较长。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+2. 选择先行调解，调解成功且自动履行的免交诉讼费用，申请司法确认的不\\
+交纳诉讼费用，要求出具调解书的减半交纳诉讼费用。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+3. 首次调解不成功，但仍有继续调解意愿的，可以选择更换调解组织和调解\\
+员再进行调解。调解无法达成一致意见的，法院将依程序排期开庭。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+4. 依照法律规定，调解具有保密性要求，调解过程不公开，调解协议未经当\\
+事人同意不得公开。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+5. 调解达成的协议具有法律效力，可以依照法律规定申请司法确认，具有强\\
+制执行效力。\\
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+\newpage
+% ===== 第 5 页 =====
+
+\pairsection{是否考虑先行调解}{
+是$\square$\\
+否$\square$\\
+暂不确定，想要了解更多内容$\square$
+}
+
+\vspace{10bp}
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字、盖章）：}\par
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 日期：}
+
+\end{document}

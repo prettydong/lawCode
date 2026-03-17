@@ -1,0 +1,345 @@
+\documentclass[a4paper,12pt,twoside]{ctexart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\definecolor{inkblack}{rgb}{0.08,0.08,0.08}
+\geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[RO]{\makebox[0pt][l]{\hspace*{28.2pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+\fancyfoot[LE]{\makebox[0pt][r]{\hspace*{33.45pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+
+\newCJKfontfamily\fzdbs[Path=./]{FZDBS.ttf}
+\newCJKfontfamily\fzssk[Path=./]{FZSSK.ttf}
+\AtBeginDocument{\color{inkblack}}
+
+\newcommand{\lawtitle}[2]{
+    \vspace*{0.507cm}
+    \begin{center}
+        {\fzdbs\fontsize{22bp}{22bp}\selectfont #1}\par
+        \vspace{10.37bp}
+        {\fzdbs\fontsize{18bp}{18bp}\selectfont #2}\par
+    \end{center}
+    \vspace{18.4bp}
+}
+
+\newtcolorbox{notesection}[1][]{
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
+    enlarge left by=-19.28bp, before=\vspace*{-13.39bp}\noindent, after=\par,
+    boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1
+}
+
+\newcommand{\lawpar}{\par\vspace*{-4.86bp}}
+
+\newcommand{\subtitlesection}[1]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
+        fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
+    ]
+    #1
+    \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\begin{document}
+
+% ===== 第 1 页 =====
+\lawtitle{民事起诉状}{（侵害著作权及邻接权纠纷）}
+
+\begin{notesection}
+\hfuzz=50pt
+\color{inkblack}\heiti\fontsize{10.5bp}{16bp}\selectfont 说明：\par
+\vspace*{-0.2bp}
+\songti\mdseries\fontsize{10.5bp}{16bp}\selectfont
+\setlength{\parindent}{20.7bp}
+\sloppy
+\setlength{\parskip}{0pt}
+\vspace*{-5.1bp}为了方便您更好地参加诉讼，保护您的合法权利，请填写本表。
+\lawpar
+1.起诉时需向人民法院提交证明您身份的材料，如身份证复印件、营业执照复印件等。
+\lawpar
+2.本表所列内容是您提起诉讼以及人民法院查明案件事实所需，请务必如实填写。
+\lawpar
+3.本表有些内容可能与您的案件无关，您认为与案件无关的项目可以填"无"或不填；对于本\\[-4.86bp]
+表中勾选项可以在对应项打"√"；您认为另有重要内容需要列明的，可以另附页填写。
+\lawpar
+4.本表 word 电子版填写时，相关栏目可复制粘贴或扩容，但不得改变要素内容、格式设置。例\\[-4.86bp]
+如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
+可根据实际对栏目进行扩容等。
+\lawpar
+$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+\hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
+\hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
+追究责任。
+\end{notesection}
+
+\subtitlesection{当事人信息}
+
+\pairsection{原告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{原告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+\newpage
+% ===== 第 2 页 =====
+
+\pairsection{委托诉讼代理人}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+\pairsection{被告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{被告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+\pairsection{第三人\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+\pairsection{第三人\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：
+}
+
+\newpage
+% ===== 第 3 页 =====
+
+\subtitlesection{诉讼请求}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsection{1. 停止侵权}{
+$\square$立即停止使用与原告作品\hspace{4em}（作品名称 / 登记证号）\\
+相同 / 实质性相似的作品：\\
+侵权链接 / 标题：
+}
+
+\pairsection{2. 赔偿经济损失}{
+经济损失\hspace{4em}元\\
+原告损失$\square$\hspace{1em}被告获利$\square$\hspace{1em}许可费用$\square$\hspace{1em}法定赔偿$\square$\\
+惩罚性赔偿$\square$\hspace{1em}基数$\square$\hspace{1em}倍数$\square$\\
+计算依据或参考因素：
+}
+
+\pairsection{3. 支付合理费用}{
+有$\square$\hspace{1em}律师费\hspace{4em}元\hspace{2em}律师费凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}取证费\hspace{4em}元\hspace{2em}取证费凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}差旅费\hspace{4em}元\hspace{2em}差旅费凭证：有$\square$\hspace{1em}无$\square$\\
+\hspace*{21bp}其他\\
+无$\square$
+}
+
+\pairsection{4. 是否主张诉讼费用}{
+是$\square$\\
+否$\square$
+}
+
+\pairsection{5. 其他请求}{
+如是否主张连带赔偿责任、赔礼道歉、消除影响等其他请求
+}
+
+\subtitlesection{事实与理由}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsection{1. 著作权主体}{
+原告著作权主体身份为：1.作者或视为作者的法人或非法人组织$\square$\hspace{1em}2.继\\
+受主体：被许可人$\square$（原告与著作权人签订授权合同的时间、合同名称及\\
+有效期及权限、区域\hspace{4em}，获得授权的性质：独占$\square$\hspace{1em}排他$\square$\hspace{1em}普通\\
+$\square$）；受让人$\square$；继承人$\square$；受遗赠人$\square$\\
+作品性质属于：1.合作作品$\square$\hspace{1em}2.汇编作品$\square$\hspace{1em}3.演绎作品$\square$\hspace{1em}4.职务作\\
+品$\square$\hspace{1em}5.委托作品$\square$\hspace{1em}6.其他$\square$。
+}
+
+\newpage
+% ===== 第 4 页 =====
+
+\pairsection{2. 著作权客体}{
+作品名称为：\hspace{4em}，作品完成时间：\hspace{4em}，作品首次公开发表时\\
+间、地方及方式：\hspace{4em}，是否进行版权登记：是$\square$\hspace{1em}否$\square$，登记时\\
+间：\hspace{4em}，作品类别为：1.文字作品$\square$\hspace{1em}2.口述作品$\square$\hspace{1em}3.音乐、戏\\
+剧、曲艺、舞蹈、杂技艺术作品$\square$\hspace{1em}4.美术、建筑作品$\square$\hspace{1em}5.摄影作品$\square$\\
+6.视听作品$\square$\hspace{1em}7.工程设计图、产品设计图、地图、示意图等图形作品和\\
+模型作品$\square$\hspace{1em}8.计算机软件$\square$\hspace{1em}9.符合作品特征的其他智力成果$\square$。\\
+请提供权属证明。
+}
+
+\pairsection{3. 涉嫌侵害著作人身\\权或财产权的种类}{
+1.发表权$\square$\hspace{1em}2.署名权$\square$\hspace{1em}3.修改权$\square$\hspace{1em}4.保护作品完整权$\square$\hspace{1em}5.复制\\
+权$\square$\hspace{1em}6.发行权$\square$\hspace{1em}7.出租权$\square$\hspace{1em}8.展览权$\square$\hspace{1em}9.表演权$\square$\hspace{1em}10.放映权\\
+$\square$\hspace{1em}11.广播权$\square$\hspace{1em}12.信息网络传播权（原告是否向被告发出侵权通知：\\
+$\square$是\hspace{1em}$\square$否，时间及内容：\hspace{4em}）$\square$\hspace{1em}13.摄制权$\square$\hspace{1em}14.改编权$\square$\hspace{1em}15.翻\\
+译权$\square$\hspace{1em}16.汇编权$\square$\hspace{1em}17.其他$\square$
+}
+
+\pairsection{4. 被诉侵权行为方式}{
+$\square$1.未经著作权人许可，发表其作品的\\
+$\square$2.未经合作者许可，将与他人合作创作的作品当作自己单独创作的作品\\
+\hspace*{21bp}发表的\\
+$\square$3.没有参加创作，为谋取个人名利，在他人作品上署名的\\
+$\square$4.歪曲、篡改他人作品的\\
+$\square$5.剽窃他人作品的\\
+$\square$6.未经著作权人许可，以展览、摄制电影和以类似摄制电影的方法使用\\
+\hspace*{21bp}作品，或者以改编、翻译、注释等方式使用作品的\\
+$\square$7.使用他人作品，应当支付报酬而未支付的\\
+$\square$8.未经电影作品和以类似摄制电影的方法创作的作品、计算机软件、录\\
+\hspace*{21bp}音录像制品的著作权人或者与著作权有关的权利人许可，出租其作品或者\\
+\hspace*{21bp}录音录像制品的\\
+$\square$9.未经出版者许可，使用其出版的图书、期刊的版式设计的\\
+$\square$10.未经表演者许可，从现场直播或者公开传送其现场表演，或者录制其\\
+\hspace*{21bp}表演的\\
+$\square$11.录音录像制作者权侵权、广播组织权侵权\\
+$\square$12.其他\\
+（可补充被告使用作品的具体方式及载体，比对证据等内容及依据）
+}
+
+\pairsection{5. 被诉侵权行为发生\\的时间、地点}{
+\mbox{}
+}
+
+\pairsection{6. 是否发送侵权通知}{
+具体情况，$\square$是\hspace{1em}$\square$否，依据（证据）
+}
+
+\pairsection{7. 其他需要说明的内\\容（可另附页）}{
+具体情况，依据（证据）
+}
+
+\pairsection{8. 证据清单（可另附\\页）}{
+\mbox{}
+}
+
+\newpage
+% ===== 第 5 页 =====
+
+\subtitlesection{关联案件信息}
+
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+无$\square$\\
+有$\square$\hspace{1em}内容：\hspace{4em}件（已结、未结），案号、案由、当事人、审理法院、案件进展等（可另附页）
+\end{tcolorbox}
+
+\vspace{10bp}
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字、盖章）：}\par
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 日期：}
+
+\end{document}

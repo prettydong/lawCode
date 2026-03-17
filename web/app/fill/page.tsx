@@ -165,11 +165,6 @@ export default function FillPage() {
     // 调解
     const [mediateZi, setMediateZi] = useState("");
     const [mediateFu, setMediateFu] = useState("");
-    // 签署
-    const [signer, setSigner] = useState("");
-    const [signYear, setSignYear] = useState("");
-    const [signMonth, setSignMonth] = useState("");
-    const [signDay, setSignDay] = useState("");
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -192,7 +187,6 @@ export default function FillPage() {
         },
         事实与理由: { 事实: fact, 理由: reason },
         是否同意调解: { 自诉部分: mediateZi, 附带民事部分: mediateFu },
-        签署信息: { 具状人: signer, 日期年: signYear, 日期月: signMonth, 日期日: signDay },
     });
 
     // ── 生成 PDF 预览 ──
@@ -251,12 +245,6 @@ export default function FillPage() {
                 if (data.是否同意调解) {
                     setMediateZi(data.是否同意调解.自诉部分 || "");
                     setMediateFu(data.是否同意调解.附带民事部分 || "");
-                }
-                if (data.签署信息) {
-                    setSigner(data.签署信息.具状人 || "");
-                    setSignYear(data.签署信息.日期年 || "");
-                    setSignMonth(data.签署信息.日期月 || "");
-                    setSignDay(data.签署信息.日期日 || "");
                 }
                 // 自动生成 PDF 预览
                 await generatePreview(data);
@@ -434,18 +422,6 @@ export default function FillPage() {
                             <Field label="附带民事部分">
                                 <RadioGroup name="mediate_fu" options={["同意", "不同意", "暂不确定"]} value={mediateFu} onChange={(_, v) => setMediateFu(v)} />
                             </Field>
-                        </div>
-                    </Section>
-
-                    {/* 签署 */}
-                    <Section title="签署信息">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 gap-y-4">
-                            <Field label="具状人（签字）"><Input name="signer" placeholder="请输入姓名" value={signer} onChange={(_, v) => setSigner(v)} /></Field>
-                            <div className="grid grid-cols-3 gap-3">
-                                <Field label="年"><Input name="year" placeholder="2026" value={signYear} onChange={(_, v) => setSignYear(v)} /></Field>
-                                <Field label="月"><Input name="month" placeholder="3" value={signMonth} onChange={(_, v) => setSignMonth(v)} /></Field>
-                                <Field label="日"><Input name="day" placeholder="1" value={signDay} onChange={(_, v) => setSignDay(v)} /></Field>
-                            </div>
                         </div>
                     </Section>
 

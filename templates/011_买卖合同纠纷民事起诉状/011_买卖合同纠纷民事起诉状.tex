@@ -1,0 +1,609 @@
+\documentclass[a4paper,12pt,twoside]{ctexart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+% 定义公函标准炭黑
+\definecolor{inkblack}{rgb}{0.08,0.08,0.08}
+
+\geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
+
+% 配置页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[RO]{\makebox[0pt][l]{\hspace*{28.2pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+\fancyfoot[LE]{\makebox[0pt][r]{\hspace*{33.45pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+
+% 字体
+\newCJKfontfamily\fzdbs[Path=./]{FZDBS.ttf}
+\newCJKfontfamily\fzssk[Path=./]{FZSSK.ttf}
+
+\AtBeginDocument{\color{inkblack}}
+
+% 标题
+\newcommand{\lawtitle}[2]{
+    \vspace*{0.507cm} 
+    \begin{center}
+        {\fzdbs\fontsize{22bp}{22bp}\selectfont #1}\par
+        \vspace{10.37bp}
+        {\fzdbs\fontsize{18bp}{18bp}\selectfont #2}\par
+    \end{center}
+    \vspace{18.4bp}
+}
+
+% 表框
+\newtcolorbox{notesection}[1][]{
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
+    enlarge left by=-19.28bp,
+    before=\vspace*{-13.39bp}\noindent,
+    after=\par,
+    boxsep=0pt,
+    left=4bp,
+    top=4.69bp,
+    bottom=4.69bp,
+    right=0pt,
+    #1
+}
+
+\newcommand{\lawpar}{\par\vspace*{-4.86bp}}
+
+% 副标题
+\newcommand{\subtitlesection}[1]{%
+    \begin{tcolorbox}[
+        width=467.72bp,
+        sharp corners,
+        colback=white,
+        colframe=inkblack,
+        boxrule=0.5pt,
+        boxsep=0pt,
+        left=0pt, right=0pt,
+        top=4bp, bottom=4bp,
+        halign=center,
+        fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent},
+        after=\vspace{0pt}
+    ]
+    #1
+    \end{tcolorbox}%
+}
+
+% 左右分栏
+\newcommand{\pairsection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp,
+        sharp corners,
+        colback=white,
+        colframe=inkblack,
+        boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent},
+        after=\par,
+        boxsep=0pt,
+        left=0pt, right=0pt,
+        top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\begin{document}
+
+% ===== 第 1 页 =====
+
+\lawtitle{民事起诉状}{（买卖合同纠纷）}
+
+% 说明框
+\begin{notesection}
+\hfuzz=50pt
+\color{inkblack}\heiti\fontsize{10.5bp}{16bp}\selectfont 说明：\par
+\vspace*{-0.2bp}
+\songti\mdseries\fontsize{10.5bp}{16bp}\selectfont
+\setlength{\parindent}{20.7bp}
+\sloppy
+
+\setlength{\parskip}{0pt}
+\vspace*{-5.1bp}为了方便您更好地参加诉讼，保护您的合法权利，请填写本表。
+\lawpar
+1.起诉时需向人民法院提交证明您身份的材料，如身份证复印件、营业执照复印件等。
+\lawpar
+2.本表所列内容是您参加诉讼以及人民法院查明案件事实所需，请务必如实填写。
+\lawpar
+3.本表有些内容可能与您的案件无关，您认为与案件无关的项目可以填"无"或不填；对于本\\[-4.86bp]
+表中勾选项可以在对应项打"√"；您认为另有重要内容需要列明的，可以另附页填写。
+\lawpar
+4.本表 word 电子版填写时，相关栏目可复制粘贴或扩容，但不得改变要素内容、格式设置。例\\[-4.86bp]
+如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
+可根据实际对栏目进行扩容等。
+\lawpar
+$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+\hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
+\hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
+追究责任。
+\end{notesection}
+
+% 当事人信息
+\subtitlesection{当事人信息}
+
+% 原告（自然人）
+\pairsection{原告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{8em}职务：\hspace{6em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+% 原告（法人、非法人组织）
+\pairsection{原告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+\newpage
+
+% ===== 第 2 页 =====
+
+% 委托诉讼代理人
+\pairsection{委托诉讼代理人}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+% 被告（自然人）
+\pairsection{被告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{8em}职务：\hspace{6em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+% 被告（法人、非法人组织）
+\pairsection{被告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+% 第三人（自然人）
+\pairsection{第三人\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{8em}职务：\hspace{6em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：
+}
+
+% 第三人（法人、非法人组织）— 简短版
+\pairsection{第三人\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：
+}
+
+\newpage
+
+% ===== 第 3 页 =====
+
+% 第三人（法人、非法人组织）— 类型部分续
+\pairsection{第三人\\（法人、非法人组织）}{
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+}
+
+% 诉讼请求副标题（含提示文字）
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    boxsep=0pt,
+    left=0pt, right=0pt,
+    top=4bp, bottom=4bp,
+    halign=center,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\vspace{0pt}
+]
+{\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack}诉讼请求}\par\nointerlineskip
+\vspace{2bp}
+{\heiti\fontsize{10.5bp}{14bp}\selectfont\color{inkblack}（原告为卖方时，填写第 1 项、第 2 项；原告为买方时，填写第 3 项、第 4 项；\\第 5 项至第 10 项为共同项）}
+\end{tcolorbox}
+
+% 诉讼请求总述框
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\par,
+    boxsep=0pt,
+    left=4bp, right=0pt,
+    top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp%
+\parskip=0pt%
+\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}%
+\color{inkblack}%
+（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+% 1. 给付价款（元）
+\pairsection{1. 给付价款（元）}{
+\rule{60bp}{0.5pt}\hspace{1em}元（人民币，下同；如外币需特别注明）
+}
+
+% 2. 迟延给付价款的利息（违约金）
+\pairsection{2. 迟延给付价款的利息\\（违约金）}{
+截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，迟延给付价款的利息\hspace{4em}元、违约金\\
+\hspace{2em}元，自\hspace{4em}之后的逾期利息、违约金，以\hspace{4em}元为基数\\
+按照\hspace{4em}标准计算；\\
+计算方式：\\
+是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
+}
+
+% 3. 赔偿因卖方违约所受的损失
+\pairsection{3. 赔偿因卖方违约所受\\的损失}{
+支付赔偿金\hspace{4em}元\\
+违约类型：迟延履行$\square$\hspace{1em}不履行$\square$\hspace{1em}其他$\square$\\
+具体情形：\\
+损失计算依据：
+}
+
+% 4. 是否对标的物的瑕疵承担责任
+\pairsection{4. 是否对标的物的瑕疵\\承担责任}{
+是$\square$\hspace{1em}修理$\square$\hspace{1em}重作$\square$\hspace{1em}更换$\square$\hspace{1em}退货$\square$\hspace{1em}减少价款或者报酬$\square$\\
+\hspace*{21bp}其他$\square$：\\
+否$\square$
+}
+
+% 5. 要求继续履行或者解除合同
+\pairsection{5. 要求继续履行或者解\\除合同}{
+继续履行$\square$\hspace{1em}日内履行完毕付款$\square$\hspace{1em}供货$\square$\hspace{1em}义务\\
+判令解除合同$\square$\\
+确认买卖合同已于\hspace{2em}年\hspace{2em}月\hspace{2em}日解除$\square$
+}
+
+% 6. 是否主张担保权利
+\pairsection{6. 是否主张担保权利}{
+是$\square$\hspace{4em}内容：\\
+否$\square$
+}
+
+% 7. 是否主张实现债权的费用
+\pairsection{7. 是否主张实现债权的\\费用}{
+是$\square$\hspace{4em}费用明细：\\
+否$\square$
+}
+
+% 8. 是否主张诉讼费用
+\pairsection{8. 是否主张诉讼费用}{
+是$\square$\\
+否$\square$
+}
+
+% 9. 其他请求
+\pairsection{9. 其他请求}{
+\mbox{}
+}
+
+% 10. 标的总额
+\pairsection{10. 标的总额}{
+\mbox{}
+}
+
+\newpage
+
+% ===== 第 4 页 =====
+
+% 约定管辖和诉前保全
+\subtitlesection{约定管辖和诉前保全}
+
+% 1. 有无仲裁、法院管辖约定
+\pairsection{1. 有无仲裁、法院管辖\\约定}{
+有$\square$\hspace{4em}合同条款及内容：\\
+无$\square$
+}
+
+% 2. 是否已经诉前保全
+\pairsection{2. 是否已经诉前保全}{
+是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
+\hspace*{21bp}保全案号：\\
+否$\square$\\
+（如申请诉讼保全，请另行提交诉讼保全申请及相关材料）
+}
+
+% 事实与理由
+\subtitlesection{事实与理由}
+
+% 事实与理由总述框
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\par,
+    boxsep=0pt,
+    left=4bp, right=0pt,
+    top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp%
+\parskip=0pt%
+\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}%
+\color{inkblack}%
+（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+% 1. 合同的签订情况
+\pairsection{1. 合同的签订情况\\（名称、编号、签订时\\间、地点等；如无书\\面合同，请注明"无\\书面合同"）}{
+\mbox{}
+}
+
+% 2. 合同主体
+\pairsection{2. 合同主体}{
+出卖人（卖方）：\\
+买受人（买方）：
+}
+
+% 3. 买卖标的物情况
+\pairsection{3. 买卖标的物情况\\（标的物名称、规格、\\质量、数量等）}{
+\mbox{}
+}
+
+% 4. 合同约定的价格及支付方式
+\pairsection{4. 合同约定的价格及支\\付方式}{
+单价\hspace{4em}元；总价\hspace{4em}元；\\
+以现金$\square$\hspace{1em}转账$\square$\hspace{1em}票据$\square$（写明票据类型）\hspace{1em}其他$\square$\hspace{1em}方式\\
+一次性$\square$\hspace{1em}分期$\square$\hspace{1em}支付\\
+分期方式：
+}
+
+% 5. 合同约定的交货时间、地点、方式、风险承担、安装、调试、验收
+\pairsection{5. 合同约定的交货时\\间、地点、方式、风\\险承担、安装、调试、\\验收}{
+\mbox{}
+}
+
+% 6. 合同约定的质量标准及检验方式、质量异议期限
+\pairsection{6. 合同约定的质量标准\\及检验方式、质量异\\议期限}{
+\mbox{}
+}
+
+% 7. 合同约定的违约金（定金）
+\pairsection{7. 合同约定的违约金\\（定金）}{
+违约金$\square$\hspace{4em}元（合同条款：第\hspace{2em}条）\\
+定金$\square$\hspace{4em}元（合同条款：第\hspace{2em}条）\\
+迟延履行违约金$\square$\hspace{2em}\%/ 日（合同条款：第\hspace{2em}条）
+}
+
+\newpage
+
+% ===== 第 5 页 =====
+
+% 8. 价款支付及标的物交付情况
+\pairsection{8. 价款支付及标的物交\\付情况}{
+按期支付价款\hspace{4em}元，逾期付款\hspace{4em}元，逾期未付款\hspace{4em}元\\
+按期交付标的物\hspace{4em}件，逾期交付\hspace{4em}件，逾期未交付\hspace{4em}件
+}
+
+% 9. 是否存在迟延履行
+\pairsection{9. 是否存在迟延履行}{
+是$\square$\hspace{1em}迟延时间：\hspace{6em}逾期付款$\square$\hspace{1em}逾期交货$\square$\\
+否$\square$
+}
+
+% 10. 是否催促过履行
+\pairsection{10. 是否催促过履行}{
+是$\square$\hspace{1em}催促情况：\hspace{2em}年\hspace{2em}月\hspace{2em}日通过\hspace{4em}方式进行了催促\\
+否$\square$
+}
+
+% 11. 买卖合同标的物有无质量争议
+\pairsection{11. 买卖合同标的物有\\无质量争议}{
+有$\square$\hspace{1em}具体情况：\\
+无$\square$
+}
+
+% 12. 标的物质量规格或履行方式是否存在不符合约定的情况
+\pairsection{12. 标的物质量规格或\\履行方式是否存在不\\符合约定的情况}{
+是$\square$\hspace{1em}具体情况：\\
+否$\square$
+}
+
+% 13. 是否曾就标的物质量问题进行协商
+\pairsection{13. 是否曾就标的物质\\量问题进行协商}{
+是$\square$\hspace{1em}具体情况：\\
+否$\square$
+}
+
+% 14. 是否通知解除合同
+\pairsection{14. 是否通知解除合同}{
+是$\square$\hspace{1em}具体情况：\\
+否$\square$
+}
+
+% 15. 被告应当支付的利息、违约金、赔偿金
+\pairsection{15. 被告应当支付的利\\息、违约金、赔偿金}{
+利息$\square$\hspace{4em}元\\
+违约金$\square$\hspace{4em}元\\
+赔偿金$\square$\hspace{4em}元\\
+共计\hspace{4em}元\hspace{4em}计算方式：
+}
+
+% 16. 是否签订物的担保（抵押、质押）合同
+\pairsection{16. 是否签订物的担保\\（抵押、质押）合同}{
+是$\square$\hspace{1em}签订时间：\\
+否$\square$
+}
+
+% 17. 担保人、担保物
+\pairsection{17. 担保人、担保物}{
+担保人：\\
+担保物：
+}
+
+% 18. 是否最高额担保（抵押、质押）
+\pairsection{18. 是否最高额担保\\（抵押、质押）}{
+是$\square$\hspace{1em}担保债权的确定时间：\\
+\hspace*{21bp}担保额度：\\
+否$\square$
+}
+
+% 19. 是否办理抵押、质押登记
+\pairsection{19. 是否办理抵押、质\\押登记}{
+是$\square$\hspace{1em}正式登记$\square$\\
+\hspace*{21bp}预告登记$\square$\\
+否$\square$
+}
+
+% 20. 是否签订保证合同
+\pairsection{20. 是否签订保证合同}{
+是$\square$\hspace{1em}签订时间：\hspace{4em}保证人：\hspace{4em}主要内容：\\
+否$\square$
+}
+
+% 21. 保证方式
+\pairsection{21. 保证方式}{
+一般保证$\square$\\
+连带责任保证$\square$
+}
+
+% 22. 其他担保方式
+\pairsection{22. 其他担保方式}{
+是$\square$\hspace{1em}形式：\\
+否$\square$
+}
+
+% 23. 请求承担责任的依据
+\pairsection{23. 请求承担责任的依据}{
+合同约定：\\
+法律规定：
+}
+
+\newpage
+
+% ===== 第 6 页 =====
+
+% 24. 其他需要说明的内容
+\pairsection{24. 其他需要说明的内\\容（可另附页）}{
+\mbox{}
+}
+
+% 25. 证据清单
+\pairsection{25. 证据清单（可另附\\页）}{
+\mbox{}
+}
+
+% 对纠纷解决方式的意愿
+\subtitlesection{对纠纷解决方式的意愿}
+
+% 是否了解调解作为非诉讼纠纷解决方式
+\pairsection{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+% 是否了解先行调解解决纠纷的好处
+\pairsection{是否了解先行调解解\\决纠纷的好处}{
+1. 立案后选择先行调解的，可以很快启动调解程序。如不同意调解，法院\\
+将依程序开庭审理案件，但可能需要经过较长一段时间的排期等待，且审\\
+理、执行周期相对较长。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+2. 选择先行调解，调解成功且自动履行的免交诉讼费用，申请司法确认的\\
+不交纳诉讼费用，要求出具调解书的减半交纳诉讼费用。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+3. 首次调解不成功，但仍有继续调解意愿的，可以选择更换调解组织和调\\
+解员再进行调解。调解无法达成一致意见的，法院将依程序排期开庭。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+4. 依照法律规定，调解具有保密性要求，调解过程不公开，调解协议未经\\
+当事人同意不得公开。\\
+了解$\square$\hspace{1em}不了解$\square$\\
+5. 调解达成的协议具有法律效力，可以依照法律规定申请司法确认，具有\\
+强制执行效力。\\
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+% 是否考虑先行调解
+\pairsection{是否考虑先行调解}{
+是$\square$\\
+否$\square$\\
+暂不确定，想要了解更多内容$\square$
+}
+
+% 具状人签字与日期
+\vspace{10bp}
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字、盖章）：}\par
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 日期：}
+
+\end{document}
