@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -217,12 +242,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 透支本金}{
+\pairsectionleft{1. 透支本金}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，尚欠本金\hspace{4em}元（人民币，下同；如为外\\
 币需特别注明）；
 }
 
-\pairsection{2. 利息、罚息、复利、\\滞纳金、违约金、手\\续费等}{
+\pairsectionleft{2. 利息、罚息、复利、\\滞纳金、违约金、手\\续费等}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，欠利息、罚息、复利、滞纳金、违约金、手\\
 续费等共计\hspace{4em}元\\
 自\hspace{2em}年\hspace{2em}月\hspace{2em}日之后的利息、罚息、复利、滞纳金、违约金以及手\\
@@ -230,37 +255,37 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 明细：
 }
 
-\pairsection{3. 是否主张担保权利}{
+\pairsectionleft{3. 是否主张担保权利}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
-\pairsection{4. 是否主张实现债权的\\费用}{
+\pairsectionleft{4. 是否主张实现债权的\\费用}{
 是$\square$\hspace{1em}费用明细：\\
 否$\square$
 }
 
-\pairsection{5. 是否主张诉讼费用}{
+\pairsectionleft{5. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{6. 其他请求}{
+\pairsectionleft{6. 其他请求}{
 \mbox{}
 }
 
-\pairsection{7. 标的总额}{
+\pairsectionleft{7. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -285,62 +310,62 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 信用卡办理情况\\（信用卡卡号、信用\\卡登记权利人、办卡\\时间、办卡行等）}{
+\pairsectionleft{1. 信用卡办理情况\\（信用卡卡号、信用\\卡登记权利人、办卡\\时间、办卡行等）}{
 \mbox{}
 }
 
-\pairsection{2. 信用卡合约的主要\\约定}{
+\pairsectionleft{2. 信用卡合约的主要\\约定}{
 透支金额：\\
 利息、罚息、复利、滞纳金、违约金、手续费等的计算标准：\\
 违约责任：\\
 解除条件：
 }
 
-\pairsection{3. 是否就信用卡合约主\\要条款进行提示注意}{
+\pairsectionleft{3. 是否就信用卡合约主\\要条款进行提示注意}{
 是$\square$\hspace{1em}提示说明的具体方式以及时间地点：\\
 否$\square$
 }
 
-\pairsection{4. 被告逾期部分已还\\金额}{
+\pairsectionleft{4. 被告逾期部分已还\\金额}{
 \hspace{2em}元
 }
 
-\pairsection{5. 被告逾期未还款金额}{
+\pairsectionleft{5. 被告逾期未还款金额}{
 逾期时间：\\
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日，被告\hspace{4em}欠付信用卡本金\hspace{4em}元、利\\
 息\hspace{4em}元、罚息\hspace{4em}元、复利\hspace{4em}元、滞纳金\hspace{4em}元、违约\\
 金\hspace{4em}元、手续费\hspace{4em}元
 }
 
-\pairsection{6. 是否向被告进行通知\\和催收}{
+\pairsectionleft{6. 是否向被告进行通知\\和催收}{
 是$\square$\hspace{1em}具体情况：\\
 否$\square$
 }
 
-\pairsection{7. 是否签订物的担保\\（抵押、质押）合同}{
+\pairsectionleft{7. 是否签订物的担保\\（抵押、质押）合同}{
 是$\square$\hspace{1em}签订时间：\\
 否$\square$
 }
 
-\pairsection{8. 担保人、担保物}{
+\pairsectionleft{8. 担保人、担保物}{
 担保人：\\
 担保物：
 }
 
-\pairsection{9. 是否最高额担保\\（抵押、质押）}{
+\pairsectionleft{9. 是否最高额担保\\（抵押、质押）}{
 是$\square$\\
 否$\square$\\
 担保债权的确定时间：\\
 担保额度：
 }
 
-\pairsection{10. 是否办理抵押、质\\押登记}{
+\pairsectionleft{10. 是否办理抵押、质\\押登记}{
 是$\square$\hspace{1em}正式登记$\square$\\
 \hspace*{21bp}预告登记$\square$\\
 否$\square$
 }
 
-\pairsection{11. 是否签订保证合同}{
+\pairsectionleft{11. 是否签订保证合同}{
 是$\square$\hspace{1em}签订时间：\hspace{4em}保证人：\\
 \hspace*{21bp}主要内容：\\
 否$\square$
@@ -349,26 +374,26 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \newpage
 % ===== 第 5 页 =====
 
-\pairsection{12. 保证方式}{
+\pairsectionleft{12. 保证方式}{
 一般保证\hspace{4em}$\square$\\
 连带责任保证$\square$
 }
 
-\pairsection{13. 其他担保方式}{
+\pairsectionleft{13. 其他担保方式}{
 是$\square$\hspace{1em}形式：\hspace{6em}签订时间：\\
 否$\square$
 }
 
-\pairsection{14. 请求承担责任的\\依据}{
+\pairsectionleft{14. 请求承担责任的\\依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{15. 其他需要说明的\\内容（可另附页）}{
+\pairsectionleft{15. 其他需要说明的\\内容（可另附页）}{
 \mbox{}
 }
 
-\pairsection{16. 证据清单（可另附\\页）}{
+\pairsectionleft{16. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -183,36 +208,36 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 物业费}{
+\pairsectionleft{1. 物业费}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，尚欠物业费\hspace{4em}元
 }
 
-\pairsection{2. 违约金}{
+\pairsectionleft{2. 违约金}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，欠逾期物业费的违约金\hspace{4em}元\\
 是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{3. 是否主张诉讼费用}{
+\pairsectionleft{3. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{4. 其他请求}{
+\pairsectionleft{4. 其他请求}{
 \mbox{}
 }
 
-\pairsection{5. 标的总额}{
+\pairsectionleft{5. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -234,63 +259,63 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 物业服务合同或前期\\物业服务合同签订情\\况（名称、编号、签\\订时间、地点等）}{
+\pairsectionleft{1. 物业服务合同或前期\\物业服务合同签订情\\况（名称、编号、签\\订时间、地点等）}{
 \mbox{}
 }
 
-\pairsection{2. 签订主体}{
+\pairsectionleft{2. 签订主体}{
 业主 / 建设单位：\\
 物业服务人：
 }
 
-\pairsection{3. 物业项目情况}{
+\pairsectionleft{3. 物业项目情况}{
 坐落位置：\\
 面积：\hspace{4em}所有权人：
 }
 
-\pairsection{4. 约定的物业费标准}{
+\pairsectionleft{4. 约定的物业费标准}{
 \mbox{}
 }
 
-\pairsection{5. 约定的物业服务期限}{
+\pairsectionleft{5. 约定的物业服务期限}{
 \hspace{2em}年\hspace{2em}月\hspace{2em}日起至\hspace{2em}年\hspace{2em}月\hspace{2em}日止
 }
 
-\pairsection{6. 约定的物业费支付\\方式}{
+\pairsectionleft{6. 约定的物业费支付\\方式}{
 \mbox{}
 }
 
-\pairsection{7. 约定的逾期支付物业\\费违约金标准}{
+\pairsectionleft{7. 约定的逾期支付物业\\费违约金标准}{
 \mbox{}
 }
 
 \newpage
 % ===== 第 3 页 =====
 
-\pairsection{8. 被告欠付物业费数额\\及计算方式}{
+\pairsectionleft{8. 被告欠付物业费数额\\及计算方式}{
 欠付物业费数额：\\
 具体计算方式：
 }
 
-\pairsection{9. 被告应付违约金数额\\及计算方式}{
+\pairsectionleft{9. 被告应付违约金数额\\及计算方式}{
 应付违约金数额：\\
 具体计算方式：
 }
 
-\pairsection{10. 催缴情况}{
+\pairsectionleft{10. 催缴情况}{
 \mbox{}
 }
 
-\pairsection{11. 其他需要说明的内\\容（可另附页）}{
+\pairsectionleft{11. 其他需要说明的内\\容（可另附页）}{
 \mbox{}
 }
 
-\pairsection{12. 请求依据}{
+\pairsectionleft{12. 请求依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{13. 证据清单（可另附\\页）}{
+\pairsectionleft{13. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

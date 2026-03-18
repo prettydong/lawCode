@@ -66,13 +66,70 @@
     \hspace{4bp}%
     \begin{minipage}[c]{346.32bp}%
         \vspace{4bp}%
-        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-        \baselineskip=17bp%
+        \songti\mdseries\fontsize{10.5bp}{15bp}\selectfont%
+        \baselineskip=15bp%
         \setlength{\parindent}{0pt}%
         \color{inkblack}%
         #2%
         \vspace{4bp}%
     \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{15bp}\selectfont%
+        \baselineskip=15bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\newcommand{\breakablepairsection}[2]{%
+    \begin{tcolorbox}[
+        breakable,
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=117.4bp, right=4bp, top=4bp, bottom=4bp,
+        overlay unbroken={%
+            \draw[line width=0.5pt] ([xshift=112.9bp]frame.north west) -- ([xshift=112.9bp]frame.south west);
+            \node[align=center, text width=112.9bp, inner sep=0pt] at ([xshift=56.45bp]frame.center) {{\songti\fontsize{10.5bp}{10.5bp}\selectfont #1}};
+        },
+        overlay first={%
+            \draw[line width=0.5pt] ([xshift=112.9bp]frame.north west) -- ([xshift=112.9bp]frame.south west);
+            \node[align=center, text width=112.9bp, inner sep=0pt] at ([xshift=56.45bp]frame.center) {{\songti\fontsize{10.5bp}{10.5bp}\selectfont #1}};
+        },
+        overlay middle={%
+            \draw[line width=0.5pt] ([xshift=112.9bp]frame.north west) -- ([xshift=112.9bp]frame.south west);
+            \node[align=center, text width=112.9bp, inner sep=0pt] at ([xshift=56.45bp]frame.center) {{\songti\fontsize{10.5bp}{10.5bp}\selectfont #1}};
+        },
+        overlay last={%
+            \draw[line width=0.5pt] ([xshift=112.9bp]frame.north west) -- ([xshift=112.9bp]frame.south west);
+            \node[align=center, text width=112.9bp, inner sep=0pt] at ([xshift=56.45bp]frame.center) {{\songti\fontsize{10.5bp}{10.5bp}\selectfont #1}};
+        }
+    ]
+    \songti\mdseries\fontsize{10.5bp}{15bp}\selectfont%
+    \baselineskip=15bp%
+    \setlength{\parindent}{0pt}%
+    \color{inkblack}%
+    #2%
     \end{tcolorbox}%
 }
 
@@ -82,9 +139,9 @@
 
 \begin{notesection}
 \hfuzz=50pt
-\color{inkblack}\heiti\fontsize{10.5bp}{16bp}\selectfont 说明：\par
+\color{inkblack}\heiti\fontsize{10.5bp}{15bp}\selectfont 说明：\par
 \vspace*{-0.2bp}
-\songti\mdseries\fontsize{10.5bp}{16bp}\selectfont
+\songti\mdseries\fontsize{10.5bp}{15bp}\selectfont
 \setlength{\parindent}{20.7bp}
 \sloppy
 \setlength{\parskip}{0pt}
@@ -120,7 +177,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 证件号码：
 }
 
-\pairsection{原告\\（法人、非法人组织）}{
+\breakablepairsection{原告\\（法人、非法人组织）}{
 名称：\\
 住所地（主要办事机构所在地）：\\
 注册地 / 登记地：\\
@@ -137,8 +194,6 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{52bp}外商独资企业$\square$\hspace{1em}其他形式\rule{60bp}{0.5pt}\\
 \hspace*{52bp}无$\square$
 }
-
-\newpage
 
 \pairsection{委托诉讼代理人}{
 有$\square$\\
@@ -159,7 +214,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 证件号码：
 }
 
-\pairsection{被告\\（法人、非法人组织）}{
+\breakablepairsection{被告\\（法人、非法人组织）}{
 名称：\\
 住所地（主要办事机构所在地）：\\
 注册地 / 登记地：\\
@@ -188,7 +243,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 证件号码：
 }
 
-\pairsection{第三人\\（法人、非法人组织）}{
+\breakablepairsection{第三人\\（法人、非法人组织）}{
 名称：\\
 住所地（主要办事机构所在地）：\\
 注册地 / 登记地：\\
@@ -206,8 +261,6 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{52bp}无$\square$
 }
 
-\newpage
-
 \subtitlesection{诉讼请求}
 
 \begin{tcolorbox}[
@@ -216,102 +269,100 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
     before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
     boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
 ]
-\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\songti\mdseries\fontsize{10.5bp}{15bp}\selectfont%
+\baselineskip=15bp\parskip=0pt\lineskiplimit=-\maxdimen%
 \setlength{\parindent}{0pt}\color{inkblack}%
 （可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 医疗费}{
+\pairsectionleft{1. 医疗费}{
 \hspace{4em}年\hspace{2em}月\hspace{2em}日至\hspace{4em}年\hspace{2em}月\hspace{4em}日期间在\hspace{6em}医院住院（门诊）\\
 治疗，累计支付医疗费\hspace{4em}元\\
 医疗费发票、医疗费清单、病历资料：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{2. 护理费}{
+\pairsectionleft{2. 护理费}{
 住院护理\hspace{2em}天支付护理费\hspace{4em}元（或护理人员发生误工费\hspace{4em}元），或遵医\\
 嘱短期护理发生护理费\hspace{4em}元\\
 住院证明、医嘱等：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{3. 营养费}{
+\pairsectionleft{3. 营养费}{
 营养费\hspace{4em}元\\
 病历资料：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{4. 住院伙食补助费}{
+\pairsectionleft{4. 住院伙食补助费}{
 住院伙食补助费\hspace{4em}元\\
 病历资料：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{5. 误工费}{
+\pairsectionleft{5. 误工费}{
 \hspace{4em}年\hspace{2em}月\hspace{2em}日至\hspace{4em}年\hspace{2em}月\hspace{2em}日误工费\hspace{4em}元
 }
 
-\pairsection{6. 交通费}{
+\pairsectionleft{6. 交通费}{
 交通费\hspace{4em}元\\
 交通费凭证：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{7. 残疾赔偿金（被扶养\\人生活费计入）}{
+\pairsectionleft{7. 残疾赔偿金（被扶养\\人生活费计入）}{
 残疾赔偿金\hspace{4em}元（含被扶养人生活费\hspace{4em}元）
 }
 
-\pairsection{8. 残疾辅助器具费}{
+\pairsectionleft{8. 残疾辅助器具费}{
 残疾辅助器具费\hspace{4em}元
 }
 
-\pairsection{9. 死亡赔偿金（被扶养\\人生活费计入）、丧葬费}{
+\pairsectionleft{9. 死亡赔偿金（被扶养\\人生活费计入）、丧葬费}{
 死亡赔偿金\hspace{4em}元（含被扶养人生活费\hspace{4em}元），丧葬费\hspace{4em}元
 }
 
-\pairsection{10. 精神损害抚慰金}{
+\pairsectionleft{10. 精神损害抚慰金}{
 精神损害抚慰金\hspace{4em}元
 }
 
-\pairsection{11. 是否主张诉讼费用}{
+\pairsectionleft{11. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{12. 其他费用}{
+\pairsectionleft{12. 其他费用}{
 主张\hspace{8em}费用\hspace{4em}元
 }
 
-\pairsection{13. 赔偿总额}{
+\pairsectionleft{13. 赔偿总额}{
 \hspace{4em}元（计至\hspace{4em}年\hspace{2em}月\hspace{2em}日）
 }
 
-\pairsection{14. 是否主张船舶优先权}{
+\pairsectionleft{14. 是否主张船舶优先权}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
 （如申请诉讼保全，请另行提交诉讼保全申请及相关材料）
 }
 
-\newpage
-
 \subtitlesection{涉外及涉港澳台}
 
-\pairsection{1. 是否涉外}{
+\pairsectionleft{1. 是否涉外}{
 是$\square$\hspace{1em}涉及国家：\\
 否$\square$
 }
 
-\pairsection{2. 是否涉港澳台}{
+\pairsectionleft{2. 是否涉港澳台}{
 是$\square$\hspace{1em}涉港$\square$\hspace{1em}涉澳$\square$\hspace{1em}涉台$\square$\\
 否$\square$
 }
@@ -324,44 +375,46 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
     before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
     boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
 ]
-\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\songti\mdseries\fontsize{10.5bp}{15bp}\selectfont%
+\baselineskip=15bp\parskip=0pt\lineskiplimit=-\maxdimen%
 \setlength{\parindent}{0pt}\color{inkblack}%
 （可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 请求依据}{
+\pairsectionleft{1. 请求依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{2. 船舶情况}{
+\pairsectionleft{2. 船舶情况}{
 船名：\hspace{8em}船舶所有人：
 }
 
-\pairsection{3. 劳务关系情况}{
+\pairsectionleft{3. 劳务关系情况}{
 雇主姓名：\hspace{8em}工资标准：\\
 上船时间：\hspace{8em}下船时间：
 }
 
-\pairsection{4. 事故情况}{
+\pairsectionleft{4. 事故情况}{
 死亡$\square$\hspace{1em}失踪$\square$\hspace{1em}无伤残等级$\square$\hspace{1em}有伤残等级$\square$\hspace{2em}级\\
 事故调查机关：\\
 事故原因：船上劳务$\square$\hspace{1em}船上劳务相关活动$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
 }
 
-\pairsection{5. 船舶、船员投保情况}{
+\pairsectionleft{5. 船舶、船员投保情况}{
 \mbox{}
 }
 
-\pairsection{6. 其他情况}{
+\pairsectionleft{6. 其他情况}{
 \mbox{}
 }
 
-\pairsection{7. 证据清单（可另附\\页）}{
+\pairsectionleft{7. 证据清单（可另附\\页）}{
 \mbox{}
 }
+
+\newpage
 
 \subtitlesection{对纠纷解决方式的意愿}
 

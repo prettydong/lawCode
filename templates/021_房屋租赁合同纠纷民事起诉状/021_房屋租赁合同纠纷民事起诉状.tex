@@ -54,24 +54,27 @@
 \newcommand{\subtitlenotesection}[2]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp, halign=center,
+        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
     ]
-    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\\[2bp]
+    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\par
     {\songti\fontsize{10.5bp}{14bp}\selectfont\color{inkblack}\bfseries #2}
     \end{tcolorbox}%
 }
 
-\newcommand{\pairsection}[2]{%
+\newcommand{\pairsectionbase}[3]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
         boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
     ]
-    \begin{minipage}[c]{112.9bp}%
-        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \begin{minipage}[t]{112.9bp}%
+        \vspace{4bp}%
+        \songti\fontsize{10.5bp}{12bp}\selectfont
+        #1#2%
+        \vspace{4bp}%
     \end{minipage}%
     \hspace{0pt}%
     \vrule width 0.5pt%
@@ -82,10 +85,18 @@
         \baselineskip=17bp%
         \setlength{\parindent}{0pt}%
         \color{inkblack}%
-        #2%
+        #3%
         \vspace{4bp}%
     \end{minipage}%
     \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \pairsectionbase{\centering}{#1}{#2}%
+}
+
+\newcommand{\pairsectionleft}[2]{%
+    \pairsectionbase{\raggedright\fontsize{10.5bp}{10.5bp}\selectfont}{#1}{#2}%
 }
 
 \begin{document}
@@ -129,8 +140,8 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
 住所地（户籍所在地）：\\
 经常居住地：\\
-证件号码：\\
-证件类型：
+证件类型：\\
+证件号码：
 }
 
 \pairsection{原告\\（法人、非法人组织）}{
@@ -194,18 +205,15 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 证件号码：
 }
 
+\newpage
+% ===== 第 3 页 =====
+
 \pairsection{第三人\\（法人、非法人组织）}{
 名称：\\
 住所地（主要办事机构所在地）：\\
 注册地 / 登记地：\\
 法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
-统一社会信用代码：
-}
-
-\newpage
-% ===== 第 3 页 =====
-
-\pairsection{第三人\\（法人、非法人组织）}{
+统一社会信用代码：\\
 类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
 \hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
 \hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
@@ -229,12 +237,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 支付租金（元）}{
+\pairsectionleft{1. 支付租金（元）}{
 到期未付租金\hspace{4em}元（人民币，下同；如外币需特别注明）\\
 明细：
 }
 
-\pairsection{2. 迟延支付租金的利息\\（违约金）}{
+\pairsectionleft{2. 迟延支付租金的利息\\（违约金）}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，迟延支付租金的利息\hspace{4em}元、违约\\
 金\hspace{4em}元，自\hspace{4em}之后的逾期利息、违约金，以\hspace{4em}元为基数按\\
 照\hspace{4em}标准计算；\\
@@ -243,61 +251,61 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 明细：
 }
 
-\pairsection{3. 交付房屋}{
+\pairsectionleft{3. 交付房屋}{
 是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{4. 请求解除合同}{
+\pairsectionleft{4. 请求解除合同}{
 是$\square$\hspace{1em}确认合同于\hspace{2em}年\hspace{2em}月\hspace{2em}日解除\\
 否$\square$
 }
 
-\pairsection{5. 返还租赁物，并赔偿\\因解除合同而受到的\\损失}{
+\pairsectionleft{5. 返还租赁物，并赔偿\\因解除合同而受到的\\损失}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
-\pairsection{6. 支付房屋占有使用费}{
+\pairsectionleft{6. 支付房屋占有使用费}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
-\pairsection{7. 支付水电费等费用}{
+\pairsectionleft{7. 支付水电费等费用}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
-\pairsection{8. 返还押金}{
+\pairsectionleft{8. 返还押金}{
 是$\square$\hspace{1em}金额：\\
 否$\square$
 }
 
-\pairsection{9. 是否主张实现债权的\\费用}{
+\pairsectionleft{9. 是否主张实现债权的\\费用}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
-\pairsection{10. 是否主张诉讼费用}{
+\pairsectionleft{10. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{11. 其他请求}{
+\pairsectionleft{11. 其他请求}{
 \mbox{}
 }
 
-\pairsection{12. 标的总额}{
+\pairsectionleft{12. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -322,77 +330,77 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 合同的签订情况（名\\称、编号、签订时间、\\地点等）}{
+\pairsectionleft{1. 合同的签订情况（名\\称、编号、签订时间、\\地点等）}{
 \mbox{}
 }
 
-\pairsection{2. 签订主体}{
+\pairsectionleft{2. 签订主体}{
 出租人：\\
 承租人：
 }
 
-\pairsection{3. 租赁标的物情况（坐\\落位置、面积、产权\\情况等）}{
+\pairsectionleft{3. 租赁标的物情况（坐\\落位置、面积、产权\\情况等）}{
 \mbox{}
 }
 
-\pairsection{4. 合同约定的租赁期限}{
+\pairsectionleft{4. 合同约定的租赁期限}{
 自\hspace{2em}年\hspace{2em}月\hspace{2em}日起至\hspace{2em}年\hspace{2em}月\hspace{2em}日止
 }
 
-\pairsection{5. 合同约定的租金及支\\付方式}{
+\pairsectionleft{5. 合同约定的租金及支\\付方式}{
 租金：\hspace{4em}元/月；总价\hspace{4em}元：\\
 以现金$\square$\hspace{1em}转账$\square$\hspace{1em}票据$\square$（写明票据类型）\hspace{1em}其他$\square$\hspace{1em}方式\\
 一次性$\square$\hspace{1em}分期$\square$\hspace{1em}支付\\
 分期方式：
 }
 
-\pairsection{6. 其他费用约定（物业\\费、水电燃气费用等）}{
+\pairsectionleft{6. 其他费用约定（物业\\费、水电燃气费用等）}{
 出租人负担：\\
 承租人负担：
 }
 
-\pairsection{7. 合同约定的违约责任}{
+\pairsectionleft{7. 合同约定的违约责任}{
 \mbox{}
 }
 
-\pairsection{8. 是否约定合同解除的\\条件}{
+\pairsectionleft{8. 是否约定合同解除的\\条件}{
 是$\square$\hspace{1em}具体内容：\\
 否$\square$
 }
 
-\pairsection{9. 租赁物交付时间}{
+\pairsectionleft{9. 租赁物交付时间}{
 于\hspace{2em}年\hspace{2em}月\hspace{2em}日交付租赁物
 }
 
 \newpage
 % ===== 第 5 页 =====
 
-\pairsection{10. 押金约定情况}{
+\pairsectionleft{10. 押金约定情况}{
 有$\square$\hspace{2em}押金数额：\hspace{4em}，\hspace{2em}年\hspace{2em}月\hspace{2em}日已支付押金。\\
 无$\square$
 }
 
-\pairsection{11. 租金支付情况}{
+\pairsectionleft{11. 租金支付情况}{
 自\hspace{2em}年\hspace{2em}月\hspace{2em}日至\hspace{2em}年\hspace{2em}月\hspace{2em}日，按约定交纳租金，已付租\\
 金\hspace{4em}元，逾期但已付租金\hspace{4em}元\\
 明细：
 }
 
-\pairsection{12. 逾期未付租金情况}{
+\pairsectionleft{12. 逾期未付租金情况}{
 自\hspace{2em}年\hspace{2em}月\hspace{2em}日起开始欠付租金，截至\hspace{2em}年\hspace{2em}月\hspace{2em}日，欠付\\
 租金\hspace{4em}元
 }
 
-\pairsection{13. 其他需要说明的内\\容（可另附页）}{
+\pairsectionleft{13. 其他需要说明的内\\容（可另附页）}{
 \mbox{}
 }
 
-\pairsection{14. 请求依据}{
+\pairsectionleft{14. 请求依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{15. 证据清单（可另附\\页）}{
+\pairsectionleft{15. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

@@ -77,6 +77,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -215,12 +240,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 停止侵害}{
+\pairsectionleft{1. 停止侵害}{
 有$\square$\hspace{1em}内容：（简述停止侵权主体以及相应停止侵权方式、内容、范围等）\\
 无$\square$
 }
 
-\pairsection{2. 赔偿经济损失}{
+\pairsectionleft{2. 赔偿经济损失}{
 有$\square$\hspace{1em}经济损失\hspace{4em}元\\
 \hspace*{21bp}是否包含惩罚性赔偿：包含$\square$，计算方法：基数\hspace{4em}元 × （1+ 惩罚性\\
 \hspace*{21bp}赔偿倍数\hspace{4em}）\\
@@ -228,7 +253,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{3. 赔偿维权合理开支}{
+\pairsectionleft{3. 赔偿维权合理开支}{
 有$\square$\hspace{1em}律师费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}公证费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}差旅费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
@@ -236,34 +261,34 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{4. 连带责任}{
+\pairsectionleft{4. 连带责任}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{5. 非金钱给付义务迟延\\履行金}{
+\pairsectionleft{5. 非金钱给付义务迟延\\履行金}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{6. 是否主张诉讼费用}{
+\pairsectionleft{6. 是否主张诉讼费用}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{7. 其他请求}{
+\pairsectionleft{7. 其他请求}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -272,12 +297,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{涉外及涉港澳台}
 
-\pairsection{1. 是否涉外}{
+\pairsectionleft{1. 是否涉外}{
 是$\square$\hspace{1em}涉及国家：\\
 否$\square$
 }
 
-\pairsection{2. 是否涉港澳台}{
+\pairsectionleft{2. 是否涉港澳台}{
 是$\square$\hspace{1em}涉港$\square$\hspace{1em}涉澳$\square$\hspace{1em}涉台$\square$\\
 否$\square$
 }
@@ -300,7 +325,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \newpage
 % ===== 第 4 页 =====
 
-\pairsection{1. 原告主体情况}{
+\pairsectionleft{1. 原告主体情况}{
 商业秘密权利人$\square$\\
 \hspace*{21bp}原始取得$\square$\\
 \hspace*{21bp}继受取得$\square$\\
@@ -316,20 +341,20 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{21bp}2.其他利害关系人$\square$\hspace{1em}具体情形：
 }
 
-\pairsection{2. 原告主张的商业秘密\\类型}{
+\pairsectionleft{2. 原告主张的商业秘密\\类型}{
 技术信息$\square$\hspace{1em}经营信息$\square$\hspace{1em}其他商业信息$\square$\\
 载体：\\
 形成时间：\\
 具体内容：
 }
 
-\pairsection{3. 原告主张的商业秘密\\符合法定条件}{
+\pairsectionleft{3. 原告主张的商业秘密\\符合法定条件}{
 1.不为公众所知悉\hspace{1em}$\square$是\hspace{1em}$\square$否\hspace{2em}具体情况：\\
 2.采取了保密措施\hspace{1em}$\square$是\hspace{1em}$\square$否\hspace{2em}具体情况：\\
 3.具有商业价值\hspace{2em}$\square$是\hspace{1em}$\square$否\hspace{2em}具体情况：
 }
 
-\pairsection{4. 被告侵犯商业秘密的\\事实（包括时间、地\\点、表现形式、具体\\内容、主观故意程度\\和损害后果等）}{
+\pairsectionleft{4. 被告侵犯商业秘密的\\事实（包括时间、地\\点、表现形式、具体\\内容、主观故意程度\\和损害后果等）}{
 $\square$1.以盗窃、贿赂、欺诈、胁迫、电子侵入或者其他不正当手段获取权利\\
 人的商业秘密；\hspace{2em}具体情况，依据（证据）：\\
 $\square$2.披露、使用或者允许他人使用以前项手段获取的权利人的商业秘\\
@@ -347,19 +372,19 @@ $\square$6.第三人明知或者应知商业秘密权利人的员工、前员工
 $\square$7.其他侵犯商业秘密的行为。\hspace{2em}具体情况，依据（证据）：
 }
 
-\pairsection{5. 侵犯商业秘密行为与\\原告损失之间的因果\\关系}{
+\pairsectionleft{5. 侵犯商业秘密行为与\\原告损失之间的因果\\关系}{
 具体情况，依据（证据）
 }
 
-\pairsection{6. 侵害技术秘密案件中\\的技术比对分析}{
+\pairsectionleft{6. 侵害技术秘密案件中\\的技术比对分析}{
 具体主张密点或整体技术方案、比对分析意见（可另附页）
 }
 
-\pairsection{7. 其他情况及依据}{
+\pairsectionleft{7. 其他情况及依据}{
 \mbox{}
 }
 
-\pairsection{8. 证据清单（可另附\\页）}{
+\pairsectionleft{8. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

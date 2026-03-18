@@ -77,6 +77,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -215,12 +240,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 停止侵害}{
+\pairsectionleft{1. 停止侵害}{
 有$\square$\hspace{1em}内容：（简述停止侵权主体以及相应停止侵权方式、内容、范围等）\\
 无$\square$
 }
 
-\pairsection{2. 赔偿经济损失}{
+\pairsectionleft{2. 赔偿经济损失}{
 有$\square$\hspace{1em}经济损失\hspace{4em}元\\
 \hspace*{21bp}是否包含惩罚性赔偿：包含$\square$，计算方法：基数\hspace{4em}元 × （1+ 惩罚性\\
 \hspace*{21bp}赔偿倍数\hspace{4em}）\\
@@ -228,7 +253,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{3. 赔偿维权合理开支}{
+\pairsectionleft{3. 赔偿维权合理开支}{
 有$\square$\hspace{1em}律师费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}公证费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}差旅费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
@@ -236,34 +261,34 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{4. 连带责任}{
+\pairsectionleft{4. 连带责任}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{5. 非金钱给付义务迟延\\履行金}{
+\pairsectionleft{5. 非金钱给付义务迟延\\履行金}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{6. 是否主张诉讼费用}{
+\pairsectionleft{6. 是否主张诉讼费用}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{7. 其他请求}{
+\pairsectionleft{7. 其他请求}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -288,35 +313,35 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 技术合同的签订情况\\（技术领域，项目的名\\称，标的的内容、范\\围和要求，履行的计\\划、地点和方式，技\\术成果的归属和收益\\的分配办法，验收标\\准和方法等）}{
+\pairsectionleft{1. 技术合同的签订情况\\（技术领域，项目的名\\称，标的的内容、范\\围和要求，履行的计\\划、地点和方式，技\\术成果的归属和收益\\的分配办法，验收标\\准和方法等）}{
 \mbox{}
 }
 
-\pairsection{2. 合同签订主体}{
+\pairsectionleft{2. 合同签订主体}{
 \mbox{}
 }
 
-\pairsection{3. 约定的合同期限}{
+\pairsectionleft{3. 约定的合同期限}{
 \hspace{8em}年\hspace{2em}月\hspace{2em}日起至\hspace{8em}年\hspace{2em}月\hspace{2em}日止
 }
 
-\pairsection{4. 约定的给付价款、\\报酬、使用费及支付\\方式}{
+\pairsectionleft{4. 约定的给付价款、\\报酬、使用费及支付\\方式}{
 \mbox{}
 }
 
-\pairsection{5. 约定的给付价款利息\\（违约金）及计算方式}{
+\pairsectionleft{5. 约定的给付价款利息\\（违约金）及计算方式}{
 \mbox{}
 }
 
-\pairsection{6. 技术合同履行情况}{
+\pairsectionleft{6. 技术合同履行情况}{
 \mbox{}
 }
 
-\pairsection{7. 其他情况及依据}{
+\pairsectionleft{7. 其他情况及依据}{
 \mbox{}
 }
 
-\pairsection{8. 证据清单（可另附\\页）}{
+\pairsectionleft{8. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

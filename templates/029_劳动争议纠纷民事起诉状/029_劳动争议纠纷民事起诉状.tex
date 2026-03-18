@@ -5,9 +5,12 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{array}
 
 \definecolor{inkblack}{rgb}{0.08,0.08,0.08}
 \geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
+\setlength{\arrayrulewidth}{0.5pt}
+\setlength{\tabcolsep}{0pt}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -30,41 +33,37 @@
     \vspace{18.4bp}
 }
 
-\newtcolorbox{notesection}[1][]{
-    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-    fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
-    enlarge left by=-19.28bp, before=\vspace*{-13.39bp}\noindent, after=\par,
-    boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1
-}
+\newlength{\lawtablewidth}
+\newlength{\lawfullcellwidth}
+\newlength{\lawleftcolwidth}
+\newlength{\lawrightcolwidth}
+\newlength{\lawrightcontentwidth}
+\setlength{\lawtablewidth}{467.72bp}
+\setlength{\lawfullcellwidth}{466.72bp}
+\setlength{\lawleftcolwidth}{112.9bp}
+\setlength{\lawrightcolwidth}{353.32bp}
+\setlength{\lawrightcontentwidth}{349.32bp}
 
 \newcommand{\lawpar}{\par\vspace*{-4.86bp}}
 
 \newcommand{\subtitlesection}[1]{%
-    \begin{tcolorbox}[
-        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
-        fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
-        enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
-    ]
-    #1
-    \end{tcolorbox}%
+    \par\noindent\hspace*{-19.28bp}%
+    {\renewcommand{\arraystretch}{1}%
+    \begin{tabular}{|>{\centering\arraybackslash}m{\lawfullcellwidth}|}
+    \hline
+    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\\[-0.5pt]
+    \hline
+    \end{tabular}}%
+    \vspace*{-0.5pt}%
 }
 
 \newcommand{\pairsection}[2]{%
-    \begin{tcolorbox}[
-        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
-    ]
-    \begin{minipage}[c]{112.9bp}%
-        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
-    \end{minipage}%
-    \hspace{0pt}%
-    \vrule width 0.5pt%
-    \hspace{4bp}%
-    \begin{minipage}[c]{346.32bp}%
+    \par\noindent\hspace*{-19.28bp}%
+    {\renewcommand{\arraystretch}{1}%
+    \begin{tabular}{|>{\centering\arraybackslash}m{\lawleftcolwidth}|m{\lawrightcolwidth}|}
+    \hline
+    {\parbox[c]{\lawleftcolwidth}{\centering\songti\fontsize{10.5bp}{10.5bp}\selectfont\color{inkblack} #1}} &
+    {\hspace*{4bp}\parbox[t]{\lawrightcontentwidth}{%
         \vspace{4bp}%
         \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
         \baselineskip=17bp%
@@ -72,16 +71,73 @@
         \color{inkblack}%
         #2%
         \vspace{4bp}%
-    \end{minipage}%
-    \end{tcolorbox}%
+    }}\\[-0.5pt]
+    \hline
+    \end{tabular}}%
+    \vspace*{-0.5pt}%
+}
+
+\newcommand{\pairsectionleft}[2]{%
+    \par\noindent\hspace*{-19.28bp}%
+    {\renewcommand{\arraystretch}{1}%
+    \begin{tabular}{|m{\lawleftcolwidth}|m{\lawrightcolwidth}|}
+    \hline
+    {\parbox[c]{\lawleftcolwidth}{\raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont\color{inkblack} #1}} &
+    {\hspace*{4bp}\parbox[t]{\lawrightcontentwidth}{%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    }}\\[-0.5pt]
+    \hline
+    \end{tabular}}%
+    \vspace*{-0.5pt}%
+}
+
+\newcommand{\notesection}[1]{%
+    \par\noindent\hspace*{-19.28bp}%
+    {\renewcommand{\arraystretch}{1}%
+    \begin{tabular}{|m{\lawfullcellwidth}|}
+    \hline
+    {\hspace*{4bp}\parbox[t]{462.72bp}{%
+        \vspace{4.69bp}%
+        \color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont #1%
+        \vspace{4.69bp}%
+    }}\\[-0.5pt]
+    \hline
+    \end{tabular}}%
+    \vspace*{-0.5pt}%
+}
+
+\newcommand{\wideblanksection}[2]{%
+    \par\noindent\hspace*{-19.28bp}%
+    {\renewcommand{\arraystretch}{1}%
+    \begin{tabular}{|m{\lawfullcellwidth}|}
+    \hline
+    {\hspace*{4bp}\parbox[t]{462.72bp}{%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+        \setlength{\parindent}{0pt}\color{inkblack}%
+        #1\\[#2]%
+        \mbox{}%
+        \vspace{4bp}%
+    }}\\[-0.5pt]
+    \hline
+    \end{tabular}}%
+    \vspace*{-0.5pt}%
 }
 
 \begin{document}
+\setcounter{page}{232}
 
 % ===== 第 1 页 =====
 \lawtitle{民事起诉状}{（劳动争议纠纷）}
 
-\begin{notesection}
+\notesection{
 \hfuzz=50pt
 \color{inkblack}\heiti\fontsize{10.5bp}{16bp}\selectfont 说明：\par
 \vspace*{-0.2bp}
@@ -106,7 +162,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
 \hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
 追究责任。
-\end{notesection}
+}
 
 \subtitlesection{当事人信息}
 
@@ -129,6 +185,9 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
+\newpage
+% ===== 第 2 页 =====
+
 \pairsection{被告\\（法人、非法人组织）}{
 名称：\\
 住所地（主要办事机构所在地）：\\
@@ -145,63 +204,53 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{诉讼请求}
 
-\begin{tcolorbox}[
-    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-    enlarge left by=-19.28bp,
-    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
-]
-\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
-\setlength{\parindent}{0pt}\color{inkblack}%
-（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
-\mbox{}
-\end{tcolorbox}
+\wideblanksection{（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）}{51bp}
 
-\pairsection{1. 是否主张工资支付}{
+\pairsectionleft{1. 是否主张工资支付}{
 是$\square$\hspace{1em}否$\square$\\
 明细：
 }
 
-\pairsection{2. 是否主张未签订书面\\劳动合同双倍工资}{
+\pairsectionleft{2. 是否主张未签订书面\\劳动合同双倍工资}{
 是$\square$\hspace{1em}否$\square$\\
 明细：
 }
 
-\pairsection{3. 是否主张加班费}{
+\pairsectionleft{3. 是否主张加班费}{
 是$\square$\hspace{1em}否$\square$\\
 明细：
 }
 
-\pairsection{4. 是否主张未休年休假\\工资}{
+\pairsectionleft{4. 是否主张未休年休假\\工资}{
 是$\square$\hspace{1em}否$\square$\\
 明细：
 }
 
-\pairsection{5. 是否主张未依法缴纳\\社会保险费造成的经\\济损失}{
+\pairsectionleft{5. 是否主张未依法缴纳\\社会保险费造成的经\\济损失}{
 是$\square$\hspace{1em}否$\square$\\
 明细：
 }
 
-\pairsection{6. 是否主张解除劳动合\\同经济补偿}{
+\pairsectionleft{6. 是否主张解除劳动合\\同经济补偿}{
 是$\square$\hspace{1em}否$\square$\\
 明细：
 }
 
-\pairsection{7. 是否主张违法解除劳\\动合同赔偿金}{
+\pairsectionleft{7. 是否主张违法解除劳\\动合同赔偿金}{
 是$\square$\hspace{1em}否$\square$\\
 明细：
 }
 
-\pairsection{8. 是否主张诉讼费用}{
+\pairsectionleft{8. 是否主张诉讼费用}{
 是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{9. 其他诉讼请求}{
-\mbox{}
+\pairsectionleft{9. 其他诉讼请求}{
+\vphantom{是$\square$\hspace{1em}否$\square$}\\
+明细：
 }
 
-\pairsection{10. 标的总额}{
+\pairsectionleft{10. 标的总额}{
 \mbox{}
 }
 
@@ -219,51 +268,40 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{事实与理由}
 
-\begin{tcolorbox}[
-    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-    enlarge left by=-19.28bp,
-    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
-]
-\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
-\setlength{\parindent}{0pt}\color{inkblack}%
-（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
-\mbox{}
-\end{tcolorbox}
+\wideblanksection{（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）}{51bp}
 
-\pairsection{1. 劳动合同签订情况}{
+\pairsectionleft{1. 劳动合同签订情况}{
 （合同主体、签订时间、地点、合同名称等）
 }
 
-\pairsection{2. 劳动合同履行情况}{
+\pairsectionleft{2. 劳动合同履行情况}{
 （入职时间、用人单位、工作岗位、工作地点、合同约定的每月工资数额及\\
 工资构成、办理社会保险的时间及险种、劳动者实际领取的每月工资数额\\
 及工资构成、加班工资计算基数及计算方法、原告加班时间及加班费、年\\
 休假等）
 }
 
-\pairsection{3. 解除或终止劳动关系\\情况}{
+\pairsectionleft{3. 解除或终止劳动关系\\情况}{
 （解除或终止劳动关系的原因、经济补偿 / 赔偿金数额等）
 }
 
-\pairsection{4. 工伤情况}{
+\pairsectionleft{4. 工伤情况}{
 （发生工伤时间、工伤认定情况、工伤伤残等级、工伤费用等）
 }
 
-\pairsection{5. 劳动仲裁相关情况}{
+\pairsectionleft{5. 劳动仲裁相关情况}{
 （申请劳动仲裁时间、仲裁请求、仲裁文书、仲裁结果等）
 }
 
-\pairsection{6. 其他相关情况}{
+\pairsectionleft{6. 其他相关情况}{
 （如是否是农民工）
 }
 
-\pairsection{7. 诉请依据}{
+\pairsectionleft{7. 诉请依据}{
 （法律及司法解释的规定，要写明具体条文）
 }
 
-\pairsection{8. 证据清单（可另附\\页）}{
+\pairsectionleft{8. 证据清单（可另附\\页）}{
 \mbox{}
 }
 
@@ -283,7 +321,13 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 了解$\square$\hspace{1em}不了解$\square$\\
 3. 首次调解不成功，但仍有继续调解意愿的，可以选择更换调解组织和调解\\
 员再进行调解。调解无法达成一致意见的，法院将依程序排期开庭。\\
-了解$\square$\hspace{1em}不了解$\square$\\
+了解$\square$\hspace{1em}不了解$\square$
+}
+
+\newpage
+% ===== 第 4 页 =====
+
+\pairsection{是否了解先行调解解\\决纠纷的好处}{
 4. 依照法律规定，调解具有保密性要求，调解过程不公开，调解协议未经当\\
 事人同意不得公开。\\
 了解$\square$\hspace{1em}不了解$\square$\\
@@ -291,9 +335,6 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 制执行效力。\\
 了解$\square$\hspace{1em}不了解$\square$
 }
-
-\newpage
-% ===== 第 4 页 =====
 
 \pairsection{是否考虑先行调解}{
 是$\square$\\

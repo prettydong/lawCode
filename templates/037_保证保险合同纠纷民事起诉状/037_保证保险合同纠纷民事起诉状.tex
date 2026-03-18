@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -214,43 +239,43 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 理赔款}{
+\pairsectionleft{1. 理赔款}{
 支付理赔款\hspace{4em}元（人民币，下同；如外币需特别注明）
 }
 
-\pairsection{2. 保险费、违约金等}{
+\pairsectionleft{2. 保险费、违约金等}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，欠保险费、违约金等共计\hspace{4em}元\\
 自\hspace{2em}年\hspace{2em}月\hspace{2em}日之后的保险费、违约金等各项费用按照保证保险合\\
 同约定计算至实际清偿之日止\\
 明细：
 }
 
-\pairsection{3. 是否主张实现债权\\的费用}{
+\pairsectionleft{3. 是否主张实现债权\\的费用}{
 是$\square$\hspace{1em}费用明细：\\
 否$\square$
 }
 
-\pairsection{4. 是否主张诉讼费用}{
+\pairsectionleft{4. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{5. 其他请求}{
+\pairsectionleft{5. 其他请求}{
 \mbox{}
 }
 
-\pairsection{6. 标的总额}{
+\pairsectionleft{6. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -272,14 +297,14 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 保证保险合同的签\\订情况（合同名称、主\\体、签订时间、地点等）}{
+\pairsectionleft{1. 保证保险合同的签\\订情况（合同名称、主\\体、签订时间、地点等）}{
 \mbox{}
 }
 
 \newpage
 % ===== 第 4 页 =====
 
-\pairsection{2. 保证保险合同的主\\要约定}{
+\pairsectionleft{2. 保证保险合同的主\\要约定}{
 保证保险金额：\\
 保费金额：\\
 保险期间：\\
@@ -291,16 +316,16 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 其他：
 }
 
-\pairsection{3. 是否对被告就保证保\\险合同主要条款进行\\提示注意、说明}{
+\pairsectionleft{3. 是否对被告就保证保\\险合同主要条款进行\\提示注意、说明}{
 是$\square$\hspace{1em}提示说明的具体方式以及时间地点：\\
 否$\square$
 }
 
-\pairsection{4. 被告借款合同的主\\要约定（借款金额、期\\限、用途、利息标准、\\还款方式、担保、违\\约责任、解除条件、\\管辖约定）}{
+\pairsectionleft{4. 被告借款合同的主\\要约定（借款金额、期\\限、用途、利息标准、\\还款方式、担保、违\\约责任、解除条件、\\管辖约定）}{
 \mbox{}
 }
 
-\pairsection{5. 被告逾期未还款情况}{
+\pairsectionleft{5. 被告逾期未还款情况}{
 自\hspace{2em}年\hspace{2em}月\hspace{2em}日至\hspace{2em}年\hspace{2em}月\hspace{2em}日，被告按约定还款，已还\\
 款\hspace{4em}元，\\
 逾期但已还款\hspace{4em}元，共归还本金\hspace{4em}元、利息\hspace{4em}元\\
@@ -310,12 +335,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 明细：
 }
 
-\pairsection{6. 保证保险合同的履\\行情况}{
+\pairsectionleft{6. 保证保险合同的履\\行情况}{
 原告于\hspace{2em}年\hspace{2em}月\hspace{2em}日进行了理赔，代被告清偿债务，共赔款\\
 \hspace{4em}元，于\hspace{2em}年\hspace{2em}月\hspace{2em}日取得权益转让确认书
 }
 
-\pairsection{7. 追索情况}{
+\pairsectionleft{7. 追索情况}{
 原告于\hspace{2em}年\hspace{2em}月\hspace{2em}日通知被告并向其追索\\
 被告已支付保费\hspace{4em}元，归还借款\hspace{4em}元；尚欠保费\hspace{4em}元，\\
 欠付借款本金\hspace{4em}元、利息\hspace{4em}元、罚息\hspace{4em}元、复\\
@@ -323,16 +348,16 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 明细：
 }
 
-\pairsection{8. 请求承担责任的依据}{
+\pairsectionleft{8. 请求承担责任的依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{9. 其他需要说明的内\\容（可另附页）}{
+\pairsectionleft{9. 其他需要说明的内\\容（可另附页）}{
 \mbox{}
 }
 
-\pairsection{10. 证据清单（可另附\\页）}{
+\pairsectionleft{10. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

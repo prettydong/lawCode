@@ -5,6 +5,9 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
 
 \definecolor{inkblack}{rgb}{0.08,0.08,0.08}
 \geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
@@ -42,7 +45,7 @@
 \newcommand{\subtitlesection}[1]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
+        boxsep=0pt, left=0pt, right=0pt, top=2bp, bottom=2bp, halign=center,
         fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
@@ -54,38 +57,49 @@
 \newcommand{\subtitlenotesection}[2]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp, halign=center,
+        boxsep=0pt, left=0pt, right=0pt, top=2bp, bottom=2bp, halign=center,
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
     ]
-    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\\[2bp]
+    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\par
     {\songti\fontsize{10.5bp}{14bp}\selectfont\color{inkblack}\bfseries #2}
     \end{tcolorbox}%
 }
 
-\newcommand{\pairsection}[2]{%
+\newcommand{\pairsectionbase}[3]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
         boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
     ]
-    \begin{minipage}[c]{112.9bp}%
-        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \begin{minipage}[t]{112.9bp}%
+        \vspace{2bp}%
+        \songti\fontsize{10.5bp}{12bp}\selectfont
+        #1#2%
+        \vspace{2bp}%
     \end{minipage}%
     \hspace{0pt}%
     \vrule width 0.5pt%
     \hspace{4bp}%
     \begin{minipage}[c]{346.32bp}%
-        \vspace{4bp}%
+        \vspace{2bp}%
         \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-        \baselineskip=17bp%
+        \baselineskip=16bp%
         \setlength{\parindent}{0pt}%
         \color{inkblack}%
-        #2%
-        \vspace{4bp}%
+        #3%
+        \vspace{2bp}%
     \end{minipage}%
     \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \pairsectionbase{\centering}{#1}{#2}%
+}
+
+\newcommand{\pairsectionleft}[2]{%
+    \pairsectionbase{\raggedright\fontsize{10.5bp}{10.5bp}\selectfont}{#1}{#2}%
 }
 
 \begin{document}
@@ -114,7 +128,8 @@
 如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
 可根据实际对栏目进行扩容等。
 \lawpar
-$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+{\fzssk ★}特别提示{\fzssk ★}
+\\[-4.86bp]
 \hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
 \hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
 追究责任。
@@ -229,30 +244,30 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 支付全部未付租金}{
+\pairsectionleft{1. 支付全部未付租金}{
 到期未付租金\hspace{4em}元、未到期租金\hspace{4em}元、留购价款\hspace{4em}元（人民\\
 币，下同；如外币需特别注明）\\
 明细：
 }
 
-\pairsection{2. 违约金、滞纳金、损\\害赔偿金}{
+\pairsectionleft{2. 违约金、滞纳金、损\\害赔偿金}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，违约金\hspace{4em}元，滞纳金\hspace{4em}元，损害赔偿\\
 金\hspace{4em}元；自\hspace{4em}之后的违约金、滞纳金、损害赔偿金，以\hspace{4em}元为\\
 基数按照\hspace{4em}标准计算至全部款项实际付清之日\\
 明细：
 }
 
-\pairsection{3. 是否确认租赁物归原\\告所有}{
+\pairsectionleft{3. 是否确认租赁物归原\\告所有}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{4. 请求解除合同}{
+\pairsectionleft{4. 请求解除合同}{
 判令解除融资租赁合同$\square$\\
 确认融资租赁合同已于\hspace{2em}年\hspace{2em}月\hspace{2em}日解除$\square$
 }
 
-\pairsection{5. 返还租赁物，并赔偿\\因解除合同而受到的\\损失}{
+\pairsectionleft{5. 返还租赁物，并赔偿\\因解除合同而受到的\\损失}{
 支付全部未付租金\hspace{4em}元，到期未付租金\hspace{4em}元、未到期租金\hspace{4em}元、\\
 留购价款\hspace{4em}元（如约定）\\
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，违约金\hspace{4em}元，滞纳金\hspace{4em}元，损害\\
@@ -262,37 +277,37 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 明细：
 }
 
-\pairsection{6. 是否主张担保权利}{
+\pairsectionleft{6. 是否主张担保权利}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
-\pairsection{7. 是否主张实现债权的\\费用}{
+\pairsectionleft{7. 是否主张实现债权的\\费用}{
 是$\square$\hspace{1em}费用明细：\\
 否$\square$
 }
 
-\pairsection{8. 是否主张诉讼费用}{
+\pairsectionleft{8. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{9. 其他请求}{
+\pairsectionleft{9. 其他请求}{
 \mbox{}
 }
 
-\pairsection{10. 标的总额}{
+\pairsectionleft{10. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -317,61 +332,61 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 合同的签订情况\\（名称、编号、签订\\时间、地点）}{
+\pairsectionleft{1. 合同的签订情况\\（名称、编号、签订\\时间、地点）}{
 \mbox{}
 }
 
-\pairsection{2. 合同主体}{
+\pairsectionleft{2. 合同主体}{
 出租人（卖方）：\\
 承租人（买方）：
 }
 
-\pairsection{3. 租赁物情况（租赁物\\的选择、名称、规格、\\质量、数量等）}{
+\pairsectionleft{3. 租赁物情况（租赁物\\的选择、名称、规格、\\质量、数量等）}{
 \mbox{}
 }
 
-\pairsection{4. 合同约定的租金及支\\付方式}{
+\pairsectionleft{4. 合同约定的租金及支\\付方式}{
 租金\hspace{4em}元；\\
 以现金$\square$\hspace{1em}转账$\square$\hspace{1em}票据$\square$（写明票据类型）\hspace{1em}其他$\square$\hspace{1em}方式\\
 一次性$\square$\hspace{1em}分期$\square$\hspace{1em}支付\\
 分期方式：
 }
 
-\pairsection{5. 合同约定的租赁期限、\\费用}{
+\pairsectionleft{5. 合同约定的租赁期限、\\费用}{
 租赁期间自\hspace{2em}年\hspace{2em}月\hspace{2em}日起至\hspace{2em}年\hspace{2em}月\hspace{2em}日止\\
 除租金外产生的\hspace{4em}费用，由\hspace{4em}承担
 }
 
-\pairsection{6. 到期后租赁物归属}{
+\pairsectionleft{6. 到期后租赁物归属}{
 归承租人所有$\square$\\
 归出租人所有$\square$\\
 留购价款\hspace{4em}元
 }
 
-\pairsection{7. 合同约定的违约责任}{
+\pairsectionleft{7. 合同约定的违约责任}{
 \mbox{}
 }
 
-\pairsection{8. 是否约定加速到期\\条款}{
+\pairsectionleft{8. 是否约定加速到期\\条款}{
 是$\square$\hspace{1em}具体内容：\\
 否$\square$
 }
 
-\pairsection{9. 是否约定回收租赁物\\条件}{
+\pairsectionleft{9. 是否约定回收租赁物\\条件}{
 是$\square$\hspace{1em}具体内容：\\
 否$\square$
 }
 
-\pairsection{10. 是否约定解除合同\\条件}{
+\pairsectionleft{10. 是否约定解除合同\\条件}{
 是$\square$\hspace{1em}具体内容：\\
 否$\square$
 }
 
-\pairsection{11. 租赁物交付时间}{
+\pairsectionleft{11. 租赁物交付时间}{
 于\hspace{2em}年\hspace{2em}月\hspace{2em}日交付租赁物
 }
 
-\pairsection{12. 租赁物情况}{
+\pairsectionleft{12. 租赁物情况}{
 质量符合约定或者承租人的使用目的$\square$\\
 存在瑕疵$\square$\hspace{2em}具体情况：
 }
@@ -379,68 +394,68 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \newpage
 % ===== 第 5 页 =====
 
-\pairsection{13. 租金支付情况}{
+\pairsectionleft{13. 租金支付情况}{
 自\hspace{2em}年\hspace{2em}月\hspace{2em}日至\hspace{2em}年\hspace{2em}月\hspace{2em}日，按约定缴纳租金，已付租\\
 金\hspace{4em}元，\\
 逾期但已支付租金\hspace{4em}元\\
 明细：
 }
 
-\pairsection{14. 逾期未付租金情况}{
+\pairsectionleft{14. 逾期未付租金情况}{
 自\hspace{2em}年\hspace{2em}月\hspace{2em}日起，开始欠付租金，截至\hspace{2em}年\hspace{2em}月\hspace{2em}日，\\
 欠付租金\hspace{4em}元、违约金\hspace{4em}元、滞纳金\hspace{4em}元、损害赔偿金\\
 \hspace{4em}元，共计\hspace{4em}元\\
 明细：
 }
 
-\pairsection{15. 是否签订物的担保\\（抵押、质押）合同}{
+\pairsectionleft{15. 是否签订物的担保\\（抵押、质押）合同}{
 是$\square$\hspace{1em}签订时间：\\
 否$\square$
 }
 
-\pairsection{16. 担保人、担保物}{
+\pairsectionleft{16. 担保人、担保物}{
 担保人：\\
 担保物：
 }
 
-\pairsection{17. 是否最高额担保\\（抵押、质押）}{
+\pairsectionleft{17. 是否最高额担保\\（抵押、质押）}{
 是$\square$\hspace{1em}担保债权的确定时间：\\
 \hspace*{21bp}担保额度：\\
 否$\square$
 }
 
-\pairsection{18. 是否办理抵押、质\\押登记}{
+\pairsectionleft{18. 是否办理抵押、质\\押登记}{
 是$\square$\hspace{1em}正式登记$\square$\\
 \hspace*{21bp}预告登记$\square$\\
 否$\square$
 }
 
-\pairsection{19. 是否签订保证合同}{
+\pairsectionleft{19. 是否签订保证合同}{
 是$\square$\hspace{1em}签订时间：\hspace{4em}保证人：\\
 \hspace*{21bp}主要内容：\\
 否$\square$
 }
 
-\pairsection{20. 保证方式}{
+\pairsectionleft{20. 保证方式}{
 一般保证$\square$\\
 连带责任保证$\square$
 }
 
-\pairsection{21. 其他担保方式}{
+\pairsectionleft{21. 其他担保方式}{
 是$\square$\hspace{1em}形式：\hspace{4em}签订时间：\\
 否$\square$
 }
 
-\pairsection{22. 请求承担责任的\\依据}{
+\pairsectionleft{22. 请求承担责任的\\依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{23. 其他需要说明的\\内容（可另附页）}{
+\pairsectionleft{23. 其他需要说明的\\内容（可另附页）}{
 \mbox{}
 }
 
-\pairsection{24. 证据清单（可另附\\页）}{
+\pairsectionleft{24. 证据清单（可另附\\页）}{
 \mbox{}
 }
 
@@ -481,5 +496,86 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \vspace{10bp}
 \noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字、盖章）：}\par
 \noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 日期：}
+
+\newpage
+% ===== 第 7 页 =====
+\begin{center}
+    {\fzdbs\fontsize{18bp}{18bp}\selectfont 附件1}\par
+    \vspace{10bp}
+    {\fzdbs\fontsize{15bp}{15bp}\selectfont 原告证据清单}\par
+\end{center}
+\vspace{10bp}
+
+\noindent
+\begin{tabularx}{\textwidth}{|c|c|>{\centering\arraybackslash}X|c|>{\centering\arraybackslash}X|}
+\hline
+\fontsize{10.5bp}{10.5bp}\selectfont 编号 & \fontsize{10.5bp}{10.5bp}\selectfont 页码 & \fontsize{10.5bp}{10.5bp}\selectfont 证据名称 & \fontsize{10.5bp}{10.5bp}\selectfont 证据来源 & \fontsize{10.5bp}{10.5bp}\selectfont 拟证明事项 \\ \hline
+\multicolumn{5}{|l|}{\fontsize{10.5bp}{10.5bp}\selectfont 1. 证明原、被告主体资格的证据} \\ \hline
+1-1 & & \fontsize{10.5bp}{10.5bp}\selectfont 原、被告身份信息材料 & & \\ \hline
+\multicolumn{5}{|l|}{\fontsize{10.5bp}{10.5bp}\selectfont 2. 证明融资租赁合同关系的证据} \\ \hline
+2-1 & & \fontsize{10.5bp}{10.5bp}\selectfont 融资租赁合同 & & \\ \hline
+2-2 & & \fontsize{10.5bp}{10.5bp}\selectfont 租赁物交付及验收凭证 & & \\ \hline
+\multicolumn{5}{|l|}{\fontsize{10.5bp}{10.5bp}\selectfont 3. 证明违约事实及损失的证据} \\ \hline
+3-1 & & \fontsize{10.5bp}{10.5bp}\selectfont 租金支付记录（或欠付证据） & & \\ \hline
+3-2 & & \fontsize{10.5bp}{10.5bp}\selectfont 催收记录（如有） & & \\ \hline
+\multicolumn{5}{|l|}{\fontsize{10.5bp}{10.5bp}\selectfont 4. 其他证据} \\ \hline
+4-1 & & \fontsize{10.5bp}{10.5bp}\selectfont 关联案件证据 & & \\ \hline
+4-2 & & \fontsize{10.5bp}{10.5bp}\selectfont 指导性案例、人民法院案例库案例等参考案例 & & \\ \hline
+\end{tabularx}
+
+\vspace{20bp}
+\noindent\fontsize{10.5bp}{10.5bp}\selectfont 提交人：\par
+\noindent\fontsize{10.5bp}{10.5bp}\selectfont 提交时间：
+
+\newpage
+% ===== 第 8 页 =====
+\begin{center}
+    {\fzdbs\fontsize{18bp}{18bp}\selectfont 附件2}\par
+    \vspace{5bp}
+    {\fzdbs\fontsize{14bp}{14bp}\selectfont 关联行政确权程序及有关行政诉讼案件信息表}\par
+\end{center}
+\vspace{5bp}
+\noindent\fontsize{9bp}{12bp}\selectfont 案由：\rule{80bp}{0.5pt}；相关项目：\rule{80bp}{0.5pt}；当事人：\rule{80bp}{0.5pt}\par
+\noindent\fontsize{9bp}{12bp}\selectfont 统计期间：截至\rule{20bp}{0.5pt}年\rule{15bp}{0.5pt}月\rule{15bp}{0.5pt}日\hspace{2em}统计时间：\rule{20bp}{0.5pt}年\rule{15bp}{0.5pt}月\rule{15bp}{0.5pt}日\par
+\vspace{5bp}
+
+\noindent
+\resizebox{\textwidth}{!}{
+\fontsize{7bp}{8bp}\selectfont
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\makecell{序\\号} & \makecell{行政程序\\请求人} & \makecell{行政程序\\的请求和\\理由} & \makecell{行政决定\\及作出\\时间} & \makecell{行政决定\\的结论} & \makecell{是否提\\起行政\\诉讼} & \makecell{一审\\案号} & \makecell{一审当事\\人及委托\\诉讼代理\\人} & \makecell{诉讼\\请求} & \makecell{一审裁\\判结果} & \makecell{一审裁\\判日期} & \makecell{二审\\案号} & \makecell{二审当事人及\\委托诉讼代理\\人} & \makecell{二审裁\\判结果} & \makecell{二审裁\\判日期} \\ \hline
+1 & ××× & \makecell[l]{写明请求\\和理由} & \makecell{× 年×\\月× 日} & \makecell{决定内容} & 是/ 否 & \makecell{案号：} & \makecell[l]{原\\告：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师\\被\\告：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师} & \makecell[l]{写明一\\审全部\\诉讼请\\求} & \makecell[l]{写明一\\审判项\\实质结\\果} & \makecell{× 年×\\月× 日} & \makecell{案号：} & \makecell[l]{上诉人（原审\\原告/ 被告）：\\×××\\委托诉讼代理\\人：×××，\\×× 律所律\\师\\被上诉人（原\\审原告/ 被\\告）：×××\\委托诉讼代理\\人：×××，\\×× 律所律\\师} & \makecell[l]{写明二\\审判项\\实质结\\果} & \makecell{×\\年\\×\\月\\× 日} \\ \hline
+\end{tabular}
+}
+
+\vspace{10bp}
+\noindent\fontsize{8bp}{10bp}\selectfont 注：1. 如关联行政确权程序或有关行政诉讼案件暂未结案，请注明行政程序/ 诉讼案件的当前进展，如行政程序已受理/ 已安排口审（口审时间）/ 已开\\
+口审（口审时间）/ 中止审理等，诉讼案件已受理/ 处于管辖权异议程序/ 已安排开庭（开庭时间）/ 已 开庭（开庭时间）等；\par
+\hspace*{1.5em} 2. 如诉讼案件存在再审情形，需一并写明相关信息。
+
+\newpage
+% ===== 第 9 页 =====
+\begin{center}
+    {\fzdbs\fontsize{18bp}{18bp}\selectfont 关联民事案件信息表}\par
+\end{center}
+\vspace{5bp}
+\noindent\fontsize{9bp}{12bp}\selectfont 案由：\rule{80bp}{0.5pt}；相关合同/ 标的：\rule{80bp}{0.5pt}；当事人：\rule{80bp}{0.5pt}\par
+\noindent\fontsize{9bp}{12bp}\selectfont 统计期间：截至\rule{20bp}{0.5pt}年\rule{15bp}{0.5pt}月\rule{15bp}{0.5pt}日\hspace{2em}统计时间：\rule{20bp}{0.5pt}年\rule{15bp}{0.5pt}月\rule{15bp}{0.5pt}日\par
+\vspace{5bp}
+
+\noindent
+\resizebox{\textwidth}{!}{
+\fontsize{7bp}{8bp}\selectfont
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\makecell{序\\号} & 案由 & \makecell{一审法院\\及案号} & \makecell{诉讼\\请求} & \makecell{一审当事\\人及委托\\诉讼代理\\人} & \makecell{简要\\案情} & \makecell{一审裁判\\日期} & \makecell{一审裁判\\结果} & \makecell{二审法院\\及案号} & \makecell{二审当事\\人及委托\\诉讼代理\\人} & \makecell{二审裁判\\日期} & \makecell{二审裁判\\结果} \\ \hline
+1 & \makecell[l]{侵害××\\纠纷/ 合同\\纠纷/\\其他} & \makecell[l]{法院：\\案号：} & \makecell[l]{写明一审\\全部诉讼\\请求} & \makecell[l]{原\\告：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师\\被\\告：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师} & \makecell[l]{涉及相同\\合同/ 涉\\及相同当\\事人/ 简要\\说明案情} & \makecell{× 年× 月\\× 日} & \makecell[l]{写明一审\\判项基本\\内容} & \makecell[l]{法院：\\案号：} & \makecell[l]{上\\诉\\人\\（原审原告\\/ 被告）：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师\\被上诉人\\（原审原告\\/ 被告）：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师} & \makecell{× 年× 月\\× 日} & \makecell[l]{写明二审\\判项基本\\内容} \\ \hline
+\end{tabular}
+}
+
+\vspace{10bp}
+\noindent\fontsize{8bp}{10bp}\selectfont 注：1. 如有关诉讼案件暂未结案，请注明诉讼案件的当前进展，如已受理/ 处于管辖权异议程序/ 已安排开庭（开庭时间）/ 已开庭（开庭时间）等；\par
+\hspace*{1.5em} 2. 如诉讼案件存在再审情形，需一并写明相关信息。
 
 \end{document}

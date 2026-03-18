@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 \lawtitle{民事起诉状}{（船舶碰撞损害责任纠纷）}
@@ -223,7 +248,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 是否主张船舶价值损\\失（含修理费等）及\\利息}{
+\pairsectionleft{1. 是否主张船舶价值损\\失（含修理费等）及\\利息}{
 是$\square$\hspace{2em}否$\square$\\
 损失项目及金额：\hspace{4em}元（人民币，下同；如外币需特别注明）截至\hspace{4em}年\\
 \hspace*{21bp}月\hspace{2em}日止，欠利息\hspace{4em}元；\\
@@ -231,56 +256,56 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{2. 是否主张船上财产损\\失（船载货物、渔船\\捕捞设备、网具）及\\利息}{
+\pairsectionleft{2. 是否主张船上财产损\\失（船载货物、渔船\\捕捞设备、网具）及\\利息}{
 是$\square$\hspace{2em}否$\square$\\
 损失项目及金额：\hspace{4em}截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\
 计算方式：\\
 是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{3. 是否主张救助费、沉\\船打捞清除费、拖航\\费、共同海损分摊等\\及利息}{
+\pairsectionleft{3. 是否主张救助费、沉\\船打捞清除费、拖航\\费、共同海损分摊等\\及利息}{
 是$\square$\hspace{2em}否$\square$\\
 损失项目及金额：\hspace{4em}截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\
 计算方式：\\
 是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{4. 是否主张本航次租金\\或运费损失、船期损\\失及利息}{
+\pairsectionleft{4. 是否主张本航次租金\\或运费损失、船期损\\失及利息}{
 是$\square$\hspace{2em}否$\square$\\
 损失项目及金额：\hspace{4em}截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\
 计算方式：\\
 是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{5. 是否主张船上人身伤\\亡损失及利息}{
+\pairsectionleft{5. 是否主张船上人身伤\\亡损失及利息}{
 是$\square$\hspace{2em}否$\square$\\
 损失项目及金额：\hspace{4em}截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\
 计算方式：\\
 是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{6. 是否主张诉讼费用}{
+\pairsectionleft{6. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{7. 其他损失}{
+\pairsectionleft{7. 其他损失}{
 项目：\\
 费用：\hspace{4em}元
 }
 
-\pairsection{8. 标的总额}{
+\pairsectionleft{8. 标的总额}{
 \hspace{4em}元（暂计至\hspace{4em}年\hspace{2em}月\hspace{2em}日）
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -289,12 +314,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{涉外及涉港澳台}
 
-\pairsection{1. 是否涉外}{
+\pairsectionleft{1. 是否涉外}{
 是$\square$\hspace{1em}涉及国家：\\
 否$\square$
 }
 
-\pairsection{2. 是否涉港澳台}{
+\pairsectionleft{2. 是否涉港澳台}{
 是$\square$\hspace{1em}涉港$\square$\hspace{1em}涉澳$\square$\hspace{1em}涉台$\square$\\
 否$\square$
 }
@@ -316,52 +341,52 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 请求依据}{
+\pairsectionleft{1. 请求依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{1. 碰撞事实经过}{
+\pairsectionleft{1. 碰撞事实经过}{
 \mbox{}
 }
 
-\pairsection{2. 碰撞船舶情况}{
+\pairsectionleft{2. 碰撞船舶情况}{
 本船船名：\hspace{8em}对方船船名：\\
 本船国籍：\hspace{8em}对方船国籍：\\
 本船所有人：\hspace{8em}对方船所有人：
 }
 
-\pairsection{3. 责任认定情况}{
+\pairsectionleft{3. 责任认定情况}{
 有$\square$\hspace{1em}（{\heiti\bfseries 调查机关、责任主体及责任大小等}）\\
 无$\square$
 }
 
-\pairsection{4. 有无填写《海事事故\\调查表》}{
+\pairsectionleft{4. 有无填写《海事事故\\调查表》}{
 有$\square$\\
 无$\square$
 }
 
-\pairsection{5. 船舶价值}{
+\pairsectionleft{5. 船舶价值}{
 \hspace{4em}元
 }
 
-\pairsection{6. 船舶修理情况}{
+\pairsectionleft{6. 船舶修理情况}{
 有$\square$\hspace{1em}修船地点：\hspace{6em}修理项目：\\
 \hspace*{21bp}应付修船费用：\hspace{4em}元\hspace{4em}已实际支付修船费用：\hspace{4em}元\\
 无$\square$
 }
 
-\pairsection{7. 其他损失的依据}{
+\pairsectionleft{7. 其他损失的依据}{
 有$\square$\hspace{1em}依据名称：\\
 无$\square$
 }
 
-\pairsection{8. 其他需要说明的内容\\（如海上保险合同赔偿\\金支付凭证、权益转\\让书、非本表列明损\\失的法律依据等，可\\另附页）}{
+\pairsectionleft{8. 其他需要说明的内容\\（如海上保险合同赔偿\\金支付凭证、权益转\\让书、非本表列明损\\失的法律依据等，可\\另附页）}{
 有$\square$\\[6bp]
 无$\square$
 }
 
-\pairsection{9. 证据清单（可另附\\页）}{
+\pairsectionleft{9. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

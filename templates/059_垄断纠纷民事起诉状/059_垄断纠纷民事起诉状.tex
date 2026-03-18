@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -249,17 +274,17 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 停止垄断行为}{
+\pairsectionleft{1. 停止垄断行为}{
 有$\square$\hspace{1em}内容：（{\heiti\bfseries 简述请求停止的垄断行为内容}）\\
 无$\square$
 }
 
-\pairsection{2. 赔偿经济损失}{
+\pairsectionleft{2. 赔偿经济损失}{
 有$\square$\hspace{1em}经济损失\hspace{4em}元\\
 无$\square$
 }
 
-\pairsection{3. 赔偿维权合理开支}{
+\pairsectionleft{3. 赔偿维权合理开支}{
 有$\square$\hspace{1em}律师费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}经济分析费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}市场调查费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
@@ -267,34 +292,34 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{4. 连带责任}{
+\pairsectionleft{4. 连带责任}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{5. 非金钱给付义务迟延\\履行金}{
+\pairsectionleft{5. 非金钱给付义务迟延\\履行金}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{6. 是否主张诉讼费用}{
+\pairsectionleft{6. 是否主张诉讼费用}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{7. 其他请求}{
+\pairsectionleft{7. 其他请求}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
 \subtitlesection{涉外及涉港澳台}
 
-\pairsection{1. 是否涉外}{
+\pairsectionleft{1. 是否涉外}{
 是$\square$\hspace{1em}涉及国家：\\
 否$\square$
 }
 
-\pairsection{2. 是否涉港澳台}{
+\pairsectionleft{2. 是否涉港澳台}{
 是$\square$\hspace{1em}涉港$\square$\hspace{1em}涉澳$\square$\hspace{1em}涉台$\square$\\
 否$\square$
 }
@@ -317,7 +342,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 被诉垄断行为}{
+\pairsectionleft{1. 被诉垄断行为}{
 具体内容：（{\heiti\bfseries 综述具体所诉垄断行为}）。\\
 实施垄断行为期间：\\
 是否为行政处罚的后继诉讼：是$\square$\hspace{1em}（被诉行为及持续时间是否完全涵盖行\\
@@ -326,19 +351,19 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 否$\square$
 }
 
-\pairsection{2. 共同侵权}{
+\pairsectionleft{2. 共同侵权}{
 有$\square$\hspace{1em}主要事实与理由：（{\heiti\bfseries 一并写明共同侵权主体之间是否存在关联关系}）\\
 无$\square$
 }
 
-\pairsection{3. 相关市场界定}{
+\pairsectionleft{3. 相关市场界定}{
 本案相关市场为……（{\heiti\bfseries 包括具体时间范围内的商品市场、地域市场}）。\\
 具体说明：\\
 （{\heiti\bfseries 原告主张被诉垄断行为属于反垄断法第十七条第一项至第五项和第十\\
 八条第一款第一项、第二项规定情形的，可以不对相关市场界定提供证据}）
 }
 
-\pairsection{4. 具体垄断行为}{
+\pairsectionleft{4. 具体垄断行为}{
 被告达成 / 实施了横向垄断协议 / 纵向垄断协议 / 轴辐协议，具体\\
 为：……。上述协议产生了排除、限制竞争效果，具体分析：\\
 （{\heiti\bfseries 适用于垄断协议纠纷}）\\[6bp]
@@ -354,13 +379,13 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 （{\heiti\bfseries 适用于滥用市场支配地位纠纷}）
 }
 
-\pairsection{5. 其他}{
+\pairsectionleft{5. 其他}{
 \mbox{}
 }
 
 \subtitlesection{责任承担}
 
-\pairsection{1. 停止垄断行为}{
+\pairsectionleft{1. 停止垄断行为}{
 被告应当立即停止垄断行为。具体说明：
 }
 
@@ -402,18 +427,18 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \end{minipage}%
 \end{tcolorbox}
 
-\pairsection{3. 连带责任}{
+\pairsectionleft{3. 连带责任}{
 有$\square$\hspace{1em}内容：被告一××、被告二××构成共同侵权，应当连带赔偿原告\\
 \hspace*{21bp}经济损失×元、维权合理开支×元。具体理由：……\\
 无$\square$
 }
 
-\pairsection{4. 其他责任}{
+\pairsectionleft{4. 其他责任}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{5. 法律依据}{
+\pairsectionleft{5. 法律依据}{
 \mbox{}
 }
 

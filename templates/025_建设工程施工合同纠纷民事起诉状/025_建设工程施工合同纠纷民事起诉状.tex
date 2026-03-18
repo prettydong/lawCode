@@ -5,6 +5,9 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
 
 \definecolor{inkblack}{rgb}{0.08,0.08,0.08}
 \geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
@@ -42,7 +45,7 @@
 \newcommand{\subtitlesection}[1]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
+        boxsep=0pt, left=0pt, right=0pt, top=2bp, bottom=2bp, halign=center,
         fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
@@ -54,38 +57,49 @@
 \newcommand{\subtitlenotesection}[2]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp, halign=center,
+        boxsep=0pt, left=0pt, right=0pt, top=2bp, bottom=2bp, halign=center,
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
     ]
-    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\\[2bp]
+    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\par
     {\songti\fontsize{10.5bp}{14bp}\selectfont\color{inkblack}\bfseries #2}
     \end{tcolorbox}%
 }
 
-\newcommand{\pairsection}[2]{%
+\newcommand{\pairsectionbase}[3]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
         boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
     ]
-    \begin{minipage}[c]{112.9bp}%
-        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \begin{minipage}[t]{112.9bp}%
+        \vspace{2bp}%
+        \songti\fontsize{10.5bp}{12bp}\selectfont
+        #1#2%
+        \vspace{2bp}%
     \end{minipage}%
     \hspace{0pt}%
     \vrule width 0.5pt%
     \hspace{4bp}%
     \begin{minipage}[c]{346.32bp}%
-        \vspace{4bp}%
+        \vspace{2bp}%
         \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-        \baselineskip=17bp%
+        \baselineskip=16bp%
         \setlength{\parindent}{0pt}%
         \color{inkblack}%
-        #2%
-        \vspace{4bp}%
+        #3%
+        \vspace{2bp}%
     \end{minipage}%
     \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \pairsectionbase{\centering}{#1}{#2}%
+}
+
+\newcommand{\pairsectionleft}[2]{%
+    \pairsectionbase{\raggedright\fontsize{10.5bp}{10.5bp}\selectfont}{#1}{#2}%
 }
 
 \begin{document}
@@ -114,7 +128,8 @@
 如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
 可根据实际对栏目进行扩容等。
 \lawpar
-$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+{\fzssk ★}特别提示{\fzssk ★}
+\\[-4.86bp]
 \hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
 \hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
 追究责任。
@@ -229,28 +244,28 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 支付工程款}{
+\pairsectionleft{1. 支付工程款}{
 \hspace{4em}元（人民币，下同；如外币需特别注明）
 }
 
-\pairsection{2. 迟延支付工程款的利\\息（违约金）}{
+\pairsectionleft{2. 迟延支付工程款的利\\息（违约金）}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，迟延支付工程款的利息\hspace{4em}元、违约\\
 金\hspace{4em}元；自\hspace{4em}之后的逾期利息、违约金，以\hspace{4em}元为基\\
 数按照\hspace{4em}标准计算；\\
 是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{3. 是否主张建设工程价\\款优先受偿权}{
+\pairsectionleft{3. 是否主张建设工程价\\款优先受偿权}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
-\pairsection{4. 是否请求与原告没有\\建设工程施工合同关系\\的发包人、其他转包方、\\分包方等主体承担责任}{
+\pairsectionleft{4. 是否请求与原告没有\\建设工程施工合同关系\\的发包人、其他转包方、\\分包方等主体承担责任}{
 是$\square$\hspace{1em}责任主体姓名或者名称：\\
 否$\square$
 }
 
-\pairsection{5. 是否要求赔偿损失}{
+\pairsectionleft{5. 是否要求赔偿损失}{
 是$\square$\hspace{1em}支付赔偿金\hspace{4em}元\\
 \hspace*{21bp}责任类型：停窝工损失$\square$\hspace{1em}其他$\square$\\
 \hspace*{21bp}具体情形：\\
@@ -258,12 +273,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 否$\square$
 }
 
-\pairsection{6. 是否退还超付的工程\\款}{
+\pairsectionleft{6. 是否退还超付的工程\\款}{
 是$\square$\hspace{1em}金额\hspace{4em}元\\
 否$\square$
 }
 
-\pairsection{7. 是否支付超付工程款\\的利息}{
+\pairsectionleft{7. 是否支付超付工程款\\的利息}{
 是$\square$\hspace{1em}截至\hspace{2em}年\hspace{2em}月\hspace{2em}日，返还超付工程款的利息\hspace{4em}元，\\
 \hspace*{21bp}自\hspace{4em}之后的逾期利息，以\hspace{4em}元为基数按照\hspace{4em}标准计算；\\
 \hspace*{21bp}计算方式：\\
@@ -271,12 +286,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 否$\square$
 }
 
-\pairsection{8. 是否对建设工程承担\\修复责任}{
+\pairsectionleft{8. 是否对建设工程承担\\修复责任}{
 是$\square$\hspace{1em}修复$\square$\hspace{1em}付修复费用$\square$\hspace{1em}减少工程款$\square$\hspace{1em}其他$\square$，数额\hspace{4em}元\\
 否$\square$
 }
 
-\pairsection{9. 是否要求赔偿损失}{
+\pairsectionleft{9. 是否要求赔偿损失}{
 是$\square$\hspace{1em}支付赔偿金\hspace{4em}元\\
 \hspace*{21bp}责任类型：工程质量不符合约定$\square$\hspace{1em}迟延交付工程$\square$\\
 \hspace*{36bp}拒绝履行$\square$\hspace{1em}其他$\square$\\
@@ -285,50 +300,50 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 否$\square$
 }
 
-\pairsection{10. 请求确认建设工程\\施工合同无效}{
+\pairsectionleft{10. 请求确认建设工程\\施工合同无效}{
 是$\square$\hspace{1em}合同无效的理由：\\
 否$\square$
 }
 
-\pairsection{11. 要求继续履行或是\\解除合同}{
+\pairsectionleft{11. 要求继续履行或是\\解除合同}{
 继续履行$\square$\hspace{2em}日内履行完毕\hspace{4em}付款$\square$竣工$\square$义务\\
 判令解除合同$\square$\\
 确认建设工程施工合同已于\hspace{2em}年\hspace{2em}月\hspace{2em}日解除
 }
 
-\pairsection{12. 是否主张实现债权\\的费用}{
+\pairsectionleft{12. 是否主张实现债权\\的费用}{
 是$\square$\hspace{1em}费用明细：\\
 否$\square$
 }
 
-\pairsection{13. 是否主张诉讼费用}{
+\pairsectionleft{13. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{14. 其他请求}{
+\pairsectionleft{14. 其他请求}{
 \mbox{}
 }
 
-\pairsection{15. 标的总额}{
+\pairsectionleft{15. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{约定管辖、诉前保全及鉴定申请}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
 （如申请诉讼保全，请另行提交诉讼保全申请及相关材料）
 }
 
-\pairsection{3. 是否申请鉴定}{
+\pairsectionleft{3. 是否申请鉴定}{
 是$\square$\hspace{1em}鉴定事项：\\
 否$\square$
 }
@@ -351,22 +366,22 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 合同的签订情况（名\\称、编号、签订时间、\\地点、是否招投标等）}{
+\pairsectionleft{1. 合同的签订情况（名\\称、编号、签订时间、\\地点、是否招投标等）}{
 \mbox{}
 }
 
-\pairsection{2. 签订主体}{
+\pairsectionleft{2. 签订主体}{
 发包人：\\
 承包人：\\
 出借资质的建筑企业：\\
 实际施工人：
 }
 
-\pairsection{3. 建设工程情况（工程\\名称、所在地点、施工\\范围、质量标准等）}{
+\pairsectionleft{3. 建设工程情况（工程\\名称、所在地点、施工\\范围、质量标准等）}{
 \mbox{}
 }
 
-\pairsection{4. 合同约定的工程款及\\支付方式}{
+\pairsectionleft{4. 合同约定的工程款及\\支付方式}{
 综合单价$\square$\hspace{2em}元；固定单价$\square$\hspace{2em}元；固定总价$\square$\hspace{2em}元；\\
 其他$\square$：\\
 按施工进度支付工程款$\square$；垫资施工$\square$；其他$\square$；\\
@@ -374,58 +389,58 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 质保金$\square$\hspace{4em}元；质保金支付期限：
 }
 
-\pairsection{5. 工期}{
+\pairsectionleft{5. 工期}{
 开工时间\rule{40bp}{0.5pt}；竣工时间\rule{40bp}{0.5pt}；工期\rule{40bp}{0.5pt}天。
 }
 
-\pairsection{6. 合同约定的工程质量\\标准及竣工验收程序}{
+\pairsectionleft{6. 合同约定的工程质量\\标准及竣工验收程序}{
 \mbox{}
 }
 
-\pairsection{7. 合同约定的违约金\\（保证金）}{
+\pairsectionleft{7. 合同约定的违约金\\（保证金）}{
 违约金$\square$\hspace{2em}元（合同条款：第\hspace{2em}条）\\
 保证金$\square$\hspace{2em}元（合同条款：第\hspace{2em}条）\\
 迟延履行违约金$\square$\hspace{2em}\%/日（合同条款：第\hspace{2em}条）
 }
 
-\pairsection{8. 工程款支付情况}{
+\pairsectionleft{8. 工程款支付情况}{
 工程总价\hspace{4em}元；已支付工程款\hspace{4em}元；\\
 欠/超付工程款\hspace{4em}元。\\
 欠/超付工程款利息：\hspace{4em}元。
 }
 
-\pairsection{9. 建设工程质量情况}{
+\pairsectionleft{9. 建设工程质量情况}{
 工程质量是否合格：是$\square$\hspace{1em}否$\square$\\
 工程质量问题：\hspace{4em}。\\
 工程质量造成损失：\hspace{4em}元。
 }
 
-\pairsection{10. 建设工程交付情况}{
+\pairsectionleft{10. 建设工程交付情况}{
 工程是否迟延交付：是$\square$\hspace{1em}否$\square$\hspace{2em}交付时间\hspace{4em}。\\
 工程迟延交付造成损失：\hspace{4em}元。
 }
 
-\pairsection{11. 停窝工等情况}{
+\pairsectionleft{11. 停窝工等情况}{
 工程是否停窝工：是$\square$\hspace{1em}否$\square$\\
 工程停窝工造成损失：\hspace{4em}元。
 }
 
-\pairsection{12. 是否主张过建设工\\程价款优先受偿权}{
+\pairsectionleft{12. 是否主张过建设工\\程价款优先受偿权}{
 是$\square$\hspace{1em}主张情况：\hspace{2em}年\hspace{2em}月\hspace{2em}日通过\hspace{4em}方式主张了建设工程价\\
 \hspace*{21bp}款优先受偿权\\
 否$\square$
 }
 
-\pairsection{13. 其他需要说明的内\\容（可另附页）}{
+\pairsectionleft{13. 其他需要说明的内\\容（可另附页）}{
 \mbox{}
 }
 
-\pairsection{14. 请求依据}{
+\pairsectionleft{14. 请求依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{15. 证据清单（可另附\\页）}{
+\pairsectionleft{15. 证据清单（可另附\\页）}{
 \mbox{}
 }
 
@@ -466,5 +481,86 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \vspace{10bp}
 \noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字、盖章）：}\par
 \noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 日期：}
+
+\newpage
+% ===== 第 7 页 =====
+\begin{center}
+    {\fzdbs\fontsize{18bp}{18bp}\selectfont 附件1}\par
+    \vspace{10bp}
+    {\fzdbs\fontsize{15bp}{15bp}\selectfont 原告证据清单}\par
+\end{center}
+\vspace{10bp}
+
+\noindent
+\begin{tabularx}{\textwidth}{|c|c|>{\centering\arraybackslash}X|c|>{\centering\arraybackslash}X|}
+\hline
+\fontsize{10.5bp}{10.5bp}\selectfont 编号 & \fontsize{10.5bp}{10.5bp}\selectfont 页码 & \fontsize{10.5bp}{10.5bp}\selectfont 证据名称 & \fontsize{10.5bp}{10.5bp}\selectfont 证据来源 & \fontsize{10.5bp}{10.5bp}\selectfont 拟证明事项 \\ \hline
+\multicolumn{5}{|l|}{\fontsize{10.5bp}{10.5bp}\selectfont 1. 证明原、被告主体资格的证据} \\ \hline
+1-1 & & \fontsize{10.5bp}{10.5bp}\selectfont 原、被告身份信息材料 & & \\ \hline
+\multicolumn{5}{|l|}{\fontsize{10.5bp}{10.5bp}\selectfont 2. 证明建设工程施工合同关系的证据} \\ \hline
+2-1 & & \fontsize{10.5bp}{10.5bp}\selectfont 建设工程施工合同 & & \\ \hline
+2-2 & & \fontsize{10.5bp}{10.5bp}\selectfont 工程竣工验收报告或交付凭证 & & \\ \hline
+\multicolumn{5}{|l|}{\fontsize{10.5bp}{10.5bp}\selectfont 3. 证明违约事实及损失的证据} \\ \hline
+3-1 & & \fontsize{10.5bp}{10.5bp}\selectfont 工程款支付记录（或欠付证据） & & \\ \hline
+3-2 & & \fontsize{10.5bp}{10.5bp}\selectfont 催收记录（如有） & & \\ \hline
+\multicolumn{5}{|l|}{\fontsize{10.5bp}{10.5bp}\selectfont 4. 其他证据} \\ \hline
+4-1 & & \fontsize{10.5bp}{10.5bp}\selectfont 关联案件证据 & & \\ \hline
+4-2 & & \fontsize{10.5bp}{10.5bp}\selectfont 指导性案例、人民法院案例库案例等参考案例 & & \\ \hline
+\end{tabularx}
+
+\vspace{20bp}
+\noindent\fontsize{10.5bp}{10.5bp}\selectfont 提交人：\par
+\noindent\fontsize{10.5bp}{10.5bp}\selectfont 提交时间：
+
+\newpage
+% ===== 第 8 页 =====
+\begin{center}
+    {\fzdbs\fontsize{18bp}{18bp}\selectfont 附件2}\par
+    \vspace{5bp}
+    {\fzdbs\fontsize{14bp}{14bp}\selectfont 关联行政确权程序及有关行政诉讼案件信息表}\par
+\end{center}
+\vspace{5bp}
+\noindent\fontsize{9bp}{12bp}\selectfont 案由：\rule{80bp}{0.5pt}；相关项目：\rule{80bp}{0.5pt}；当事人：\rule{80bp}{0.5pt}\par
+\noindent\fontsize{9bp}{12bp}\selectfont 统计期间：截至\rule{20bp}{0.5pt}年\rule{15bp}{0.5pt}月\rule{15bp}{0.5pt}日\hspace{2em}统计时间：\rule{20bp}{0.5pt}年\rule{15bp}{0.5pt}月\rule{15bp}{0.5pt}日\par
+\vspace{5bp}
+
+\noindent
+\resizebox{\textwidth}{!}{
+\fontsize{7bp}{8bp}\selectfont
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\makecell{序\\号} & \makecell{行政程序\\请求人} & \makecell{行政程序\\的请求和\\理由} & \makecell{行政决定\\及作出\\时间} & \makecell{行政决定\\的结论} & \makecell{是否提\\起行政\\诉讼} & \makecell{一审\\案号} & \makecell{一审当事\\人及委托\\诉讼代理\\人} & \makecell{诉讼\\请求} & \makecell{一审裁\\判结果} & \makecell{一审裁\\判日期} & \makecell{二审\\案号} & \makecell{二审当事人及\\委托诉讼代理\\人} & \makecell{二审裁\\判结果} & \makecell{二审裁\\判日期} \\ \hline
+1 & ××× & \makecell[l]{写明请求\\和理由} & \makecell{× 年×\\月× 日} & \makecell{决定内容} & 是/ 否 & \makecell{案号：} & \makecell[l]{原\\告：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师\\被\\告：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师} & \makecell[l]{写明一\\审全部\\诉讼请\\求} & \makecell[l]{写明一\\审判项\\实质结\\果} & \makecell{× 年×\\月× 日} & \makecell{案号：} & \makecell[l]{上诉人（原审\\原告/ 被告）：\\×××\\委托诉讼代理\\人：×××，\\×× 律所律\\师\\被上诉人（原\\审原告/ 被\\告）：×××\\委托诉讼代理\\人：×××，\\×× 律所律\\师} & \makecell[l]{写明二\\审判项\\实质结\\果} & \makecell{×\\年\\×\\月\\× 日} \\ \hline
+\end{tabular}
+}
+
+\vspace{10bp}
+\noindent\fontsize{8bp}{10bp}\selectfont 注：1. 如关联行政确权程序或有关行政诉讼案件暂未结案，请注明行政程序/ 诉讼案件的当前进展，如行政程序已受理/ 已安排口审（口审时间）/ 已开\\
+口审（口审时间）/ 中止审理等，诉讼案件已受理/ 处于管辖权异议程序/ 已安排开庭（开庭时间）/ 已 开庭（开庭时间）等；\par
+\hspace*{1.5em} 2. 如诉讼案件存在再审情形，需一并写明相关信息。
+
+\newpage
+% ===== 第 9 页 =====
+\begin{center}
+    {\fzdbs\fontsize{18bp}{18bp}\selectfont 关联民事案件信息表}\par
+\end{center}
+\vspace{5bp}
+\noindent\fontsize{9bp}{12bp}\selectfont 案由：\rule{80bp}{0.5pt}；相关合同/ 标的：\rule{80bp}{0.5pt}；当事人：\rule{80bp}{0.5pt}\par
+\noindent\fontsize{9bp}{12bp}\selectfont 统计期间：截至\rule{20bp}{0.5pt}年\rule{15bp}{0.5pt}月\rule{15bp}{0.5pt}日\hspace{2em}统计时间：\rule{20bp}{0.5pt}年\rule{15bp}{0.5pt}月\rule{15bp}{0.5pt}日\par
+\vspace{5bp}
+
+\noindent
+\resizebox{\textwidth}{!}{
+\fontsize{7bp}{8bp}\selectfont
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\makecell{序\\号} & 案由 & \makecell{一审法院\\及案号} & \makecell{诉讼\\请求} & \makecell{一审当事\\人及委托\\诉讼代理\\人} & \makecell{简要\\案情} & \makecell{一审裁判\\日期} & \makecell{一审裁判\\结果} & \makecell{二审法院\\及案号} & \makecell{二审当事\\人及委托\\诉讼代理\\人} & \makecell{二审裁判\\日期} & \makecell{二审裁判\\结果} \\ \hline
+1 & \makecell[l]{侵害××\\纠纷/ 合同\\纠纷/\\其他} & \makecell[l]{法院：\\案号：} & \makecell[l]{写明一审\\全部诉讼\\请求} & \makecell[l]{原\\告：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师\\被\\告：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师} & \makecell[l]{涉及相同\\合同/ 涉\\及相同当\\事人/ 简要\\说明案情} & \makecell{× 年× 月\\× 日} & \makecell[l]{写明一审\\判项基本\\内容} & \makecell[l]{法院：\\案号：} & \makecell[l]{上\\诉\\人\\（原审原告\\/ 被告）：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师\\被上诉人\\（原审原告\\/ 被告）：\\×××\\委托诉讼\\代理人：\\× × × ，\\×× 律所\\律师} & \makecell{× 年× 月\\× 日} & \makecell[l]{写明二审\\判项基本\\内容} \\ \hline
+\end{tabular}
+}
+
+\vspace{10bp}
+\noindent\fontsize{8bp}{10bp}\selectfont 注：1. 如有关诉讼案件暂未结案，请注明诉讼案件的当前进展，如已受理/ 处于管辖权异议程序/ 已安排开庭（开庭时间）/ 已开庭（开庭时间）等；\par
+\hspace*{1.5em} 2. 如诉讼案件存在再审情形，需一并写明相关信息。
 
 \end{document}

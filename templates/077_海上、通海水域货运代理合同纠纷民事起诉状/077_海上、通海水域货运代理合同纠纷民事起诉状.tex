@@ -36,7 +36,55 @@
 
 \newcommand{\subtitlesection}[1]{\begin{tcolorbox}[width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},enlarge left by=-19.28bp,before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}]#1\end{tcolorbox}}
 
-\newcommand{\pairsection}[2]{\begin{tcolorbox}[width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,enlarge left by=-19.28bp,before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt]\begin{minipage}[c]{112.9bp}\centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1\end{minipage}\hspace{0pt}\vrule width 0.5pt\hspace{4bp}\begin{minipage}[c]{346.32bp}\vspace{4bp}\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont\baselineskip=17bp\setlength{\parindent}{0pt}\color{inkblack}#2\vspace{4bp}\end{minipage}\end{tcolorbox}}
+\newcommand{\pairsection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
 
 \begin{document}
 
@@ -89,29 +137,29 @@
 （可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]\mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 是否主张代理费}{是$\square$\hspace{1em}代理费\hspace{4em}元，截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\计算方式：\\是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$\\否$\square$}
+\pairsectionleft{1. 是否主张代理费}{是$\square$\hspace{1em}代理费\hspace{4em}元，截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\计算方式：\\是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$\\否$\square$}
 
-\pairsection{2. 是否主张垫付费用}{是$\square$\hspace{1em}垫付费用\hspace{4em}元，截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\损失项目及金额：\\计算方式：\\是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$\\否$\square$}
+\pairsectionleft{2. 是否主张垫付费用}{是$\square$\hspace{1em}垫付费用\hspace{4em}元，截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\损失项目及金额：\\计算方式：\\是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$\\否$\square$}
 
-\pairsection{3. 是否主张违约损失}{是$\square$\hspace{1em}损失\hspace{4em}元\\否$\square$}
+\pairsectionleft{3. 是否主张违约损失}{是$\square$\hspace{1em}损失\hspace{4em}元\\否$\square$}
 
-\pairsection{4. 是否主张诉讼费用}{是$\square$\\否$\square$}
+\pairsectionleft{4. 是否主张诉讼费用}{是$\square$\\否$\square$}
 
-\pairsection{5. 其他损失}{项目：\\费用：\hspace{4em}元}
+\pairsectionleft{5. 其他损失}{项目：\\费用：\hspace{4em}元}
 
-\pairsection{6. 标的总额}{\hspace{4em}元（暂计至\hspace{4em}年\hspace{2em}月\hspace{2em}日）}
+\pairsectionleft{6. 标的总额}{\hspace{4em}元（暂计至\hspace{4em}年\hspace{2em}月\hspace{2em}日）}
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{有$\square$\hspace{4em}合同条款及内容：\\无$\square$}
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{有$\square$\hspace{4em}合同条款及内容：\\无$\square$}
 
-\pairsection{2. 是否已经诉前保全}{是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\\hspace*{21bp}保全案号：\\否$\square$\\（如申请诉讼保全，请另行提交诉讼保全申请及相关材料）}
+\pairsectionleft{2. 是否已经诉前保全}{是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\\hspace*{21bp}保全案号：\\否$\square$\\（如申请诉讼保全，请另行提交诉讼保全申请及相关材料）}
 
 \subtitlesection{涉外及涉港澳台}
 
-\pairsection{1. 是否涉外}{是$\square$\hspace{1em}涉及国家：\\否$\square$}
+\pairsectionleft{1. 是否涉外}{是$\square$\hspace{1em}涉及国家：\\否$\square$}
 
-\pairsection{2. 是否涉港澳台}{是$\square$\hspace{1em}涉港$\square$\hspace{1em}涉澳$\square$\hspace{1em}涉台$\square$\\否$\square$}
+\pairsectionleft{2. 是否涉港澳台}{是$\square$\hspace{1em}涉港$\square$\hspace{1em}涉澳$\square$\hspace{1em}涉台$\square$\\否$\square$}
 
 \newpage
 
@@ -122,27 +170,27 @@
 （可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]\mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 请求依据}{合同约定：\\法律规定：}
+\pairsectionleft{1. 请求依据}{合同约定：\\法律规定：}
 
-\pairsection{2. 合同签订情况}{（名称、编号、签订时间、地点等）}
+\pairsectionleft{2. 合同签订情况}{（名称、编号、签订时间、地点等）}
 
-\pairsection{3. 签订主体}{委托人：\\受托人：}
+\pairsectionleft{3. 签订主体}{委托人：\\受托人：}
 
-\pairsection{4. 有关费用情况}{约定应收金额：\\实际收到金额：}
+\pairsectionleft{4. 有关费用情况}{约定应收金额：\\实际收到金额：}
 
-\pairsection{5. 付款期限}{是否到期：是$\square$\hspace{1em}否$\square$\\约定付款期限：\hspace{4em}年\hspace{2em}月\hspace{2em}日}
+\pairsectionleft{5. 付款期限}{是否到期：是$\square$\hspace{1em}否$\square$\\约定付款期限：\hspace{4em}年\hspace{2em}月\hspace{2em}日}
 
-\pairsection{6. 委托事项内容}{订舱$\square$\hspace{1em}拖车$\square$\hspace{1em}报关$\square$\\其他事项：}
+\pairsectionleft{6. 委托事项内容}{订舱$\square$\hspace{1em}拖车$\square$\hspace{1em}报关$\square$\\其他事项：}
 
-\pairsection{7. 委托事项完成情况}{已完成$\square$\\未完成$\square$\hspace{1em}原因：}
+\pairsectionleft{7. 委托事项完成情况}{已完成$\square$\\未完成$\square$\hspace{1em}原因：}
 
-\pairsection{8. 是否完成费用对账}{已完成$\square$\\未完成$\square$\hspace{1em}原因：}
+\pairsectionleft{8. 是否完成费用对账}{已完成$\square$\\未完成$\square$\hspace{1em}原因：}
 
-\pairsection{9. 是否已开具费用发票}{是$\square$\hspace{2em}否$\square$}
+\pairsectionleft{9. 是否已开具费用发票}{是$\square$\hspace{2em}否$\square$}
 
-\pairsection{10. 其他需要说明的内\\容（可另附页）}{\mbox{}}
+\pairsectionleft{10. 其他需要说明的内\\容（可另附页）}{\mbox{}}
 
-\pairsection{11. 证据清单（可另附\\页）}{\mbox{}}
+\pairsectionleft{11. 证据清单（可另附\\页）}{\mbox{}}
 
 \subtitlesection{对纠纷解决方式的意愿}
 

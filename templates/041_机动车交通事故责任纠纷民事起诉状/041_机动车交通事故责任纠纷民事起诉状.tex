@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -218,77 +243,77 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 医疗费}{
+\pairsectionleft{1. 医疗费}{
 \hspace{2em}年\hspace{1em}月\hspace{1em}日至\hspace{2em}年\hspace{1em}月\hspace{1em}日期间在\hspace{4em}医院住院（门\\
 诊）治疗，累计发生医疗费\hspace{4em}元\\
 医疗费发票、医疗费清单、病历资料：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{2. 护理费}{
+\pairsectionleft{2. 护理费}{
 住院护理\hspace{2em}天支付护理费\hspace{4em}元（或护理人员发生误工费\\
 \hspace{4em}元），或遵医嘱短期护理发生护理费\hspace{4em}元\\
 住院证明、医嘱等：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{3. 营养费}{
+\pairsectionleft{3. 营养费}{
 营养费\hspace{4em}元\\
 病历资料：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{4. 住院伙食补助费}{
+\pairsectionleft{4. 住院伙食补助费}{
 住院伙食补助费\hspace{4em}元\\
 病历资料：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{5. 误工费}{
+\pairsectionleft{5. 误工费}{
 \hspace{2em}年\hspace{1em}月\hspace{1em}日至\hspace{2em}年\hspace{1em}月\hspace{1em}日误工费\hspace{4em}元
 }
 
-\pairsection{6. 交通费}{
+\pairsectionleft{6. 交通费}{
 交通费\hspace{4em}元\\
 交通费凭证：有$\square$\hspace{1em}无$\square$
 }
 
-\pairsection{7. 残疾赔偿金\\（含被扶养人生活费）}{
+\pairsectionleft{7. 残疾赔偿金\\（含被扶养人生活费）}{
 残疾赔偿金\hspace{4em}元；被扶养人生活费\hspace{4em}元
 }
 
-\pairsection{8. 残疾辅助器具费}{
+\pairsectionleft{8. 残疾辅助器具费}{
 残疾辅助器具费\hspace{4em}元
 }
 
-\pairsection{9. 死亡赔偿金、丧葬费}{
+\pairsectionleft{9. 死亡赔偿金、丧葬费}{
 死亡赔偿金\hspace{4em}元，丧葬费\hspace{4em}元
 }
 
-\pairsection{10. 精神损害抚慰金}{
+\pairsectionleft{10. 精神损害抚慰金}{
 精神损害抚慰金\hspace{4em}元
 }
 
-\pairsection{11. 财产损失}{
+\pairsectionleft{11. 财产损失}{
 车辆损失：\\
 停运损失：\\
 其他损失：
 }
 
-\pairsection{12. 其他费用}{
+\pairsectionleft{12. 其他费用}{
 （诉讼费、鉴定费等）
 }
 
-\pairsection{13. 标的总额}{
+\pairsectionleft{13. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{诉前保全及鉴定申请}
 
-\pairsection{1. 是否已经诉前保全}{
+\pairsectionleft{1. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
 （如申请诉讼保全，请另行提交诉讼保全申请及相关材料）
 }
 
-\pairsection{2. 是否申请鉴定}{
+\pairsectionleft{2. 是否申请鉴定}{
 是$\square$\hspace{1em}鉴定事项：\\
 否$\square$
 }
@@ -311,23 +336,23 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 交通事故发生情况}{
+\pairsectionleft{1. 交通事故发生情况}{
 \mbox{}
 }
 
-\pairsection{2. 交通事故责任认定}{
+\pairsectionleft{2. 交通事故责任认定}{
 \mbox{}
 }
 
-\pairsection{3. 机动车投保情况}{
+\pairsectionleft{3. 机动车投保情况}{
 \mbox{}
 }
 
-\pairsection{4. 请求依据}{
+\pairsectionleft{4. 请求依据}{
 \mbox{}
 }
 
-\pairsection{5. 证据清单（可另附\\页）}{
+\pairsectionleft{5. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

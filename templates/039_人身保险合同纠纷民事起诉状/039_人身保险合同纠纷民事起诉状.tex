@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -189,7 +214,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \newpage
 % ===== 第 3 页 =====
 
-\pairsection{1. 保险金}{
+\pairsectionleft{1. 保险金}{
 支付保险金\hspace{4em}元（人民币，下同；如外币需特别注明）\\
 费用明细：\\
 $\square$生存保险金\hspace{3em}元\hspace{3em}$\square$重大疾病保险金\hspace{3em}元\\
@@ -219,41 +244,41 @@ $\square$残疾辅助器具费\hspace{3em}元\\
 $\square$其他\hspace{3em}元
 }
 
-\pairsection{2. 保单现金价值}{
+\pairsectionleft{2. 保单现金价值}{
 \hspace{4em}元\\
 返还情形：$\square$合同解除\hspace{1em}$\square$拒赔\hspace{1em}$\square$其他
 }
 
-\pairsection{3. 保险费}{
+\pairsectionleft{3. 保险费}{
 元
 }
 
-\pairsection{4. 是否主张实现债权\\的费用}{
+\pairsectionleft{4. 是否主张实现债权\\的费用}{
 是$\square$\hspace{1em}费用明细：\\
 否$\square$
 }
 
-\pairsection{5. 是否主张诉讼费用}{
+\pairsectionleft{5. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{6. 其他请求}{
+\pairsectionleft{6. 其他请求}{
 \mbox{}
 }
 
-\pairsection{7. 标的总额}{
+\pairsectionleft{7. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -278,11 +303,11 @@ $\square$其他\hspace{3em}元
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 人身保险合同的签\\订情况（合同名称、主\\体、签订时间、地点、\\保险合同订立时投保人\\与被保险人的关系等）}{
+\pairsectionleft{1. 人身保险合同的签\\订情况（合同名称、主\\体、签订时间、地点、\\保险合同订立时投保人\\与被保险人的关系等）}{
 \mbox{}
 }
 
-\pairsection{2. 人身保险合同的主\\要约定}{
+\pairsectionleft{2. 人身保险合同的主\\要约定}{
 承保险种：\\
 投保人：\\
 被保险人：\hspace{4em}投保人与被保险人的关系：\\
@@ -299,33 +324,33 @@ $\square$其他\hspace{3em}元
 其他：
 }
 
-\pairsection{3. 是否依法就人身保险\\合同中与投保人有重\\大利害关系的条款进\\行提示、说明}{
+\pairsectionleft{3. 是否依法就人身保险\\合同中与投保人有重\\大利害关系的条款进\\行提示、说明}{
 是$\square$\\
 否$\square$\hspace{1em}事实与理由：
 }
 
-\pairsection{4. 保险事故发生的情况\\（事故发生时间及经过\\等；意外事故导致受伤\\或死亡的，写明出警情\\况、公安机关对于意外\\死亡的证明情况）}{
+\pairsectionleft{4. 保险事故发生的情况\\（事故发生时间及经过\\等；意外事故导致受伤\\或死亡的，写明出警情\\况、公安机关对于意外\\死亡的证明情况）}{
 \mbox{}
 }
 
-\pairsection{5. 具体损失项目及其\\数额（附计算方式及\\理由）}{
+\pairsectionleft{5. 具体损失项目及其\\数额（附计算方式及\\理由）}{
 \mbox{}
 }
 
-\pairsection{6. 人身保险合同的履\\行情况}{
+\pairsectionleft{6. 人身保险合同的履\\行情况}{
 \mbox{}
 }
 
-\pairsection{7. 请求承担责任的依据}{
+\pairsectionleft{7. 请求承担责任的依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{8. 其他需要说明的内\\容（可另附页）}{
+\pairsectionleft{8. 其他需要说明的内\\容（可另附页）}{
 \mbox{}
 }
 
-\pairsection{9. 证据清单（可另附\\页）}{
+\pairsectionleft{9. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

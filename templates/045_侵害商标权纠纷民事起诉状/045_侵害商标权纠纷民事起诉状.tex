@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -214,7 +239,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 停止侵权}{
+\pairsectionleft{1. 停止侵权}{
 有$\square$\\
 \hspace*{21bp}$\square$1.立即停止生产 / 销售 / 生产、销售侵害原告第\hspace{4em}号\\
 \hspace*{42bp}"\hspace{4em}"商标权的侵权商品\\
@@ -225,7 +250,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{2. 赔偿经济损失}{
+\pairsectionleft{2. 赔偿经济损失}{
 有$\square$\hspace{1em}经济损失\hspace{4em}元\\
 \hspace*{21bp}原告损失$\square$\hspace{1em}被告获利$\square$\hspace{1em}商标许可使用费$\square$\hspace{1em}倍数：\\
 \hspace*{21bp}法定赔偿$\square$\\
@@ -235,7 +260,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{3. 支付合理费用}{
+\pairsectionleft{3. 支付合理费用}{
 有$\square$\hspace{1em}律师费\hspace{4em}元\hspace{2em}律师费凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}公证费\hspace{4em}元\hspace{2em}公证费凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}购买产品费\hspace{4em}元\hspace{2em}购买产品费凭证：有$\square$\hspace{1em}无$\square$\\
@@ -244,12 +269,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{4. 是否主张诉讼费用}{
+\pairsectionleft{4. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{5. 其他请求}{
+\pairsectionleft{5. 其他请求}{
 有$\square$\hspace{1em}内容：如是否主张连带赔偿责任、赔礼道歉、消除影响等其他请求\\
 无$\square$
 }
@@ -269,7 +294,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 原告主体情况}{
+\pairsectionleft{1. 原告主体情况}{
 1.商标注册人$\square$\\
 2.利害关系人$\square$：\\
 \hspace*{21bp}被许可人$\square$：\\
@@ -285,7 +310,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \newpage
 % ===== 第 4 页 =====
 
-\pairsection{2. 原告商标权属事实}{
+\pairsectionleft{2. 原告商标权属事实}{
 1.权利商标情况（商标号、标志图样、核定商品 / 服务类别、申请时间、核\\
 准注册时间、有效期等）：\\
 2.是否主张驰名：是$\square$\hspace{1em}否$\square$\\
@@ -293,11 +318,11 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 3.效力状态（是否存在或正处于商标授权确权程序）：
 }
 
-\pairsection{3. 原告商标权使用及\\知名度事实}{
+\pairsectionleft{3. 原告商标权使用及\\知名度事实}{
 \mbox{}
 }
 
-\pairsection{4. 被告商标侵权事实\\（包括持续时间、使用\\场合、表现形式、主\\观故意程度及损害后\\果等）}{
+\pairsectionleft{4. 被告商标侵权事实\\（包括持续时间、使用\\场合、表现形式、主\\观故意程度及损害后\\果等）}{
 1.被告侵权行为表现形式、使用的侵权标识图样及比对意见（结合法律依\\
 据的具体项目陈述，并附图样及证据）：\\
 2.被告主观故意程度及具体情节：\\
@@ -306,11 +331,11 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 5.其他：
 }
 
-\pairsection{5. 其他事项}{
+\pairsectionleft{5. 其他事项}{
 \mbox{}
 }
 
-\pairsection{6. 证据清单（可另附\\页）}{
+\pairsectionleft{6. 证据清单（可另附\\页）}{
 \mbox{}
 }
 

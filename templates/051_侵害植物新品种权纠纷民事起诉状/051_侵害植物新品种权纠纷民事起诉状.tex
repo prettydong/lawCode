@@ -76,6 +76,31 @@
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsectionleft}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
 \begin{document}
 
 % ===== 第 1 页 =====
@@ -249,12 +274,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 停止侵害}{
+\pairsectionleft{1. 停止侵害}{
 有$\square$\hspace{1em}内容：（简述停止侵权主体以及相应停止侵权方式、内容、范围等）\\
 无$\square$
 }
 
-\pairsection{2. 赔偿经济损失}{
+\pairsectionleft{2. 赔偿经济损失}{
 有$\square$\hspace{1em}经济损失\hspace{4em}元\\
 \hspace*{21bp}是否包含惩罚性赔偿：包含$\square$，计算方法：基数\hspace{4em}元 × （1+ 惩罚性\\
 \hspace*{21bp}赔偿倍数\hspace{4em}）\\
@@ -262,7 +287,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{3. 赔偿维权合理开支}{
+\pairsectionleft{3. 赔偿维权合理开支}{
 有$\square$\hspace{1em}律师费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}公证费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
 \hspace*{21bp}差旅费\hspace{4em}元\hspace{2em}凭证：有$\square$\hspace{1em}无$\square$\\
@@ -270,34 +295,34 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 无$\square$
 }
 
-\pairsection{4. 连带责任}{
+\pairsectionleft{4. 连带责任}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{5. 非金钱给付义务迟延\\履行金}{
+\pairsectionleft{5. 非金钱给付义务迟延\\履行金}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{6. 是否主张诉讼费用}{
+\pairsectionleft{6. 是否主张诉讼费用}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{7. 其他请求}{
+\pairsectionleft{7. 其他请求}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -306,12 +331,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{涉外及涉港澳台}
 
-\pairsection{1. 是否涉外}{
+\pairsectionleft{1. 是否涉外}{
 是$\square$\hspace{1em}涉及国家：\\
 否$\square$
 }
 
-\pairsection{2. 是否涉港澳台}{
+\pairsectionleft{2. 是否涉港澳台}{
 是$\square$\hspace{1em}涉港$\square$\hspace{1em}涉澳$\square$\hspace{1em}涉台$\square$\\
 否$\square$
 }
@@ -334,7 +359,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \mbox{}
 \end{tcolorbox}
 
-\pairsection{1. 原告主体情况}{
+\pairsectionleft{1. 原告主体情况}{
 品种权人$\square$：原始取得$\square$\hspace{1em}继受取得$\square$\\
 \hspace*{66bp}是否存在共有权人：是$\square$（共有权人是否明确表示同意起诉：\\
 \hspace*{87bp}是$\square$\hspace{1em}否$\square$）\\
@@ -351,7 +376,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{21bp}其他利害关系人$\square$\hspace{1em}具体情形：
 }
 
-\pairsection{2. 权利基础状况}{
+\pairsectionleft{2. 权利基础状况}{
 品种权号：\\
 品种名称：\\
 初步审查合格公告日：\\
@@ -359,7 +384,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 效力状态：有效$\square$\hspace{1em}无效$\square$\hspace{1em}终止$\square$
 }
 
-\pairsection{3. 被诉侵权行为}{
+\pairsectionleft{3. 被诉侵权行为}{
 侵权产品：（{\heiti\bfseries 写明产品名称等}）\\
 侵权行为方式：（{\heiti\bfseries 具体写明系生产、繁殖和为繁殖而进行处理、许诺销售、\\
 销售、进口、出口以及为实施上述行为为储存该授权品种的繁殖材料，为商\\
@@ -369,12 +394,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 被诉侵权行为具体情形：（{\heiti\bfseries 写明发现方式、渠道}）
 }
 
-\pairsection{4. 共同侵权}{
+\pairsectionleft{4. 共同侵权}{
 有$\square$\hspace{1em}主要事实与理由：（一并写明共同侵权主体之间是否存在关联关系）\\
 无$\square$
 }
 
-\pairsection{5. 侵权产品检测}{
+\pairsectionleft{5. 侵权产品检测}{
 检测时间：\\
 检测机构：\\
 检测方法：\\
@@ -382,7 +407,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 检验报告结论：（{\heiti\bfseries 概述}）
 }
 
-\pairsection{6. 其他}{
+\pairsectionleft{6. 其他}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
@@ -392,7 +417,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{责任承担}
 
-\pairsection{1. 停止侵害}{
+\pairsectionleft{1. 停止侵害}{
 被告应当立即停止侵害。具体主张：（一并说明本案诉讼期间被诉侵权行为\\
 {\heiti\bfseries 是否仍在进行}）
 }
@@ -449,18 +474,18 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \end{minipage}%
 \end{tcolorbox}
 
-\pairsection{3. 连带责任}{
+\pairsectionleft{3. 连带责任}{
 有$\square$\hspace{1em}内容：被告一××、被告二××构成共同侵权，应当连带赔偿原告\\
 \hspace*{21bp}经济损失×元、维权合理开支×元。具体理由：……\\
 无$\square$
 }
 
-\pairsection{4. 其他责任}{
+\pairsectionleft{4. 其他责任}{
 有$\square$\hspace{1em}内容：\\
 无$\square$
 }
 
-\pairsection{5. 法律依据}{
+\pairsectionleft{5. 法律依据}{
 \mbox{}
 }
 
