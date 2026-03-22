@@ -1,0 +1,153 @@
+% ═══════════════════════════════════════════════════════════════
+% 民事起诉状 · 共享前导码
+% 所有民事起诉状模板共用本文件，通过 \input{../common/preamble} 引入
+% ═══════════════════════════════════════════════════════════════
+
+\documentclass[a4paper,12pt,twoside]{ctexart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
+
+% 定义公函标准炭黑（K=92%，RGB约0.08）：权威稳重、高质量印刷感
+\definecolor{inkblack}{rgb}{0.08,0.08,0.08}
+
+\geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
+
+% 配置页脚，实现奇数页右下角，偶数页左下角的页码
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+% 自定义页脚位置微调
+\fancyfoot[RO]{\makebox[0pt][l]{\hspace*{28.2pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+\fancyfoot[LE]{\makebox[0pt][r]{\hspace*{33.45pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+
+% 字体声明
+% \fontpath 可由各模板在 \input{preamble} 之前通过
+% \newcommand{\fontpath}{...} 覆盖设置
+% 默认路径：从 templates/XXX/ 编译时指向 templates/common/fonts/
+\providecommand{\fontpath}{../common/fonts/}
+\newCJKfontfamily\fzdbs[Path=\fontpath]{FZDBS.ttf}
+\newCJKfontfamily\fzssk[Path=\fontpath]{FZSSK.ttf}
+
+% 全局文档颜色设定：公函炭黑
+\AtBeginDocument{\color{inkblack}}
+
+% 全局禁止段间距拉伸，确保 tcolorbox 框之间无缝隙
+\setlength{\parskip}{0pt}
+
+% ─── 复合标题样式 ───
+\newcommand{\lawtitle}[2]{
+    \vspace*{0.507cm} 
+    \begin{center}
+        {\fzdbs\fontsize{22bp}{22bp}\selectfont #1}\par
+        \vspace{10.37bp}
+        {\fzdbs\fontsize{18bp}{18bp}\selectfont #2}\par
+    \end{center}
+    \vspace{18.4bp}
+}
+
+% ─── 表框（说明框）环境 ───
+\newtcolorbox{notesection}[1][]{
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
+    enlarge left by=-19.28bp,
+    before={\par\nointerlineskip\vspace{-0.5pt}\noindent},
+    after={\par},
+    boxsep=0pt,
+    left=4bp,
+    top=4.69bp,
+    bottom=4.69bp,
+    right=0pt,
+    #1
+}
+
+% ─── 法律段落换行命令 ───
+\newcommand{\lawpar}{\par\vspace*{-4.86bp}}
+
+% ─── 区块副标题样式 ───
+\newcommand{\subtitlesection}[1]{%
+    \begin{tcolorbox}[
+        width=467.72bp,
+        sharp corners,
+        colback=white,
+        colframe=inkblack,
+        boxrule=0.5pt,
+        boxsep=0pt,
+        left=0pt, right=0pt,
+        top=4bp, bottom=4bp,
+        halign=center,
+        fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
+        enlarge left by=-19.28bp,
+        before={\par\nointerlineskip\vspace{-0.5pt}\noindent},
+        after={\par}
+    ]
+    #1
+    \end{tcolorbox}%
+}
+
+% ─── 区块副标题样式（带说明文字） ───
+\newcommand{\subtitlenotesection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
+        enlarge left by=-19.28bp,
+        before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par}
+    ]
+    {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack} #1}\par\nointerlineskip
+    \vspace{2bp}
+    {\heiti\fontsize{10.5bp}{14bp}\selectfont\color{inkblack} #2}
+    \end{tcolorbox}%
+}
+
+% ─── 左右分栏基础命令 ───
+\newcommand{\pairsectionbase}[3]{%
+    \begin{tcolorbox}[
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par},
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
+    ]
+    \begin{minipage}[c]{112.9bp}%
+        \vspace{2bp}%
+        \songti\fontsize{10.5bp}{12bp}\selectfont
+        #1#2%
+        \vspace{2bp}%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{2bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #3%
+        \vspace{2bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+% 标签居中版
+\newcommand{\pairsection}[2]{%
+    \pairsectionbase{\centering}{#1}{#2}%
+}
+
+% 标签左对齐版（用于长标签）
+\newcommand{\pairsectionleft}[2]{%
+    \pairsectionbase{\raggedright\fontsize{10.5bp}{10.5bp}\selectfont}{#1}{#2}%
+}
+
+

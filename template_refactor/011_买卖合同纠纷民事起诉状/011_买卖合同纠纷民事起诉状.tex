@@ -1,0 +1,378 @@
+% ═══════════════════════════════════════════════════════════════
+% 民事起诉状（买卖合同纠纷）── 重构版
+% ═══════════════════════════════════════════════════════════════
+
+\newcommand{\fontpath}{../../templates/common/fonts/}
+\input{../../templates/common/preamble}
+
+\begin{document}
+
+% ===== 第 1 页 =====
+\lawtitle{民事起诉状}{（买卖合同纠纷）}
+
+\input{../../templates/common/notesection}
+
+\subtitlesection{当事人信息}
+
+% 原告（自然人）
+\pairsection{原告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{8em}职务：\hspace{6em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：\\
+\mbox{}
+}
+
+% 原告（法人、非法人组织）
+\pairsection{原告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
+}
+
+\newpage
+% ===== 第 2 页 =====
+
+% 委托诉讼代理人
+\pairsection{委托诉讼代理人}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+% 被告（自然人）
+\pairsection{被告\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{8em}职务：\hspace{6em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：\\
+\mbox{}
+}
+
+% 被告（法人、非法人组织）
+\pairsection{被告\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
+}
+
+% 第三人（自然人）
+\pairsection{第三人\\（自然人）}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{8em}职务：\hspace{6em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：\\
+\mbox{}
+}
+
+% 第三人（法人、非法人组织）— 简短版
+\pairsection{第三人\\（法人、非法人组织）}{
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：
+}
+
+\newpage
+% ===== 第 3 页 =====
+
+% 第三人（法人、非法人组织）—类型部分续
+\pairsection{第三人\\（法人、非法人组织）}{
+类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
+\hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
+\hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
+\hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
+\hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
+}
+
+% 诉讼请求副标题（含提示文字）
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
+    enlarge left by=-19.28bp,
+    before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par}
+]
+{\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack}诉讼请求}\par\nointerlineskip
+\vspace{2bp}
+{\heiti\fontsize{10.5bp}{14bp}\selectfont\color{inkblack}（原告为卖方时，填写第 1 项、第 2 项；原告为买方时，填写第 3 项、第 4 项；\\第 5 项至第 10 项为共同项）}
+\end{tcolorbox}
+
+% 诉讼请求总述框
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par},
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsectionleft{1. 给付价款（元）}{
+\rule{60bp}{0.5pt}\hspace{1em}元（人民币，下同；如外币需特别注明）
+}
+
+\pairsectionleft{2. 迟延给付价款的利息\\（违约金）}{
+截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，迟延给付价款的利息\hspace{4em}元、违约金\\
+\hspace{2em}元，自\hspace{4em}之后的逾期利息、违约金，以\hspace{4em}元为基数\\
+按照\hspace{4em}标准计算；\\
+计算方式：\\
+是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
+}
+
+\pairsectionleft{3. 赔偿因卖方违约所受\\的损失}{
+支付赔偿金\hspace{4em}元\\
+违约类型：迟延履行$\square$\hspace{1em}不履行$\square$\hspace{1em}其他$\square$\\
+具体情形：\\
+损失计算依据：
+}
+
+\pairsectionleft{4. 是否对标的物的瑕疵\\承担责任}{
+是$\square$\hspace{1em}修理$\square$\hspace{1em}重作$\square$\hspace{1em}更换$\square$\hspace{1em}退货$\square$\hspace{1em}减少价款或者报酬$\square$\\
+\hspace*{21bp}其他$\square$：\\
+否$\square$
+}
+
+\pairsectionleft{5. 要求继续履行或者解\\除合同}{
+继续履行$\square$\hspace{1em}日内履行完毕付款$\square$\hspace{1em}供货$\square$\hspace{1em}义务\\
+判令解除合同$\square$\\
+确认买卖合同已于\hspace{2em}年\hspace{2em}月\hspace{2em}日解除$\square$
+}
+
+\pairsectionleft{6. 是否主张担保权利}{
+是$\square$\hspace{4em}内容：\\
+否$\square$
+}
+
+\pairsectionleft{7. 是否主张实现债权的\\费用}{
+是$\square$\hspace{4em}费用明细：\\
+否$\square$
+}
+
+\pairsectionleft{8. 是否主张诉讼费用}{
+是$\square$\\
+否$\square$
+}
+
+\pairsectionleft{9. 其他请求}{
+\mbox{}
+\mbox{}
+}
+
+\pairsectionleft{10. 标的总额}{
+\mbox{}
+\mbox{}
+}
+
+\newpage
+% ===== 第 4 页 =====
+
+\subtitlesection{约定管辖和诉前保全}
+
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
+有$\square$\hspace{4em}合同条款及内容：\\
+无$\square$
+}
+
+\pairsectionleft{2. 是否已经诉前保全}{
+是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
+\hspace*{21bp}保全案号：\\
+否$\square$\\
+（如申请诉讼保全，请另行提交诉讼保全申请及相关材料）
+}
+
+\subtitlesection{事实与理由}
+
+% 事实与理由总述框
+\begin{tcolorbox}[
+    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par},
+    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}\color{inkblack}%
+（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+\pairsectionleft{1. 合同的签订情况\\（名称、编号、签订时\\间、地点等；如无书\\面合同，请注明"无\\书面合同"）}{
+\mbox{}
+\mbox{}
+}
+
+\pairsectionleft{2. 合同主体}{
+出卖人（卖方）：\\
+买受人（买方）：
+}
+
+\pairsectionleft{3. 买卖标的物情况\\（标的物名称、规格、\\质量、数量等）}{
+\mbox{}
+\mbox{}
+}
+
+\pairsectionleft{4. 合同约定的价格及支\\付方式}{
+单价\hspace{4em}元；总价\hspace{4em}元；\\
+以现金$\square$\hspace{1em}转账$\square$\hspace{1em}票据$\square$（写明票据类型）\hspace{1em}其他$\square$\hspace{1em}方式\\
+一次性$\square$\hspace{1em}分期$\square$\hspace{1em}支付\\
+分期方式：
+}
+
+\pairsectionleft{5. 合同约定的交货时\\间、地点、方式、风\\险承担、安装、调试、\\验收}{
+\mbox{}
+\mbox{}
+}
+
+\pairsectionleft{6. 合同约定的质量标准\\及检验方式、质量异\\议期限}{
+\mbox{}
+\mbox{}
+}
+
+\pairsectionleft{7. 合同约定的违约金\\（定金）}{
+违约金$\square$\hspace{4em}元（合同条款：第\hspace{2em}条）\\
+定金$\square$\hspace{4em}元（合同条款：第\hspace{2em}条）\\
+迟延履行违约金$\square$\hspace{2em}\%/ 日（合同条款：第\hspace{2em}条）
+}
+
+\newpage
+% ===== 第 5 页 =====
+
+\pairsectionleft{8. 价款支付及标的物交\\付情况}{
+按期支付价款\hspace{4em}元，逾期付款\hspace{4em}元，逾期未付款\hspace{4em}元\\
+按期交付标的物\hspace{4em}件，逾期交付\hspace{4em}件，逾期未交付\hspace{4em}件
+}
+
+\pairsectionleft{9. 是否存在迟延履行}{
+是$\square$\hspace{1em}迟延时间：\hspace{6em}逾期付款$\square$\hspace{1em}逾期交货$\square$\\
+否$\square$
+}
+
+\pairsectionleft{10. 是否催促过履行}{
+是$\square$\hspace{1em}催促情况：\hspace{2em}年\hspace{2em}月\hspace{2em}日通过\hspace{4em}方式进行了催促\\
+否$\square$
+}
+
+\pairsectionleft{11. 买卖合同标的物有\\无质量争议}{
+有$\square$\hspace{1em}具体情况：\\
+无$\square$
+}
+
+\pairsectionleft{12. 标的物质量规格或\\履行方式是否存在不\\符合约定的情况}{
+是$\square$\hspace{1em}具体情况：\\
+否$\square$
+}
+
+\pairsectionleft{13. 是否曾就标的物质\\量问题进行协商}{
+是$\square$\hspace{1em}具体情况：\\
+否$\square$
+}
+
+\pairsectionleft{14. 是否通知解除合同}{
+是$\square$\hspace{1em}具体情况：\\
+否$\square$
+}
+
+\pairsectionleft{15. 被告应当支付的利\\息、违约金、赔偿金}{
+利息$\square$\hspace{4em}元\\
+违约金$\square$\hspace{4em}元\\
+赔偿金$\square$\hspace{4em}元\\
+共计\hspace{4em}元\hspace{4em}计算方式：
+}
+
+\pairsectionleft{16. 是否签订物的担保\\（抵押、质押）合同}{
+是$\square$\hspace{1em}签订时间：\\
+否$\square$
+}
+
+\pairsectionleft{17. 担保人、担保物}{
+担保人：\\
+担保物：
+}
+
+\pairsectionleft{18. 是否最高额担保\\（抵押、质押）}{
+是$\square$\hspace{1em}担保债权的确定时间：\\
+\hspace*{21bp}担保额度：\\
+否$\square$
+}
+
+\pairsectionleft{19. 是否办理抵押、质\\押登记}{
+是$\square$\hspace{1em}正式登记$\square$\\
+\hspace*{21bp}预告登记$\square$\\
+否$\square$
+}
+
+\pairsectionleft{20. 是否签订保证合同}{
+是$\square$\hspace{1em}签订时间：\hspace{4em}保证人：\hspace{4em}主要内容：\\
+否$\square$
+}
+
+\pairsectionleft{21. 保证方式}{
+一般保证$\square$\\
+连带责任保证$\square$
+}
+
+\pairsectionleft{22. 其他担保方式}{
+是$\square$\hspace{1em}形式：\\
+否$\square$
+}
+
+\pairsectionleft{23. 请求承担责任的依据}{
+合同约定：\\
+法律规定：
+}
+
+\newpage
+% ===== 第 6 页 =====
+
+\pairsectionleft{24. 其他需要说明的内\\容（可另附页）}{
+\mbox{}
+\mbox{}
+}
+
+\pairsectionleft{25. 证据清单（可另附\\页）}{
+\mbox{}
+\mbox{}
+}
+
+\input{../../templates/common/mediation}
+
+\end{document}

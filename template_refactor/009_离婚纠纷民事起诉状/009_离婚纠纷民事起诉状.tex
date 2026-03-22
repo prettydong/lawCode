@@ -1,0 +1,269 @@
+% ═══════════════════════════════════════════════════════════════
+% 民事起诉状（离婚纠纷）── 重构版
+% 使用 \input 引入公共前导码、说明框、调解意愿
+% ═══════════════════════════════════════════════════════════════
+
+% 覆盖字体路径（从 template_refactor/009_xxx/ 出发）
+\newcommand{\fontpath}{../../templates/common/fonts/}
+\input{../../templates/common/preamble}
+
+\begin{document}
+
+% ===== 第 1 页 =====
+
+% 标题
+\lawtitle{民事起诉状}{（离婚纠纷）}
+
+% 说明框
+\input{../../templates/common/notesection}
+
+% 当事人信息副标题
+\subtitlesection{当事人信息}
+
+% 原告表单
+\pairsection{原告}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{8em}职务：\hspace{6em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：\\
+\mbox{}
+}
+
+% 委托诉讼代理人
+\pairsection{委托诉讼代理人}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
+\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
+无$\square$
+}
+
+\newpage
+
+% ===== 第 2 页 =====
+
+% 被告表单
+\pairsection{被告}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\
+工作单位：\hspace{8em}职务：\hspace{6em}联系电话：\\
+住所地（户籍所在地）：\\
+经常居住地：\\
+证件类型：\\
+证件号码：\\
+\mbox{}
+}
+
+% 诉讼请求副标题
+\subtitlesection{诉讼请求}
+
+% 诉讼请求总述框
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\par\nointerlineskip\vspace{-0.5pt}\noindent},
+    after={\par},
+    boxsep=0pt,
+    left=4bp, right=0pt,
+    top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp%
+\parskip=0pt%
+\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}%
+\color{inkblack}%
+（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+% 1. 解除婚姻关系
+\pairsectionleft{1. 解除婚姻关系}{
+（具体主张）
+}
+
+% 2. 夫妻共同财产
+\pairsectionleft{2. 夫妻共同财产}{
+无财产$\square$\\
+有财产$\square$\\
+（1）房屋明细：归属：原告$\square$ / 被告$\square$ / 其他$\square$（\hspace{2em}）；\\
+（2）汽车明细：归属：原告$\square$ / 被告$\square$ / 其他$\square$（\hspace{2em}）；\\
+（3）存款明细：归属：原告$\square$ / 被告$\square$ / 其他$\square$（\hspace{2em}）；\\
+（4）其他（按照上述样式列明）：
+}
+
+% 3. 夫妻共同债务
+\pairsectionleft{3. 夫妻共同债务}{
+无债务$\square$\\
+有债务$\square$\\
+（1）债务 1：\hspace{4em}承担主体：原告$\square$ / 被告$\square$ / 其他$\square$（\hspace{2em}）；\\
+（2）债务 2：\hspace{4em}承担主体：原告$\square$ / 被告$\square$ / 其他$\square$（\hspace{2em}）；\\
+……
+}
+
+% 4. 子女直接抚养
+\pairsectionleft{4. 子女直接抚养}{
+无此问题$\square$\\
+有此问题$\square$\\
+子女 1：\hspace{4em}归属：原告$\square$ / 被告$\square$\\
+子女 2：\hspace{4em}归属：原告$\square$ / 被告$\square$\\
+……
+}
+
+% 5. 子女抚养费
+\pairsectionleft{5. 子女抚养费}{
+无此问题$\square$\\
+有此问题$\square$\\
+抚养费承担主体：原告$\square$ / 被告$\square$\\
+金额及明细：\\
+支付方式：
+}
+
+\newpage
+
+% ===== 第 3 页 =====
+
+% 6. 探望权
+\pairsectionleft{6. 探望权}{
+无此问题$\square$\\
+有此问题$\square$\\
+探望权行使主体：原告$\square$ / 被告$\square$\\
+行使方式：
+}
+
+% 7. 离婚损害赔偿/离婚经济补偿/离婚经济帮助
+\pairsectionleft{7. 离婚损害赔偿 /\\离婚经济补偿 /\\离婚经济帮助}{
+无此问题$\square$\\
+离婚损害赔偿$\square$\\
+金额：\\
+离婚经济补偿$\square$\\
+金额：\\
+离婚经济帮助$\square$\\
+金额：
+}
+
+% 8. 是否主张诉讼费用
+\pairsectionleft{8. 是否主张诉讼费用}{
+是$\square$\\
+否$\square$
+}
+
+% 9. 其他请求
+\pairsectionleft{9. 其他请求}{
+\mbox{}
+\mbox{}
+}
+
+% 诉前保全副标题
+\subtitlesection{诉前保全}
+
+% 是否已经诉前保全
+\pairsectionleft{是否已经诉前保全}{
+是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
+\hspace*{21bp}保全案号：\\
+否$\square$\\
+（如申请诉讼保全，请另行提交诉讼保全申请及相关材料）
+}
+
+% 事实与理由副标题
+\subtitlesection{事实与理由}
+
+% 事实与理由总述框
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\par\nointerlineskip\vspace{-0.5pt}\noindent},
+    after={\par},
+    boxsep=0pt,
+    left=4bp, right=0pt,
+    top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp%
+\parskip=0pt%
+\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}%
+\color{inkblack}%
+（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+% 1. 婚姻关系基本情况
+\pairsectionleft{1. 婚姻关系基本情况}{
+结婚时间：\\
+生育子女情况：\\
+双方生活情况：\\
+离婚事由：\\
+之前有无提起过离婚诉讼：
+}
+
+% 2. 夫妻共同财产情况
+\pairsectionleft{2. 夫妻共同财产情况}{
+\mbox{}
+\mbox{}
+}
+
+% 3. 夫妻共同债务情况
+\pairsectionleft{3. 夫妻共同债务情况}{
+\mbox{}
+\mbox{}
+}
+
+% 4. 子女直接抚养情况
+\pairsectionleft{4. 子女直接抚养情况}{
+（子女应归原告或者被告直接抚养的事由）
+}
+
+% 5. 子女抚养费情况
+\pairsectionleft{5. 子女抚养费情况}{
+（原告或者被告应支付抚养费及相应金额、支付方式的事由）
+}
+
+% 6. 子女探望权情况
+\pairsectionleft{6. 子女探望权情况}{
+（不直接抚养子女一方应否享有探望权以及具体行使方式的事由）
+}
+
+% 7. 赔偿/补偿/经济帮助相关情况
+\pairsectionleft{7. 赔偿 / 补偿 / 经济帮\\助相关情况}{
+（符合离婚损害赔偿、离婚经济补偿或离婚经济帮助的相关事实等）
+}
+
+% 8. 其他
+\pairsectionleft{8. 其他}{
+\mbox{}
+\mbox{}
+}
+
+\newpage
+
+% ===== 第 4 页 =====
+
+% 9. 请求依据
+\pairsectionleft{9. 请求依据}{
+（法律及司法解释的规定，要写明具体条文）
+}
+
+% 10. 证据清单
+\pairsectionleft{10. 证据清单（可另附\\页）}{
+\mbox{}
+\mbox{}
+}
+
+% 调解意愿 + 具状人签名
+\input{../../templates/common/mediation}
+
+\end{document}
