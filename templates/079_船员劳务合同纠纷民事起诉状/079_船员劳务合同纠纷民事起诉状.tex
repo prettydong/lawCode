@@ -5,6 +5,9 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
 
 \definecolor{inkblack}{rgb}{0.08,0.08,0.08}
 \geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
@@ -30,60 +33,46 @@
     \vspace{18.4bp}
 }
 
-\newtcolorbox{notesection}[1][]{width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,enlarge left by=-19.28bp, before=\vspace*{-13.39bp}\noindent, after=\par,boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1}
+\newtcolorbox{notesection}[1][]{width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,enlarge left by=-19.28bp, before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1}
 
 \newcommand{\lawpar}{\par\vspace*{-4.86bp}}
 
-\newcommand{\subtitlesection}[1]{\begin{tcolorbox}[width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},enlarge left by=-19.28bp,before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}]#1\end{tcolorbox}}
+\newcommand{\subtitlesection}[1]{\begin{tcolorbox}[width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},enlarge left by=-19.28bp,before={\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par}]#1\end{tcolorbox}}
 
-\newcommand{\pairsection}[2]{%
+\newcommand{\pairsectionbase}[3]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
         enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par},
         boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
     ]
     \begin{minipage}[c]{112.9bp}%
-        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+        \vspace{2bp}%
+        \songti\fontsize{10.5bp}{12bp}\selectfont
+        #1#2%
+        \vspace{2bp}%
     \end{minipage}%
     \hspace{0pt}%
     \vrule width 0.5pt%
     \hspace{4bp}%
     \begin{minipage}[c]{346.32bp}%
-        \vspace{4bp}%
+        \vspace{2bp}%
         \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-        \baselineskip=17bp%
+        \baselineskip=16bp%
         \setlength{\parindent}{0pt}%
         \color{inkblack}%
-        #2%
-        \vspace{4bp}%
+        #3%
+        \vspace{2bp}%
     \end{minipage}%
     \end{tcolorbox}%
 }
 
+\newcommand{\pairsection}[2]{%
+    \pairsectionbase{\centering}{#1}{#2}%
+}
+
 \newcommand{\pairsectionleft}[2]{%
-    \begin{tcolorbox}[
-        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
-    ]
-    \begin{minipage}[c]{112.9bp}%
-        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
-    \end{minipage}%
-    \hspace{0pt}%
-    \vrule width 0.5pt%
-    \hspace{4bp}%
-    \begin{minipage}[c]{346.32bp}%
-        \vspace{4bp}%
-        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-        \baselineskip=17bp%
-        \setlength{\parindent}{0pt}%
-        \color{inkblack}%
-        #2%
-        \vspace{4bp}%
-    \end{minipage}%
-    \end{tcolorbox}%
+    \pairsectionbase{\raggedright\fontsize{10.5bp}{10.5bp}\selectfont}{#1}{#2}%
 }
 
 \begin{document}
@@ -104,7 +93,7 @@
 \lawpar 4.本表 word 电子版填写时，相关栏目可复制粘贴或扩容，但不得改变要素内容、格式设置。例\\[-4.86bp]
 如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
 可根据实际对栏目进行扩容等。
-\lawpar $\bigstar$特别提示$\bigstar$\\[-4.86bp]
+\lawpar {\fzssk ★}特别提示{\fzssk ★}\\[-4.86bp]
 \hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
 \hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
 追究责任。
@@ -118,7 +107,7 @@
 
 \newpage
 
-\pairsection{委托诉讼代理人}{有$\square$\\\hspace*{21bp}姓名：\\\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\无$\square$}
+\pairsection{委托诉讼代理人}{有$\square$\\\hspace*{21bp}姓名：\\\hspace*{21bp}单位：\hspace{6em}职务：\hspace{4em}联系电话：\\\hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\无$\square$}
 
 \pairsection{被告\\（自然人）}{姓名：\\性别：男$\square$\hspace{1em}女$\square$\\出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\hspace{4em}民族：\\工作单位：\hspace{6em}职务：\hspace{4em}联系电话：\\住所地（户籍所在地）：\\经常居住地：\\证件类型：\\证件号码：}
 
@@ -132,10 +121,10 @@
 
 \subtitlesection{诉讼请求}
 
-\begin{tcolorbox}[width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,enlarge left by=-19.28bp,before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp]
+\begin{notesection}[top=4bp, bottom=4bp]
 \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen\setlength{\parindent}{0pt}\color{inkblack}%
 （可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]\mbox{}
-\end{tcolorbox}
+\end{notesection}
 
 \pairsectionleft{1. 是否主张工资报酬}{是$\square$\hspace{1em}项目及金额：\hspace{4em}元，截至\hspace{4em}年\hspace{2em}月\hspace{2em}日止，欠利息\hspace{4em}元；\\计算方式：\\是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$\\否$\square$}
 
@@ -167,10 +156,10 @@
 
 \subtitlesection{事实与理由}
 
-\begin{tcolorbox}[width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,enlarge left by=-19.28bp,before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp]
+\begin{notesection}[top=4bp, bottom=4bp]
 \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont\baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen\setlength{\parindent}{0pt}\color{inkblack}%
 （可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]\mbox{}
-\end{tcolorbox}
+\end{notesection}
 
 \pairsectionleft{1. 诉请依据}{合同约定：\\法律规定：（法律及司法解释的规定，要写明具体条文）}
 
@@ -186,11 +175,11 @@
 
 \subtitlesection{对纠纷解决方式的意愿}
 
-\pairsection{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{了解$\square$\hspace{1em}不了解$\square$}
+\pairsectionleft{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{了解$\square$\hspace{1em}不了解$\square$}
 
-\pairsection{是否了解先行调解解\\决纠纷的好处}{1. 立案后选择先行调解的，可以很快启动调解程序。如不同意调解，法院将\\依程序开庭审理案件，但可能需要经过较长一段时间的排期等待，且审理、\\执行周期相对较长。\\了解$\square$\hspace{1em}不了解$\square$\\2. 选择先行调解，调解成功且自动履行的免交诉讼费用，申请司法确认的不\\交纳诉讼费用，要求出具调解书的减半交纳诉讼费用。\\了解$\square$\hspace{1em}不了解$\square$\\3. 首次调解不成功，但仍有继续调解意愿的，可以选择更换调解组织和调解\\员再进行调解。调解无法达成一致意见的，法院将依程序排期开庭。\\了解$\square$\hspace{1em}不了解$\square$\\4. 依照法律规定，调解具有保密性要求，调解过程不公开，调解协议未经当\\事人同意不得公开。\\了解$\square$\hspace{1em}不了解$\square$\\5. 调解达成的协议具有法律效力，可以依照法律规定申请司法确认，具有强\\制执行效力。\\了解$\square$\hspace{1em}不了解$\square$}
+\pairsectionleft{是否了解先行调解解\\决纠纷的好处}{1. 立案后选择先行调解的，可以很快启动调解程序。如不同意调解，法院将\\依程序开庭审理案件，但可能需要经过较长一段时间的排期等待，且审理、\\执行周期相对较长。\\了解$\square$\hspace{1em}不了解$\square$\\2. 选择先行调解，调解成功且自动履行的免交诉讼费用，申请司法确认的不\\交纳诉讼费用，要求出具调解书的减半交纳诉讼费用。\\了解$\square$\hspace{1em}不了解$\square$\\3. 首次调解不成功，但仍有继续调解意愿的，可以选择更换调解组织和调解\\员再进行调解。调解无法达成一致意见的，法院将依程序排期开庭。\\了解$\square$\hspace{1em}不了解$\square$\\4. 依照法律规定，调解具有保密性要求，调解过程不公开，调解协议未经当\\事人同意不得公开。\\了解$\square$\hspace{1em}不了解$\square$\\5. 调解达成的协议具有法律效力，可以依照法律规定申请司法确认，具有强\\制执行效力。\\了解$\square$\hspace{1em}不了解$\square$}
 
-\pairsection{是否考虑先行调解}{是$\square$\\否$\square$\\暂不确定，想要了解更多内容$\square$}
+\pairsectionleft{是否考虑先行调解}{是$\square$\\否$\square$\\暂不确定，想要了解更多内容$\square$}
 
 \vspace{10bp}
 \noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字、盖章）：}\par

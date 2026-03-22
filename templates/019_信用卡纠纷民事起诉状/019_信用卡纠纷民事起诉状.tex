@@ -5,6 +5,9 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
 
 \definecolor{inkblack}{rgb}{0.08,0.08,0.08}
 \geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
@@ -33,7 +36,7 @@
 \newtcolorbox{notesection}[1][]{
     width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
     fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
-    enlarge left by=-19.28bp, before=\vspace*{-13.39bp}\noindent, after=\par,
+    enlarge left by=-19.28bp, before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
     boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1
 }
 
@@ -45,63 +48,50 @@
         boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
         fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
         enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
+        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par}
     ]
     #1
     \end{tcolorbox}%
 }
 
-\newcommand{\pairsection}[2]{%
+\newcommand{\pairsectionbase}[3]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
         enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par},
         boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
     ]
     \begin{minipage}[c]{112.9bp}%
-        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+        \vspace{2bp}%
+        \songti\fontsize{10.5bp}{12bp}\selectfont
+        #1#2%
+        \vspace{2bp}%
     \end{minipage}%
     \hspace{0pt}%
     \vrule width 0.5pt%
     \hspace{4bp}%
     \begin{minipage}[c]{346.32bp}%
-        \vspace{4bp}%
+        \vspace{2bp}%
         \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-        \baselineskip=17bp%
+        \baselineskip=16bp%
         \setlength{\parindent}{0pt}%
         \color{inkblack}%
-        #2%
-        \vspace{4bp}%
+        #3%
+        \vspace{2bp}%
     \end{minipage}%
     \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \pairsectionbase{\centering}{#1}{#2}%
 }
 
 \newcommand{\pairsectionleft}[2]{%
-    \begin{tcolorbox}[
-        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-        enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
-    ]
-    \begin{minipage}[c]{112.9bp}%
-        \raggedright\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
-    \end{minipage}%
-    \hspace{0pt}%
-    \vrule width 0.5pt%
-    \hspace{4bp}%
-    \begin{minipage}[c]{346.32bp}%
-        \vspace{4bp}%
-        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-        \baselineskip=17bp%
-        \setlength{\parindent}{0pt}%
-        \color{inkblack}%
-        #2%
-        \vspace{4bp}%
-    \end{minipage}%
-    \end{tcolorbox}%
+    \pairsectionbase{\raggedright\fontsize{10.5bp}{10.5bp}\selectfont}{#1}{#2}%
 }
 
 \begin{document}
+\setcounter{page}{136}
 
 % ===== 第 1 页 =====
 \lawtitle{民事起诉状}{（信用卡纠纷）}
@@ -127,7 +117,7 @@
 如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
 可根据实际对栏目进行扩容等。
 \lawpar
-$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+{\fzssk ★}特别提示{\fzssk ★}\\[-4.86bp]
 \hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
 \hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
 追究责任。
@@ -143,7 +133,8 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 住所地（户籍所在地）：\\
 经常居住地：\\
 证件类型：\\
-证件号码：
+证件号码：\\
+\mbox{}
 }
 
 \pairsection{原告\\（法人、非法人组织）}{
@@ -157,7 +148,8 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
 \hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
 \hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
-所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
 }
 
 \newpage
@@ -166,9 +158,10 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \pairsection{委托诉讼代理人}{
 有$\square$\\
 \hspace*{21bp}姓名：\\
-\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
 \hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
-无$\square$
+无$\square$\\
+\mbox{}
 }
 
 \pairsection{被告\\（自然人）}{
@@ -179,7 +172,8 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 住所地（户籍所在地）：\\
 经常居住地：\\
 证件类型：\\
-证件号码：
+证件号码：\\
+\mbox{}
 }
 
 \pairsection{被告\\（法人、非法人组织）}{
@@ -193,7 +187,8 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
 \hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
 \hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
-所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
 }
 
 \pairsection{第三人\\（自然人）}{
@@ -204,7 +199,8 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 住所地（户籍所在地）：\\
 经常居住地：\\
 证件类型：\\
-证件号码：
+证件号码：\\
+\mbox{}
 }
 
 \pairsection{第三人\\（法人、非法人组织）}{
@@ -224,23 +220,19 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
 \hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
 \hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
-所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
 }
 
 \subtitlesection{诉讼请求}
 
-\begin{tcolorbox}[
-    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-    enlarge left by=-19.28bp,
-    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
-]
+\begin{notesection}[top=4bp, bottom=4bp]
 \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
 \baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
 \setlength{\parindent}{0pt}\color{inkblack}%
 （可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
 \mbox{}
-\end{tcolorbox}
+\end{notesection}
 
 \pairsectionleft{1. 透支本金}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，尚欠本金\hspace{4em}元（人民币，下同；如为外\\
@@ -297,18 +289,13 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{事实与理由}
 
-\begin{tcolorbox}[
-    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-    enlarge left by=-19.28bp,
-    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
-]
+\begin{notesection}[top=4bp, bottom=4bp]
 \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
 \baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
 \setlength{\parindent}{0pt}\color{inkblack}%
 （可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
 \mbox{}
-\end{tcolorbox}
+\end{notesection}
 
 \pairsectionleft{1. 信用卡办理情况\\（信用卡卡号、信用\\卡登记权利人、办卡\\时间、办卡行等）}{
 \mbox{}
@@ -399,11 +386,11 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{对纠纷解决方式的意愿}
 
-\pairsection{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{
+\pairsectionleft{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{
 了解$\square$\hspace{1em}不了解$\square$
 }
 
-\pairsection{是否了解先行调解解\\决纠纷的好处}{
+\pairsectionleft{是否了解先行调解解\\决纠纷的好处}{
 1. 立案后选择先行调解的，可以很快启动调解程序。如不同意调解，法院将\\
 依程序开庭审理案件，但可能需要经过较长一段时间的排期等待，且审理、\\
 执行周期相对较长。\\
@@ -422,7 +409,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 了解$\square$\hspace{1em}不了解$\square$
 }
 
-\pairsection{是否考虑先行调解}{
+\pairsectionleft{是否考虑先行调解}{
 是$\square$\\
 否$\square$\\
 暂不确定，想要了解更多内容$\square$

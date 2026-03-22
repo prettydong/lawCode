@@ -5,6 +5,9 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
 
 \definecolor{inkblack}{rgb}{0.08,0.08,0.08}
 \geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
@@ -33,7 +36,7 @@
 \newtcolorbox{notesection}[1][]{
     width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
     fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont,
-    enlarge left by=-19.28bp, before=\vspace*{-13.39bp}\noindent, after=\par,
+    enlarge left by=-19.28bp, before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
     boxsep=0pt, left=4bp, top=4.69bp, bottom=4.69bp, right=0pt, #1
 }
 
@@ -45,35 +48,46 @@
         boxsep=0pt, left=0pt, right=0pt, top=4bp, bottom=4bp, halign=center,
         fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
         enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\vspace{0pt}
+        before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par}
     ]
     #1
     \end{tcolorbox}%
 }
 
-\newcommand{\pairsection}[2]{%
+\newcommand{\pairsectionbase}[3]{%
     \begin{tcolorbox}[
         width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
         enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
+        before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par},
         boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
     ]
     \begin{minipage}[c]{112.9bp}%
-        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+        \vspace{2bp}%
+        \songti\fontsize{10.5bp}{12bp}\selectfont
+        #1#2%
+        \vspace{2bp}%
     \end{minipage}%
     \hspace{0pt}%
     \vrule width 0.5pt%
     \hspace{4bp}%
     \begin{minipage}[c]{346.32bp}%
-        \vspace{4bp}%
+        \vspace{2bp}%
         \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
         \baselineskip=17bp%
         \setlength{\parindent}{0pt}%
         \color{inkblack}%
-        #2%
-        \vspace{4bp}%
+        #3%
+        \vspace{2bp}%
     \end{minipage}%
     \end{tcolorbox}%
+}
+
+\newcommand{\pairsection}[2]{%
+    \pairsectionbase{\centering}{#1}{#2}%
+}
+
+\newcommand{\pairsectionleft}[2]{%
+    \pairsectionbase{\raggedright\fontsize{10.5bp}{10.5bp}\selectfont}{#1}{#2}%
 }
 
 \begin{document}
@@ -102,7 +116,7 @@
 如，多原告、多被告或多委托诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
 可根据实际对栏目进行扩容等。
 \lawpar
-$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+{\fzssk ★}特别提示{\fzssk ★}\\[-4.86bp]
 \hspace*{20.7bp}诉讼参加人应遵守诚信原则如实认真填写表格。\\[-4.86bp]
 \hspace*{20.7bp}如果诉讼参加人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
 追究责任。
@@ -118,10 +132,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 住所地（户籍所在地）：\\
 经常居住地：\\
 证件类型：\\
-证件号码：
+证件号码：\\
+\mbox{}
 }
 
 \pairsection{原告\\（法人、非法人组织）}{
+\mbox{}\\
 名称：\\
 住所地（主要办事机构所在地）：\\
 注册地 / 登记地：\\
@@ -132,18 +148,21 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
 \hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
 \hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
-所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
 }
 
 \newpage
 % ===== 第 2 页 =====
 
 \pairsection{委托诉讼代理人}{
+\mbox{}\\
 有$\square$\\
 \hspace*{21bp}姓名：\\
-\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
 \hspace*{21bp}代理权限：一般授权$\square$\hspace{1em}特别授权$\square$\hspace{1em}\rule{80bp}{0.5pt}\\
-无$\square$
+无$\square$\\
+\mbox{}
 }
 
 \pairsection{被告\\（自然人）}{
@@ -154,10 +173,12 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 住所地（户籍所在地）：\\
 经常居住地：\\
 证件类型：\\
-证件号码：
+证件号码：\\
+\mbox{}
 }
 
 \pairsection{被告\\（法人、非法人组织）}{
+\mbox{}\\
 名称：\\
 住所地（主要办事机构所在地）：\\
 注册地 / 登记地：\\
@@ -168,7 +189,8 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
 \hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
 \hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
-所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
 }
 
 \pairsection{第三人\\（自然人）}{
@@ -179,91 +201,86 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 住所地（户籍所在地）：\\
 经常居住地：\\
 证件类型：\\
-证件号码：
-}
-
-\pairsection{第三人\\（法人、非法人组织）}{
-名称：\\
-住所地（主要办事机构所在地）：\\
-注册地 / 登记地：\\
-法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
-统一社会信用代码：
+证件号码：\\
+\mbox{}
 }
 
 \newpage
 % ===== 第 3 页 =====
 
 \pairsection{第三人\\（法人、非法人组织）}{
+\mbox{}\\
+名称：\\
+住所地（主要办事机构所在地）：\\
+注册地 / 登记地：\\
+法定代表人 / 负责人：\hspace{4em}职务：\hspace{4em}联系电话：\\
+统一社会信用代码：\\
 类型：有限责任公司$\square$\hspace{1em}股份有限公司$\square$\hspace{1em}上市公司$\square$\\
 \hspace*{36bp}其他企业法人$\square$\hspace{1em}事业单位$\square$\hspace{1em}社会团体$\square$\hspace{1em}基金会$\square$\\
 \hspace*{36bp}社会服务机构$\square$\hspace{1em}机关法人$\square$\hspace{1em}农村集体经济组织法人$\square$\\
 \hspace*{36bp}城镇农村的合作经济组织法人$\square$\hspace{1em}基层群众性自治组织法人$\square$\\
 \hspace*{36bp}个人独资企业$\square$\hspace{1em}合伙企业$\square$\hspace{1em}不具有法人资格的专业服务机构$\square$\\
-所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}
+所有制性质：国有$\square$（控股$\square$\hspace{1em}参股$\square$）\hspace{1em}民营$\square$\hspace{1em}其他\rule{60bp}{0.5pt}\\
+\mbox{}
 }
 
 \subtitlesection{诉讼请求}
 
-\begin{tcolorbox}[
-    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-    enlarge left by=-19.28bp,
-    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
-]
+\begin{notesection}[top=4bp, bottom=4bp]
 \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
 \baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
 \setlength{\parindent}{0pt}\color{inkblack}%
 （可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
 \mbox{}
-\end{tcolorbox}
+\end{notesection}
 
-\pairsection{1. 本金}{
+\pairsectionleft{1. 本金}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，尚欠本金\hspace{4em}元（人民币，下同；如外币\\
 需特别注明）
 }
 
-\pairsection{2. 利息}{
+\pairsectionleft{2. 利息}{
 截至\hspace{2em}年\hspace{2em}月\hspace{2em}日止，尚欠利息\hspace{4em}元；\\
 计算方式：\\
 是否请求支付至实际清偿之日止：是$\square$\hspace{1em}否$\square$
 }
 
-\pairsection{3. 是否要求提前还款或\\解除合同}{
+\pairsectionleft{3. 是否要求提前还款或\\解除合同}{
 是$\square$\hspace{1em}提前还款（加速到期）$\square$ / 解除合同$\square$\\
 否$\square$
 }
 
-\pairsection{4. 是否主张担保权利}{
+\pairsectionleft{4. 是否主张担保权利}{
 是$\square$\hspace{1em}内容：\\
 否$\square$
 }
 
-\pairsection{5. 是否主张实现债权的\\费用}{
+\pairsectionleft{5. 是否主张实现债权的\\费用}{
 是$\square$\hspace{1em}明细：\\
 否$\square$
 }
 
-\pairsection{6. 是否主张诉讼费用}{
+\pairsectionleft{6. 是否主张诉讼费用}{
 是$\square$\\
 否$\square$
 }
 
-\pairsection{7. 其他请求}{
+\pairsectionleft{7. 其他请求}{
 \mbox{}
 }
 
-\pairsection{8. 标的总额}{
+\pairsectionleft{8. 标的总额}{
 \mbox{}
 }
 
 \subtitlesection{约定管辖和诉前保全}
 
-\pairsection{1. 有无仲裁、法院管辖\\约定}{
+\pairsectionleft{1. 有无仲裁、法院管辖\\约定}{
 有$\square$\hspace{4em}合同条款及内容：\\
 无$\square$
 }
 
-\pairsection{2. 是否已经诉前保全}{
+\pairsectionleft{2. 是否已经诉前保全}{
 是$\square$\hspace{1em}保全法院：\hspace{4em}保全时间：\\
 \hspace*{21bp}保全案号：\\
 否$\square$\\
@@ -275,48 +292,43 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 
 \subtitlesection{事实与理由}
 
-\begin{tcolorbox}[
-    width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
-    enlarge left by=-19.28bp,
-    before={\nointerlineskip\vspace{-0.5pt}\noindent}, after=\par,
-    boxsep=0pt, left=4bp, right=0pt, top=4bp, bottom=4bp
-]
+\begin{notesection}[top=4bp, bottom=4bp]
 \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
 \baselineskip=17bp\parskip=0pt\lineskiplimit=-\maxdimen%
 \setlength{\parindent}{0pt}\color{inkblack}%
 （可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）\\[51bp]
 \mbox{}
-\end{tcolorbox}
+\end{notesection}
 
-\pairsection{1. 合同签订情况（名\\称、编号、签订时间、\\地点等）}{
+\pairsectionleft{1. 合同签订情况（名\\称、编号、签订时间、\\地点等）}{
 \mbox{}
 }
 
-\pairsection{2. 签订主体}{
+\pairsectionleft{2. 签订主体}{
 出借人：\\
 借款人：
 }
 
-\pairsection{3. 借款金额}{
+\pairsectionleft{3. 借款金额}{
 约定：\\
 实际提供：\\
 提供方式：现金$\square$\hspace{1em}转账$\square$\hspace{1em}其他：
 }
 
-\pairsection{4. 借款期限}{
+\pairsectionleft{4. 借款期限}{
 是否到期：是$\square$\hspace{1em}否$\square$\\
 约定期限：\hspace{2em}年\hspace{2em}月\hspace{2em}日起至\hspace{2em}年\hspace{2em}月\hspace{2em}日止
 }
 
-\pairsection{5. 借款利率}{
+\pairsectionleft{5. 借款利率}{
 利率$\square$\hspace{2em}\%/ 年（季 / 月）（合同条款：第\hspace{2em}条）
 }
 
-\pairsection{6. 借款提供时间}{
+\pairsectionleft{6. 借款提供时间}{
 \hspace{2em}年\hspace{2em}月\hspace{2em}日，\hspace{4em}元
 }
 
-\pairsection{7. 还款方式}{
+\pairsectionleft{7. 还款方式}{
 到期一次性还本付息$\square$\\
 按月计息、到期一次性还本$\square$\\
 按季计息、到期一次性还本$\square$\\
@@ -324,22 +336,22 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 其他：\rule{120bp}{0.5pt}
 }
 
-\pairsection{8. 还款情况}{
+\pairsectionleft{8. 还款情况}{
 已还本金：\hspace{4em}元\\
 已还利息：\hspace{4em}元，还息至\hspace{2em}年\hspace{2em}月\hspace{2em}日
 }
 
-\pairsection{9. 是否存在逾期还款}{
+\pairsectionleft{9. 是否存在逾期还款}{
 是$\square$\hspace{1em}逾期时间：\hspace{6em}至今已逾期\\
 否$\square$
 }
 
-\pairsection{10. 是否签订物的担保\\（抵押、质押）合同}{
+\pairsectionleft{10. 是否签订物的担保\\（抵押、质押）合同}{
 是$\square$\hspace{1em}签订时间：\\
 否$\square$
 }
 
-\pairsection{11. 担保人、担保物}{
+\pairsectionleft{11. 担保人、担保物}{
 担保人：\\
 担保物：
 }
@@ -347,51 +359,51 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \newpage
 % ===== 第 5 页 =====
 
-\pairsection{12. 是否最高额担保\\（抵押、质押）}{
+\pairsectionleft{12. 是否最高额担保\\（抵押、质押）}{
 是$\square$\\
 否$\square$\\
 担保债权的确定时间：\\
 担保额度：
 }
 
-\pairsection{13. 是否办理抵押、质\\押登记}{
+\pairsectionleft{13. 是否办理抵押、质\\押登记}{
 是$\square$\hspace{1em}正式登记$\square$\\
 \hspace*{21bp}预告登记$\square$\\
 否$\square$
 }
 
-\pairsection{14. 是否签订保证合同}{
+\pairsectionleft{14. 是否签订保证合同}{
 是$\square$\hspace{1em}签订时间：\hspace{4em}保证人：\\
 \hspace*{21bp}主要内容：\\
 \hspace*{21bp}保证方式：一般保证$\square$\hspace{1em}连带责任保证$\square$\\
 否$\square$
 }
 
-\pairsection{15. 其他担保方式}{
+\pairsectionleft{15. 其他担保方式}{
 是$\square$\hspace{1em}形式：\hspace{6em}签订时间：\\
 否$\square$
 }
 
-\pairsection{16. 其他需要说明的\\内容（可另附页）}{
+\pairsectionleft{16. 其他需要说明的\\内容（可另附页）}{
 \mbox{}
 }
 
-\pairsection{17. 请求依据}{
+\pairsectionleft{17. 请求依据}{
 合同约定：\\
 法律规定：
 }
 
-\pairsection{18. 证据清单（可另附\\页）}{
+\pairsectionleft{18. 证据清单（可另附\\页）}{
 \mbox{}
 }
 
 \subtitlesection{对纠纷解决方式的意愿}
 
-\pairsection{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{
+\pairsectionleft{是否了解调解作为非诉\\讼纠纷解决方式，能\\及时、高效、低成本、\\不伤和气地解决纠纷}{
 了解$\square$\hspace{1em}不了解$\square$
 }
 
-\pairsection{是否了解先行调解解\\决纠纷的好处}{
+\pairsectionleft{是否了解先行调解解\\决纠纷的好处}{
 1. 立案后选择先行调解的，可以很快启动调解程序。如不同意调解，法院将\\
 依程序开庭审理案件，但可能需要经过较长一段时间的排期等待，且审理、\\
 执行周期相对较长。\\
@@ -410,13 +422,13 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \newpage
 % ===== 第 6 页 =====
 
-\pairsection{是否了解先行调解解\\决纠纷的好处}{
+\pairsectionleft{是否了解先行调解解\\决纠纷的好处}{
 5. 调解达成的协议具有法律效力，可以依照法律规定申请司法确认，具有强\\
 制执行效力。\\
 了解$\square$\hspace{1em}不了解$\square$
 }
 
-\pairsection{是否考虑先行调解}{
+\pairsectionleft{是否考虑先行调解}{
 是$\square$\\
 否$\square$\\
 暂不确定，想要了解更多内容$\square$
