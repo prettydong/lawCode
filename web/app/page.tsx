@@ -2,8 +2,37 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useConfirm } from "./ConfirmDialog";
+import { exportAnalysisToWord } from "@/lib/exportWord";
 import { CIVIL_TEMPLATES, CATEGORIES } from "@/lib/templates";
+import { useBreadcrumb } from "./Breadcrumb";
+
+// ── 客户端：剥掉所有 ** 标记，避免星号和空格问题 ──
+function fixMd(raw: string): string {
+  return raw.split('\n').map(line => {
+    // 找所有 ** 位置
+    const pos: number[] = [];
+    let i = 0;
+    while (i < line.length) {
+      if (line[i] === '*' && line[i + 1] === '*' &&
+        (i + 2 >= line.length || line[i + 2] !== '*') &&
+        (i === 0 || line[i - 1] !== '*')) {
+        pos.push(i);
+        i += 2;
+      } else i++;
+    }
+    if (pos.length < 2) return line;
+    // 从右往左：删 ** 标记 + 去内部空格
+    let r = line;
+    for (let p = pos.length - 2; p >= 0; p -= 2) {
+      const o = pos[p], c = pos[p + 1];
+      const content = r.slice(o + 2, c).trim();
+      r = r.slice(0, o) + content + r.slice(c + 2);
+    }
+    return r;
+  }).join('\n');
+}
 
 type Mode = null | "zhisu" | "document" | "analysis" | "cases";
 
@@ -224,6 +253,12 @@ function LandingPage({ onSelect }: { onSelect: (m: Mode) => void }) {
    智诉内部 — 选择功能
    ═══════════════════════════════════════════ */
 function ZhisuPage({ onSelect, onBack }: { onSelect: (m: Mode) => void; onBack: () => void }) {
+  useBreadcrumb([
+    { label: "智诉", siblings: [
+      { label: "智记", onClick: () => onSelect("cases") },
+    ] },
+  ]);
+
   return (
     <div className="h-full overflow-auto px-6 pt-[14vh] fade-in relative">
       <BgDecor />
@@ -298,7 +333,16 @@ function ZhisuPage({ onSelect, onBack }: { onSelect: (m: Mode) => void; onBack: 
 /* ═══════════════════════════════════════════
    二级页面 — 智能文书生成
    ═══════════════════════════════════════════ */
-function DocumentPage({ onBack }: { onBack: () => void }) {
+function DocumentPage({ onBack, onSelect }: { onBack: () => void; onSelect: (m: Mode) => void }) {
+  useBreadcrumb([
+    { label: "智诉", siblings: [
+      { label: "智记", onClick: () => onSelect("cases") },
+    ] },
+    { label: "智能文书生成", siblings: [
+      { label: "智能案件分析", onClick: () => onSelect("analysis") },
+    ] },
+  ]);
+
   const [query, setQuery] = useState("");
   const [selectedCat, setSelectedCat] = useState("全部");
 
@@ -426,7 +470,16 @@ function DocumentPage({ onBack }: { onBack: () => void }) {
 /* ═══════════════════════════════════════════
    二级页面 — 智能案件分析
    ═══════════════════════════════════════════ */
-function AnalysisPage({ onBack }: { onBack: () => void }) {
+function AnalysisPage({ onBack, onSelect }: { onBack: () => void; onSelect: (m: Mode) => void }) {
+  useBreadcrumb([
+    { label: "智诉", siblings: [
+      { label: "智记", onClick: () => onSelect("cases") },
+    ] },
+    { label: "智能案件分析", siblings: [
+      { label: "智能文书生成", onClick: () => onSelect("document") },
+    ] },
+  ]);
+
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
@@ -557,9 +610,18 @@ function AnalysisPage({ onBack }: { onBack: () => void }) {
         {/* 分析结果 */}
         {result && (
           <div className="mt-6 p-5 bg-[var(--color-surface)] border border-[var(--color-border)] fade-in">
-            <h3 className="text-[14px] font-semibold text-[var(--color-text)] mb-3">分析结果</h3>
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-[14px] font-semibold text-[var(--color-text)]">分析结果</h3>
+              <button
+                onClick={() => exportAnalysisToWord(result)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[12px] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all cursor-pointer"
+              >
+                <span style={{ fontSize: 14, lineHeight: 1 }}>⬇</span>
+                导出 Word
+              </button>
+            </div>
             <div className="prose-analysis text-[13px] text-[var(--color-text-secondary)] leading-relaxed">
-              <ReactMarkdown>{result}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{fixMd(result)}</ReactMarkdown>
             </div>
           </div>
         )}
@@ -571,7 +633,12 @@ function AnalysisPage({ onBack }: { onBack: () => void }) {
 /* ═══════════════════════════════════════════
    三级页面 — 智记（案件工作区）
    ═══════════════════════════════════════════ */
-function CasesPage({ onBack }: { onBack: () => void }) {
+function CasesPage({ onBack, onSelect }: { onBack: () => void; onSelect: (m: Mode) => void }) {
+  useBreadcrumb([
+    { label: "智记", siblings: [
+      { label: "智诉", onClick: () => onSelect("zhisu") },
+    ] },
+  ]);
   const [tab, setTab] = useState<ZhijiTab>("cases");
   const [fileTab, setFileTab] = useState<FileSubTab>("documents");
   const [needLogin, setNeedLogin] = useState(false);
@@ -590,6 +657,7 @@ function CasesPage({ onBack }: { onBack: () => void }) {
   const [analyses, setAnalyses] = useState<AnalysisItem[]>([]);
   const [filesLoading, setFilesLoading] = useState(false);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const [expandedAnalysisId, setExpandedAnalysisId] = useState<string | null>(null);
 
   // ── 通用 ──
   const formatDate = (iso: string) => {
@@ -829,7 +897,7 @@ function CasesPage({ onBack }: { onBack: () => void }) {
                             className="text-[11px] text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:underline transition-colors cursor-pointer disabled:opacity-50">
                             {downloadingId === d.id ? "生成中..." : "下载"}
                           </button>
-                          <a href={`/fill?docId=${d.id}`}
+                          <a href={d.template_id === "xingshi-wuru" ? `/fill?docId=${d.id}` : `/fill-civil?id=${d.template_id}&docId=${d.id}`}
                             className="text-[11px] text-[var(--color-accent)] hover:underline transition-colors">编辑</a>
                           <button onClick={() => handleDeleteDoc(d.id)}
                             className="opacity-0 group-hover:opacity-100 text-[var(--color-text-muted)] hover:text-[var(--color-error)] transition-all cursor-pointer text-[12px]">✕</button>
@@ -848,24 +916,49 @@ function CasesPage({ onBack }: { onBack: () => void }) {
                 <div className="text-center py-12 text-[var(--color-text-muted)] text-[13px]">暂无分析记录，在智诉中进行案件分析后自动归档</div>
               ) : (
                 <div className="border border-[var(--color-border)] divide-y divide-[var(--color-border)]">
-                  {analyses.map((a) => (
-                    <div key={a.id} className="px-4 py-3 group hover:bg-[var(--color-surface-alt)] transition-colors">
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[10px] px-1.5 py-0.5 bg-amber-50 text-amber-600 shrink-0">{a.mode || "综合"}</span>
-                            <p className="text-[13px] text-[var(--color-text)] truncate">{a.input || "(无输入)"}</p>
-                            <span className="text-[11px] text-[var(--color-text-muted)] shrink-0">{formatDate(a.created_at)}</span>
+                  {analyses.map((a) => {
+                    const isOpen = expandedAnalysisId === a.id;
+                    return (
+                      <div key={a.id} className="group transition-colors">
+                        {/* 概要行 — 点击展开/收起 */}
+                        <div
+                          className="px-4 py-3 cursor-pointer hover:bg-[var(--color-surface-alt)] transition-colors"
+                          onClick={() => setExpandedAnalysisId(isOpen ? null : a.id)}
+                        >
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] px-1.5 py-0.5 bg-amber-50 text-amber-600 shrink-0">{a.mode || "综合"}</span>
+                                <p className="text-[13px] text-[var(--color-text)] truncate">{a.input || "(无输入)"}</p>
+                                <span className="text-[11px] text-[var(--color-text-muted)] shrink-0">{formatDate(a.created_at)}</span>
+                              </div>
+                              {!isOpen && a.result && (
+                                <p className="text-[11px] text-[var(--color-text-muted)] mt-1 line-clamp-2">{a.result.slice(0, 150)}</p>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-3 shrink-0">
+                              <span className="text-[11px] text-[var(--color-text-muted)]">{isOpen ? "收起" : "查看"}</span>
+                              {a.result && (
+                                <button onClick={(e) => { e.stopPropagation(); exportAnalysisToWord(a.result, `案件分析_${a.mode || '综合'}`); }}
+                                  className="text-[11px] text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:underline transition-colors cursor-pointer">导出</button>
+                              )}
+                              <button onClick={(e) => { e.stopPropagation(); handleDeleteAnalysis(a.id); }}
+                                className="opacity-0 group-hover:opacity-100 text-[var(--color-text-muted)] hover:text-[var(--color-error)] transition-all cursor-pointer text-[12px]">✕</button>
+                            </div>
                           </div>
-                          {a.result && (
-                            <p className="text-[11px] text-[var(--color-text-muted)] mt-1 line-clamp-2">{a.result.slice(0, 150)}</p>
-                          )}
                         </div>
-                        <button onClick={() => handleDeleteAnalysis(a.id)}
-                          className="opacity-0 group-hover:opacity-100 text-[var(--color-text-muted)] hover:text-[var(--color-error)] transition-all cursor-pointer text-[12px] shrink-0 mt-0.5">✕</button>
+
+                        {/* 展开的完整分析结果 */}
+                        {isOpen && a.result && (
+                          <div className="px-5 pb-5 pt-2 bg-[var(--color-surface-alt)] border-t border-[var(--color-border-light)]">
+                            <div className="prose-analysis text-[13px] text-[var(--color-text-secondary)] leading-relaxed">
+                              <ReactMarkdown remarkPlugins={[remarkGfm]}>{fixMd(a.result)}</ReactMarkdown>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )
             )}
@@ -882,9 +975,9 @@ function CasesPage({ onBack }: { onBack: () => void }) {
 export default function HomePage() {
   const [mode, setMode] = useState<Mode>(null);
 
-  if (mode === "document") return <DocumentPage onBack={() => setMode("zhisu")} />;
-  if (mode === "analysis") return <AnalysisPage onBack={() => setMode("zhisu")} />;
-  if (mode === "cases") return <CasesPage onBack={() => setMode(null)} />;
+  if (mode === "document") return <DocumentPage onBack={() => setMode("zhisu")} onSelect={setMode} />;
+  if (mode === "analysis") return <AnalysisPage onBack={() => setMode("zhisu")} onSelect={setMode} />;
+  if (mode === "cases") return <CasesPage onBack={() => setMode(null)} onSelect={setMode} />;
   if (mode === "zhisu") return <ZhisuPage onSelect={setMode} onBack={() => setMode(null)} />;
   return <LandingPage onSelect={setMode} />;
 }
