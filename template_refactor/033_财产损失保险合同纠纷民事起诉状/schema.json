@@ -1,0 +1,595 @@
+{
+  "id": "033",
+  "name": "财产损失保险合同纠纷民事起诉状",
+  "subtitle": "财产损失保险合同纠纷",
+  "templateFile": "033_财产损失保险合同纠纷民事起诉状.tex",
+  "pageCount": 2,
+  "partyType": "mixed",
+  "hasThirdParty": true,
+  "sections": [
+    {
+      "id": "parties",
+      "title": "当事人信息",
+      "type": "builtin_parties",
+      "fields": [
+        {
+          "id": "原告",
+          "title": "原告",
+          "type": "group",
+          "fields": [
+            {
+              "id": "natural",
+              "title": "原告（自然人）",
+              "entityType": "natural",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "姓名",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "gender",
+                  "label": "性别",
+                  "type": "radio",
+                  "options": [
+                    "男",
+                    "女"
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "birth_date",
+                  "label": "出生日期",
+                  "type": "text"
+                },
+                {
+                  "id": "ethnicity",
+                  "label": "民族",
+                  "type": "text"
+                },
+                {
+                  "id": "work_unit",
+                  "label": "工作单位",
+                  "type": "text"
+                },
+                {
+                  "id": "job_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "hukou_address",
+                  "label": "住所地（户籍所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "residence_address",
+                  "label": "经常居住地",
+                  "type": "text"
+                },
+                {
+                  "id": "id_type",
+                  "label": "证件类型",
+                  "type": "text"
+                },
+                {
+                  "id": "id_number",
+                  "label": "证件号码",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "id": "organization",
+              "title": "原告（法人、非法人组织）",
+              "entityType": "organization",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "名称",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "address",
+                  "label": "住所地（主要办事机构所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "registered_address",
+                  "label": "注册地 / 登记地",
+                  "type": "text"
+                },
+                {
+                  "id": "legal_representative",
+                  "label": "法定代表人 / 负责人",
+                  "type": "text"
+                },
+                {
+                  "id": "representative_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "credit_code",
+                  "label": "统一社会信用代码",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "agent",
+          "title": "委托诉讼代理人",
+          "fields": [
+            {
+              "id": "has_agent",
+              "label": "有无",
+              "type": "radio",
+              "options": [
+                "有",
+                "无"
+              ],
+              "required": true
+            },
+            {
+              "id": "agent_name",
+              "label": "姓名",
+              "type": "text"
+            },
+            {
+              "id": "agent_unit",
+              "label": "单位",
+              "type": "text"
+            },
+            {
+              "id": "agent_title",
+              "label": "职务",
+              "type": "text"
+            },
+            {
+              "id": "agent_phone",
+              "label": "联系电话",
+              "type": "text"
+            },
+            {
+              "id": "agent_authority",
+              "label": "代理权限",
+              "type": "radio",
+              "options": [
+                "一般授权",
+                "特别授权"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "被告",
+          "title": "被告",
+          "type": "group",
+          "fields": [
+            {
+              "id": "natural",
+              "title": "被告（自然人）",
+              "entityType": "natural",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "姓名",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "gender",
+                  "label": "性别",
+                  "type": "radio",
+                  "options": [
+                    "男",
+                    "女"
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "birth_date",
+                  "label": "出生日期",
+                  "type": "text"
+                },
+                {
+                  "id": "ethnicity",
+                  "label": "民族",
+                  "type": "text"
+                },
+                {
+                  "id": "work_unit",
+                  "label": "工作单位",
+                  "type": "text"
+                },
+                {
+                  "id": "job_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "hukou_address",
+                  "label": "住所地（户籍所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "residence_address",
+                  "label": "经常居住地",
+                  "type": "text"
+                },
+                {
+                  "id": "id_type",
+                  "label": "证件类型",
+                  "type": "text"
+                },
+                {
+                  "id": "id_number",
+                  "label": "证件号码",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "id": "organization",
+              "title": "被告（法人、非法人组织）",
+              "entityType": "organization",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "名称",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "address",
+                  "label": "住所地（主要办事机构所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "registered_address",
+                  "label": "注册地 / 登记地",
+                  "type": "text"
+                },
+                {
+                  "id": "legal_representative",
+                  "label": "法定代表人 / 负责人",
+                  "type": "text"
+                },
+                {
+                  "id": "representative_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "credit_code",
+                  "label": "统一社会信用代码",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "第三人",
+          "title": "第三人",
+          "type": "group",
+          "fields": [
+            {
+              "id": "natural",
+              "title": "第三人（自然人）",
+              "entityType": "natural",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "姓名",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "gender",
+                  "label": "性别",
+                  "type": "radio",
+                  "options": [
+                    "男",
+                    "女"
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "birth_date",
+                  "label": "出生日期",
+                  "type": "text"
+                },
+                {
+                  "id": "ethnicity",
+                  "label": "民族",
+                  "type": "text"
+                },
+                {
+                  "id": "work_unit",
+                  "label": "工作单位",
+                  "type": "text"
+                },
+                {
+                  "id": "job_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "hukou_address",
+                  "label": "住所地（户籍所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "residence_address",
+                  "label": "经常居住地",
+                  "type": "text"
+                },
+                {
+                  "id": "id_type",
+                  "label": "证件类型",
+                  "type": "text"
+                },
+                {
+                  "id": "id_number",
+                  "label": "证件号码",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "id": "organization",
+              "title": "第三人（法人、非法人组织）",
+              "entityType": "organization",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "名称",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "address",
+                  "label": "住所地（主要办事机构所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "registered_address",
+                  "label": "注册地 / 登记地",
+                  "type": "text"
+                },
+                {
+                  "id": "legal_representative",
+                  "label": "法定代表人 / 负责人",
+                  "type": "text"
+                },
+                {
+                  "id": "representative_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "credit_code",
+                  "label": "统一社会信用代码",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claims",
+      "title": "诉讼请求",
+      "hasFreeText": true,
+      "fields": [
+        {
+          "id": "1_理赔款",
+          "label": "1. 理赔款",
+          "type": "textarea"
+        },
+        {
+          "id": "2_是否主张实现债权的费用",
+          "label": "2. 是否主张实现债权\\\\的费用",
+          "type": "textarea"
+        },
+        {
+          "id": "3_是否主张诉讼费用",
+          "label": "3. 是否主张诉讼费用",
+          "type": "textarea"
+        },
+        {
+          "id": "4_其他请求",
+          "label": "4. 其他请求",
+          "type": "textarea"
+        },
+        {
+          "id": "5_标的总额",
+          "label": "5. 标的总额",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "约定管辖和诉前保全",
+      "title": "约定管辖和诉前保全",
+      "type": "builtin_preservation",
+      "fields": [
+        {
+          "id": "1_有无仲裁_法院管辖约定",
+          "label": "1. 有无仲裁、法院管辖\\\\约定",
+          "type": "textarea"
+        },
+        {
+          "id": "2_是否已经诉前保全",
+          "label": "2. 是否已经诉前保全",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "事实与理由",
+      "title": "事实与理由",
+      "fields": [
+        {
+          "id": "1_财产保险合同的签订情况_合同名称_主体_签订时间_地点_事故发生时被保险人与保险标的的关系等",
+          "label": "1. 财产保险合同的签\\\\订情况（合同名称、主\\\\体、签订时间、地点、\\\\事故发生时被保险人\\\\与保险标的的关系等）",
+          "type": "textarea"
+        },
+        {
+          "id": "2_财产保险合同的主要约定",
+          "label": "2. 财产保险合同的主\\\\要约定",
+          "type": "textarea"
+        },
+        {
+          "id": "3_是否依法就财产保险合同中与投保人有重大利害关系的条款进行提示_说明",
+          "label": "3. 是否依法就财产保\\\\险合同中与投保人有\\\\重大利害关系的条款\\\\进行提示、说明",
+          "type": "textarea"
+        },
+        {
+          "id": "4_保险事故发生的情况_事故发生时间及经过等_交通事故应当写明事故发生的时间和地点_双方车辆的车牌号_事故原因_车辆财物受损情况_道路交通事故认定书的出具部门与编号_各方责任认定情况等",
+          "label": "4. 保险事故发生的情\\\\况（事故发生时间及经\\\\过等；交通事故应当写\\\\明事故发生的时间和\\\\地点、双方车辆的车\\\\牌号、事故原因、车\\\\辆财物受损情况、道\\\\路交通事故认定书的\\\\出具部门与编号、各\\\\方责任认定情况等）",
+          "type": "textarea"
+        },
+        {
+          "id": "5_具体损失项目及其数额_附理由",
+          "label": "5. 具体损失项目及其\\\\数额（附理由）",
+          "type": "textarea"
+        },
+        {
+          "id": "6_财产保险合同的履行情况",
+          "label": "6. 财产保险合同的履\\\\行情况",
+          "type": "textarea"
+        },
+        {
+          "id": "7_请求承担责任的依据",
+          "label": "7. 请求承担责任的依据",
+          "type": "textarea"
+        },
+        {
+          "id": "8_其他需要说明的内容_可另附页",
+          "label": "8. 其他需要说明的内\\\\容（可另附页）",
+          "type": "textarea"
+        },
+        {
+          "id": "9_证据清单_可另附页",
+          "label": "9. 证据清单（可另附\\\\页）",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "mediation",
+      "title": "调解意愿",
+      "type": "builtin_mediation",
+      "fields": [
+        {
+          "id": "mediation_understanding",
+          "label": "是否了解调解作为非诉讼纠纷解决方式",
+          "type": "radio",
+          "options": [
+            "了解",
+            "不了解"
+          ]
+        },
+        {
+          "id": "mediation_awareness",
+          "label": "是否了解先行调解解决纠纷的好处",
+          "type": "group",
+          "fields": [
+            {
+              "id": "benefit_1",
+              "label": "1. 立案后选择先行调解",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            },
+            {
+              "id": "benefit_2",
+              "label": "2. 调解成功且自动履行",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            },
+            {
+              "id": "benefit_3",
+              "label": "3. 首次调解不成功",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            },
+            {
+              "id": "benefit_4",
+              "label": "4. 调解具有保密性要求",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            },
+            {
+              "id": "benefit_5",
+              "label": "5. 调解达成的协议具有法律效力",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mediation_intent",
+          "label": "是否考虑先行调解",
+          "type": "radio",
+          "options": [
+            "是",
+            "否",
+            "暂不确定，想要了解更多内容"
+          ]
+        }
+      ]
+    }
+  ]
+}

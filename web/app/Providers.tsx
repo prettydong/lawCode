@@ -1,7 +1,14 @@
 "use client";
 
 import { ConfirmProvider } from "./ConfirmDialog";
+import { BreadcrumbProvider } from "./Breadcrumb";
 
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
-    return <ConfirmProvider>{children}</ConfirmProvider>;
+    return (
+        <ConfirmProvider>
+            <BreadcrumbProvider>
+                {children}
+            </BreadcrumbProvider>
+        </ConfirmProvider>
+    );
 }

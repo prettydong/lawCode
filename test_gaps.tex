@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{tcolorbox}
+\begin{document}
+
+\newcommand{\boxA}{
+    \begin{tcolorbox}[sharp corners, boxrule=0.5pt, before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par}]
+    Box A
+    \end{tcolorbox}
+}
+
+\newcommand{\boxB}{
+    \begin{tcolorbox}[sharp corners, boxrule=0.5pt, before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par}]
+    Box B
+    \end{tcolorbox}
+}
+
+\boxA
+\boxB
+
+\boxA
+
+\boxB
+
+\end{document}

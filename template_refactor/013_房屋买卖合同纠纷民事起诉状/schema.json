@@ -1,0 +1,1397 @@
+{
+  "id": "013",
+  "name": "房屋买卖合同纠纷民事起诉状",
+  "subtitle": "房屋买卖合同纠纷",
+  "templateFile": "013_房屋买卖合同纠纷民事起诉状.tex",
+  "pageCount": 6,
+  "partyType": "mixed",
+  "hasThirdParty": true,
+  "sections": [
+    {
+      "id": "parties",
+      "title": "当事人信息",
+      "type": "builtin_parties",
+      "fields": [
+        {
+          "id": "plaintiff",
+          "title": "原告",
+          "type": "group",
+          "fields": [
+            {
+              "id": "natural",
+              "title": "原告（自然人）",
+              "entityType": "natural",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "姓名",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "gender",
+                  "label": "性别",
+                  "type": "radio",
+                  "options": [
+                    "男",
+                    "女"
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "birth_year",
+                  "label": "出生年",
+                  "type": "text"
+                },
+                {
+                  "id": "birth_month",
+                  "label": "出生月",
+                  "type": "text"
+                },
+                {
+                  "id": "birth_day",
+                  "label": "出生日",
+                  "type": "text"
+                },
+                {
+                  "id": "ethnicity",
+                  "label": "民族",
+                  "type": "text"
+                },
+                {
+                  "id": "work_unit",
+                  "label": "工作单位",
+                  "type": "text"
+                },
+                {
+                  "id": "job_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "hukou_address",
+                  "label": "住所地（户籍所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "residence_address",
+                  "label": "经常居住地",
+                  "type": "text"
+                },
+                {
+                  "id": "id_type",
+                  "label": "证件类型",
+                  "type": "text"
+                },
+                {
+                  "id": "id_number",
+                  "label": "证件号码",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "id": "organization",
+              "title": "原告（法人、非法人组织）",
+              "entityType": "organization",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "名称",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "address",
+                  "label": "住所地（主要办事机构所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "registered_address",
+                  "label": "注册地 / 登记地",
+                  "type": "text"
+                },
+                {
+                  "id": "legal_representative",
+                  "label": "法定代表人 / 负责人",
+                  "type": "text"
+                },
+                {
+                  "id": "representative_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "credit_code",
+                  "label": "统一社会信用代码",
+                  "type": "text"
+                },
+                {
+                  "id": "entity_type",
+                  "label": "类型",
+                  "type": "radio",
+                  "options": [
+                    "有限责任公司",
+                    "股份有限公司",
+                    "上市公司",
+                    "其他企业法人",
+                    "事业单位",
+                    "社会团体",
+                    "基金会",
+                    "社会服务机构",
+                    "机关法人",
+                    "农村集体经济组织法人",
+                    "城镇农村的合作经济组织法人",
+                    "基层群众性自治组织法人",
+                    "个人独资企业",
+                    "合伙企业",
+                    "不具有法人资格的专业服务机构"
+                  ]
+                },
+                {
+                  "id": "ownership",
+                  "label": "所有制性质",
+                  "type": "radio",
+                  "options": [
+                    "国有",
+                    "民营",
+                    "其他"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "agent",
+          "title": "委托诉讼代理人",
+          "fields": [
+            {
+              "id": "has_agent",
+              "label": "有无",
+              "type": "radio",
+              "options": [
+                "有",
+                "无"
+              ],
+              "required": true
+            },
+            {
+              "id": "agent_name",
+              "label": "姓名",
+              "type": "text"
+            },
+            {
+              "id": "agent_unit",
+              "label": "单位",
+              "type": "text"
+            },
+            {
+              "id": "agent_title",
+              "label": "职务",
+              "type": "text"
+            },
+            {
+              "id": "agent_phone",
+              "label": "联系电话",
+              "type": "text"
+            },
+            {
+              "id": "agent_authority",
+              "label": "代理权限",
+              "type": "radio",
+              "options": [
+                "一般授权",
+                "特别授权"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "defendant",
+          "title": "被告",
+          "type": "group",
+          "fields": [
+            {
+              "id": "natural",
+              "title": "被告（自然人）",
+              "entityType": "natural",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "姓名",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "gender",
+                  "label": "性别",
+                  "type": "radio",
+                  "options": [
+                    "男",
+                    "女"
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "birth_year",
+                  "label": "出生年",
+                  "type": "text"
+                },
+                {
+                  "id": "birth_month",
+                  "label": "出生月",
+                  "type": "text"
+                },
+                {
+                  "id": "birth_day",
+                  "label": "出生日",
+                  "type": "text"
+                },
+                {
+                  "id": "ethnicity",
+                  "label": "民族",
+                  "type": "text"
+                },
+                {
+                  "id": "work_unit",
+                  "label": "工作单位",
+                  "type": "text"
+                },
+                {
+                  "id": "job_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "hukou_address",
+                  "label": "住所地（户籍所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "residence_address",
+                  "label": "经常居住地",
+                  "type": "text"
+                },
+                {
+                  "id": "id_type",
+                  "label": "证件类型",
+                  "type": "text"
+                },
+                {
+                  "id": "id_number",
+                  "label": "证件号码",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "id": "organization",
+              "title": "被告（法人、非法人组织）",
+              "entityType": "organization",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "名称",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "id": "address",
+                  "label": "住所地（主要办事机构所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "registered_address",
+                  "label": "注册地 / 登记地",
+                  "type": "text"
+                },
+                {
+                  "id": "legal_representative",
+                  "label": "法定代表人 / 负责人",
+                  "type": "text"
+                },
+                {
+                  "id": "representative_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "credit_code",
+                  "label": "统一社会信用代码",
+                  "type": "text"
+                },
+                {
+                  "id": "entity_type",
+                  "label": "类型",
+                  "type": "radio",
+                  "options": [
+                    "有限责任公司",
+                    "股份有限公司",
+                    "上市公司",
+                    "其他企业法人",
+                    "事业单位",
+                    "社会团体",
+                    "基金会",
+                    "社会服务机构",
+                    "机关法人",
+                    "农村集体经济组织法人",
+                    "城镇农村的合作经济组织法人",
+                    "基层群众性自治组织法人",
+                    "个人独资企业",
+                    "合伙企业",
+                    "不具有法人资格的专业服务机构"
+                  ]
+                },
+                {
+                  "id": "ownership",
+                  "label": "所有制性质",
+                  "type": "radio",
+                  "options": [
+                    "国有",
+                    "民营",
+                    "其他"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "third_party",
+          "title": "第三人",
+          "type": "group",
+          "fields": [
+            {
+              "id": "natural",
+              "title": "第三人（自然人）",
+              "entityType": "natural",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "姓名",
+                  "type": "text"
+                },
+                {
+                  "id": "gender",
+                  "label": "性别",
+                  "type": "radio",
+                  "options": [
+                    "男",
+                    "女"
+                  ]
+                },
+                {
+                  "id": "birth_year",
+                  "label": "出生年",
+                  "type": "text"
+                },
+                {
+                  "id": "birth_month",
+                  "label": "出生月",
+                  "type": "text"
+                },
+                {
+                  "id": "birth_day",
+                  "label": "出生日",
+                  "type": "text"
+                },
+                {
+                  "id": "ethnicity",
+                  "label": "民族",
+                  "type": "text"
+                },
+                {
+                  "id": "work_unit",
+                  "label": "工作单位",
+                  "type": "text"
+                },
+                {
+                  "id": "job_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "hukou_address",
+                  "label": "住所地（户籍所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "residence_address",
+                  "label": "经常居住地",
+                  "type": "text"
+                },
+                {
+                  "id": "id_type",
+                  "label": "证件类型",
+                  "type": "text"
+                },
+                {
+                  "id": "id_number",
+                  "label": "证件号码",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "id": "organization",
+              "title": "第三人（法人、非法人组织）",
+              "entityType": "organization",
+              "fields": [
+                {
+                  "id": "name",
+                  "label": "名称",
+                  "type": "text"
+                },
+                {
+                  "id": "address",
+                  "label": "住所地（主要办事机构所在地）",
+                  "type": "text"
+                },
+                {
+                  "id": "registered_address",
+                  "label": "注册地 / 登记地",
+                  "type": "text"
+                },
+                {
+                  "id": "legal_representative",
+                  "label": "法定代表人 / 负责人",
+                  "type": "text"
+                },
+                {
+                  "id": "representative_title",
+                  "label": "职务",
+                  "type": "text"
+                },
+                {
+                  "id": "phone",
+                  "label": "联系电话",
+                  "type": "text"
+                },
+                {
+                  "id": "credit_code",
+                  "label": "统一社会信用代码",
+                  "type": "text"
+                },
+                {
+                  "id": "entity_type",
+                  "label": "类型",
+                  "type": "radio",
+                  "options": [
+                    "有限责任公司",
+                    "股份有限公司",
+                    "上市公司",
+                    "其他企业法人",
+                    "事业单位",
+                    "社会团体",
+                    "基金会",
+                    "社会服务机构",
+                    "机关法人",
+                    "农村集体经济组织法人",
+                    "城镇农村的合作经济组织法人",
+                    "基层群众性自治组织法人",
+                    "个人独资企业",
+                    "合伙企业",
+                    "不具有法人资格的专业服务机构"
+                  ]
+                },
+                {
+                  "id": "ownership",
+                  "label": "所有制性质",
+                  "type": "radio",
+                  "options": [
+                    "国有",
+                    "民营",
+                    "其他"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claims",
+      "title": "诉讼请求",
+      "hasFreeText": true,
+      "fields": [
+        {
+          "id": "claim_1",
+          "label": "1. 确定房屋买卖合同关系",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_issue",
+              "label": "是否存在此问题",
+              "type": "radio",
+              "options": [
+                "无此问题",
+                "有此问题"
+              ]
+            },
+            {
+              "id": "claim_invalid",
+              "label": "主张确认合同无效",
+              "type": "checkbox"
+            },
+            {
+              "id": "claim_unformed",
+              "label": "主张确认合同未成立",
+              "type": "checkbox"
+            },
+            {
+              "id": "claim_rescind",
+              "label": "主张解除",
+              "type": "checkbox"
+            },
+            {
+              "id": "claim_revoke",
+              "label": "主张撤销",
+              "type": "checkbox"
+            },
+            {
+              "id": "claim_continue",
+              "label": "主张继续履行",
+              "type": "checkbox"
+            },
+            {
+              "id": "claim_formal_contract",
+              "label": "主张订立正式房屋买卖合同",
+              "type": "checkbox"
+            },
+            {
+              "id": "specific_request",
+              "label": "具体主张",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "claim_2",
+          "label": "2. 支付或返还购房款",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_issue",
+              "label": "是否存在此问题",
+              "type": "radio",
+              "options": [
+                "无此问题",
+                "有此问题"
+              ]
+            },
+            {
+              "id": "return_down_payment",
+              "label": "返还首付款",
+              "type": "checkbox"
+            },
+            {
+              "id": "return_deposit",
+              "label": "返还定金",
+              "type": "checkbox"
+            },
+            {
+              "id": "return_paid",
+              "label": "返还已付款",
+              "type": "checkbox"
+            },
+            {
+              "id": "pay_balance",
+              "label": "支付欠付房款",
+              "type": "checkbox"
+            },
+            {
+              "id": "pay_default",
+              "label": "支付违约金",
+              "type": "checkbox"
+            },
+            {
+              "id": "pay_interest",
+              "label": "支付利息",
+              "type": "checkbox"
+            },
+            {
+              "id": "pay_loss",
+              "label": "赔偿损失",
+              "type": "checkbox"
+            },
+            {
+              "id": "amount_detail",
+              "label": "金额及明细",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "claim_3",
+          "label": "3. 交付或返还房屋",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_issue",
+              "label": "是否存在此问题",
+              "type": "radio",
+              "options": [
+                "无此问题",
+                "有此问题"
+              ]
+            },
+            {
+              "id": "deliver_house",
+              "label": "主张交付房屋",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "return_house",
+              "label": "主张返还房屋",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "late_delivery_penalty",
+              "label": "主张支付逾期交房违约金",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "claim_4",
+          "label": "4. 办理房屋登记手续",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_issue",
+              "label": "是否存在此问题",
+              "type": "radio",
+              "options": [
+                "无此问题",
+                "有此问题"
+              ]
+            },
+            {
+              "id": "assist_registration",
+              "label": "主张协助办理不动产登记",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "late_certificate_penalty",
+              "label": "主张支付逾期办证违约金",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "claim_5",
+          "label": "5. 返还或承担中介服务费",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_issue",
+              "label": "是否存在此问题",
+              "type": "radio",
+              "options": [
+                "无此问题",
+                "有此问题"
+              ]
+            },
+            {
+              "id": "return_fee",
+              "label": "主张返还中介服务费",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "bear_fee",
+              "label": "主张被告承担中介服务费",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "amount_detail",
+              "label": "金额及明细",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "claim_6",
+          "label": "6. 房屋质量损害赔偿",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_issue",
+              "label": "是否存在此问题",
+              "type": "radio",
+              "options": [
+                "无此问题",
+                "有此问题"
+              ]
+            },
+            {
+              "id": "repair",
+              "label": "主张被告予以维修",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "pay_repair_cost",
+              "label": "主张被告承担原告垫付的维修费",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "amount_detail",
+              "label": "金额及明细",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "claim_7",
+          "label": "7. 解除担保贷款（按揭）合同",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_issue",
+              "label": "是否存在此问题",
+              "type": "radio",
+              "options": [
+                "无此问题",
+                "有此问题"
+              ]
+            },
+            {
+              "id": "specific_request",
+              "label": "具体要求",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "claim_8",
+          "label": "8. 鉴定及其他实现债权的费用",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_issue",
+              "label": "是否存在此问题",
+              "type": "radio",
+              "options": [
+                "无此问题",
+                "有此问题"
+              ]
+            },
+            {
+              "id": "need_appraisal",
+              "label": "请求委托鉴定",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "cost_detail",
+              "label": "费用明细",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "claim_9",
+          "label": "9. 是否主张诉讼费用",
+          "type": "radio",
+          "options": [
+            "是",
+            "否"
+          ]
+        },
+        {
+          "id": "claim_10",
+          "label": "10. 其他请求",
+          "type": "textarea"
+        },
+        {
+          "id": "claim_11",
+          "label": "11. 标的总额",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "preservation",
+      "title": "约定管辖和诉前保全",
+      "type": "builtin_preservation",
+      "fields": [
+        {
+          "id": "has_jurisdiction_agreement",
+          "label": "有无仲裁、法院管辖约定",
+          "type": "radio",
+          "options": [
+            "有",
+            "无"
+          ]
+        },
+        {
+          "id": "jurisdiction_clause",
+          "label": "合同条款及内容",
+          "type": "text"
+        },
+        {
+          "id": "has_preservation",
+          "label": "是否已经诉前保全",
+          "type": "radio",
+          "options": [
+            "是",
+            "否"
+          ]
+        },
+        {
+          "id": "preservation_court",
+          "label": "保全法院",
+          "type": "text"
+        },
+        {
+          "id": "preservation_time",
+          "label": "保全时间",
+          "type": "text"
+        },
+        {
+          "id": "preservation_case_no",
+          "label": "保全案号",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "facts",
+      "title": "事实与理由",
+      "hasFreeText": true,
+      "fields": [
+        {
+          "id": "fact_1",
+          "label": "1. 涉及房屋买卖合同关系的基本情况",
+          "type": "group",
+          "fields": [
+            {
+              "id": "contract_date",
+              "label": "合同订立时间",
+              "type": "text"
+            },
+            {
+              "id": "property_type",
+              "label": "房屋性质",
+              "type": "radio",
+              "options": [
+                "商品房",
+                "经济适用房",
+                "自建房",
+                "其他"
+              ]
+            },
+            {
+              "id": "house_location",
+              "label": "房屋位置",
+              "type": "text"
+            },
+            {
+              "id": "house_area",
+              "label": "房屋面积",
+              "type": "text"
+            },
+            {
+              "id": "unit_price",
+              "label": "房屋单价",
+              "type": "text"
+            },
+            {
+              "id": "total_price",
+              "label": "总价",
+              "type": "text"
+            },
+            {
+              "id": "first_sale",
+              "label": "房屋是否首次出售",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "is_pre_sale",
+              "label": "是否为预售房",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "pre_sale_filing",
+              "label": "预售合同是否登记备案",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "online_signing",
+              "label": "是否网签",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "pre_notice_registration",
+              "label": "是否预告登记",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "contract_nature",
+              "label": "订立的合同性质",
+              "type": "radio",
+              "options": [
+                "本约",
+                "预约"
+              ]
+            },
+            {
+              "id": "notice_to_cancel",
+              "label": "是否已向被告发出解除 / 撤销合同的通知",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "cancel_reason",
+              "label": "解除 / 撤销事由",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "fact_2",
+          "label": "2. 购房款支付情况",
+          "type": "group",
+          "fields": [
+            {
+              "id": "payment_method",
+              "label": "支付方式",
+              "type": "radio",
+              "options": [
+                "按揭贷款",
+                "支付现金",
+                "以房抵债"
+              ]
+            },
+            {
+              "id": "other_payment_method",
+              "label": "其他",
+              "type": "text"
+            },
+            {
+              "id": "paid_amount",
+              "label": "已支付 / 欠付购房款数额",
+              "type": "text"
+            },
+            {
+              "id": "has_deposit",
+              "label": "是否已支付定金",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "deposit_amount",
+              "label": "定金数额",
+              "type": "text"
+            },
+            {
+              "id": "has_finishing",
+              "label": "是否包含精装修",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "payment_clause",
+              "label": "合同有关购房款支付的约定",
+              "type": "textarea"
+            },
+            {
+              "id": "other_reason",
+              "label": "其他事由",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "fact_3",
+          "label": "3. 房屋交付情况",
+          "type": "group",
+          "fields": [
+            {
+              "id": "actual_delivery",
+              "label": "是否已经实际交付",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "area_difference",
+              "label": "是否存在房屋面积差",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "garage",
+              "label": "是否包含车位或车库",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "delivery_date",
+              "label": "合同约定的交房时间",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "fact_4",
+          "label": "4. 房屋登记手续办理情况",
+          "type": "group",
+          "fields": [
+            {
+              "id": "first_registration",
+              "label": "是否已经取得首次登记",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "transfer_registration",
+              "label": "是否办理不动产转移登记手续",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "delay_registration_penalty",
+              "label": "是否约定逾期办证违约金",
+              "type": "text"
+            },
+            {
+              "id": "calc_standard",
+              "label": "具体计算标准",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "fact_5",
+          "label": "5. 中介服务费情况",
+          "type": "text"
+        },
+        {
+          "id": "fact_6",
+          "label": "6. 质量损害赔偿相关情况",
+          "type": "group",
+          "fields": [
+            {
+              "id": "serious_quality_issue",
+              "label": "属于严重影响正常居住使用的质量问题",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "repairable_quality_issue",
+              "label": "属于可修复的质量问题",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "within_warranty",
+              "label": "是否还在质保期内",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "repair_action",
+              "label": "是否存在修复行为",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "repair_notice",
+              "label": "是否通知维修",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "damage_amount",
+              "label": "赔偿数额",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "fact_7",
+          "label": "7. 是否签订担保贷款（按揭）合同",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_mortgage_contract",
+              "label": "是否签订",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "mortgage_detail",
+              "label": "具体情况",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "fact_8",
+          "label": "8. 申请鉴定及其他实现债权费用的事实",
+          "type": "group",
+          "fields": [
+            {
+              "id": "has_appraisal_issue",
+              "label": "是否存在",
+              "type": "radio",
+              "options": [
+                "是",
+                "否"
+              ]
+            },
+            {
+              "id": "appraisal_detail",
+              "label": "具体情况",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "fact_9",
+          "label": "9. 请求依据",
+          "type": "group",
+          "fields": [
+            {
+              "id": "contract_basis",
+              "label": "合同约定",
+              "type": "textarea"
+            },
+            {
+              "id": "legal_basis",
+              "label": "法律规定",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "fact_10",
+          "label": "10. 证据清单（可另附页）",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "mediation",
+      "title": "调解意愿",
+      "type": "builtin_mediation",
+      "fields": [
+        {
+          "id": "mediation_understanding",
+          "label": "是否了解调解作为非诉讼纠纷解决方式",
+          "type": "radio",
+          "options": [
+            "了解",
+            "不了解"
+          ]
+        },
+        {
+          "id": "mediation_awareness",
+          "label": "是否了解先行调解解决纠纷的好处",
+          "type": "group",
+          "fields": [
+            {
+              "id": "benefit_1",
+              "label": "1. 立案后选择先行调解",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            },
+            {
+              "id": "benefit_2",
+              "label": "2. 调解成功且自动履行",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            },
+            {
+              "id": "benefit_3",
+              "label": "3. 首次调解不成功",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            },
+            {
+              "id": "benefit_4",
+              "label": "4. 调解具有保密性要求",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            },
+            {
+              "id": "benefit_5",
+              "label": "5. 调解达成的协议具有法律效力",
+              "type": "radio",
+              "options": [
+                "了解",
+                "不了解"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mediation_intent",
+          "label": "是否考虑先行调解",
+          "type": "radio",
+          "options": [
+            "是",
+            "否",
+            "暂不确定，想要了解更多内容"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sign",
+      "title": "签署信息",
+      "type": "builtin_signature",
+      "fields": [
+        {
+          "id": "litigant",
+          "label": "具状人（签字、盖章）",
+          "type": "text"
+        },
+        {
+          "id": "date",
+          "label": "日期",
+          "type": "date"
+        }
+      ]
+    }
+  ]
+}

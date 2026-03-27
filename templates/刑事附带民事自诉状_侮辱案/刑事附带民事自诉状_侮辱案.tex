@@ -5,6 +5,9 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
 
 % 定义公函标准炭黑（K=92%，RGB约0.08）：权威稳重、高质量印刷感
 \definecolor{inkblack}{rgb}{0.08,0.08,0.08}
@@ -54,7 +57,7 @@
     boxrule=0.5pt,         % 极细线条 0.5pt
     fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont, % 基础字体设置，不强制黑体
     enlarge left by=-19.28bp, % 修正左侧X坐标偏移对齐到70.86
-    before=\vspace*{-13.39bp}\noindent, % 修正Y坐标偏移对齐到180.48
+    before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, % 修正Y坐标偏移对齐到180.48
     after=\par,                          % 仅输出\par，消除默认后间距
     boxsep=0pt,          % 清除一切额外内白
     left=4bp,            % 严格内边距：左侧文字距黑线 4bp 达到绝对坐标 x=75.36
@@ -86,47 +89,42 @@
         fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
         enlarge left by=-19.28bp,
         before={\nointerlineskip\vspace{-0.5pt}\noindent},
-        after=\vspace{0pt}
+        after={\par}
     ]
     #1
     \end{tcolorbox}%
 }
 
-% 定义左右分栏表单区块，仿照 PDF 中"自诉人"等表单布局
-% 左栏：标签垂直居中，右栏：表单字段，竖向分隔线
-% #1: 左栏标签文字，#2: 右栏表单内容
-% 用法：\pairsection{自诉人}{表单内容}
-\newcommand{\pairsection}[2]{%
+\newcommand{\pairsectionbase}[3]{%
     \begin{tcolorbox}[
-        width=467.72bp,
-        sharp corners,
-        colback=white,
-        colframe=inkblack,
-        boxrule=0.5pt,
+        width=467.72bp, sharp corners, colback=white, colframe=inkblack, boxrule=0.5pt,
         enlarge left by=-19.28bp,
-        before={\nointerlineskip\vspace{-0.5pt}\noindent},
-        after=\par,
-        boxsep=0pt,
-        left=0pt, right=0pt,
-        top=0pt, bottom=0pt
+        before={\par\nointerlineskip\vspace{-0.5pt}\noindent}, after={\par},
+        boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
     ]
-    % 内部用 minipage 实现左右分栏
     \begin{minipage}[c]{112.9bp}%
-        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+        \vspace{2bp}%
+        \songti\fontsize{10.5bp}{12bp}\selectfont
+        #1#2%
+        \vspace{2bp}%
     \end{minipage}%
     \hspace{0pt}%
     \vrule width 0.5pt%
     \hspace{4bp}%
     \begin{minipage}[c]{346.32bp}%
-        \vspace{4bp}%
+        \vspace{2bp}%
         \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
-        \baselineskip=17bp%
+        \baselineskip=16bp%
         \setlength{\parindent}{0pt}%
         \color{inkblack}%
-        #2%
-        \vspace{4bp}%
+        #3%
+        \vspace{2bp}%
     \end{minipage}%
     \end{tcolorbox}%
+}
+
+\newcommand{\\pairsection}[2]{%
+    \pairsectionbase{\centering}{#1}{#2}%
 }
 
 \begin{document}
@@ -170,7 +168,7 @@
 如，多自诉人、多被告人或多诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
 可根据实际对栏目进行扩容等。
 \lawpar
-$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+{\fzssk ★}特别提示{\fzssk ★}\\[-4.86bp]
 \hspace*{20.7bp}如果诉讼参与人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
 追究责任。
 \end{notesection}
@@ -191,7 +189,8 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 住址：\\
 联系电话：\\
 证件类型：\\
-证件号码：
+证件号码：\\
+\mbox{}
 }
 
 \newpage
@@ -202,7 +201,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
 \pairsection{诉讼代理人}{
 有$\square$\\
 \hspace*{21bp}姓名：\\
-\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}单位：\hspace{6em}职务：\hspace{4em}联系电话：\\
 \hspace*{21bp}（诉讼代理人为非律师的自然人，请增加填写以下信息）\\
 \hspace*{21bp}住址：\\
 \hspace*{21bp}证件类型：\\
@@ -353,7 +352,7 @@ $\bigstar$特别提示$\bigstar$\\[-4.86bp]
     halign=center,
     enlarge left by=-19.28bp,
     before={\nointerlineskip\vspace{-0.5pt}\noindent},
-    after=\vspace{0pt}
+    after={\par}
 ]
 {\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack}证据清单}\par\nointerlineskip
 \vspace{2bp}

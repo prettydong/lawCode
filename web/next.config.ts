@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // better-sqlite3 是原生 Node.js 模块，不能被 webpack bundled
   serverExternalPackages: ["better-sqlite3"],
+  turbopack: {
+    root: __dirname,
+  },
 };
 
 export default nextConfig;

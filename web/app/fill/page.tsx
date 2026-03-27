@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
+import { useBreadcrumb } from "../Breadcrumb";
 
 const PdfViewer = dynamic(() => import("../PdfViewer"), {
     ssr: false,
@@ -132,6 +133,18 @@ function PersonFields({ data, set, showBirthFields = true, showBirthPlace = true
 // 主页面
 // ============================================================
 export default function FillPage() {
+    useBreadcrumb([
+        { label: "智诉", siblings: [
+            { label: "智记", href: "/" },
+        ] },
+        { label: "文书生成", siblings: [
+            { label: "案件分析", href: "/" },
+        ] },
+        { label: "刑事自诉状", siblings: [
+            { label: "民事起诉状", href: "/" },
+        ] },
+    ]);
+
     // 自诉人
     const [suPerson, setSuPerson] = useState<Record<string, string>>({});
     // PDF 预览

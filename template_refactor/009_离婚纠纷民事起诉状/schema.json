@@ -1,0 +1,288 @@
+{
+  "id": "009",
+  "name": "离婚纠纷民事起诉状",
+  "subtitle": "离婚纠纷",
+  "templateFile": "009_离婚纠纷民事起诉状.tex",
+  "pageCount": 4,
+  "partyType": "natural",
+  "hasThirdParty": false,
+  "sections": [
+    {
+      "id": "parties",
+      "title": "当事人信息",
+      "type": "builtin_parties",
+      "fields": [
+        {
+          "id": "plaintiff",
+          "title": "原告",
+          "entityType": "natural",
+          "fields": [
+            { "id": "name", "label": "姓名", "type": "text", "required": true },
+            { "id": "gender", "label": "性别", "type": "radio", "options": ["男", "女"], "required": true },
+            { "id": "birth_year", "label": "出生年", "type": "text" },
+            { "id": "birth_month", "label": "出生月", "type": "text" },
+            { "id": "birth_day", "label": "出生日", "type": "text" },
+            { "id": "ethnicity", "label": "民族", "type": "text" },
+            { "id": "work_unit", "label": "工作单位", "type": "text" },
+            { "id": "job_title", "label": "职务", "type": "text" },
+            { "id": "phone", "label": "联系电话", "type": "text" },
+            { "id": "hukou_address", "label": "住所地（户籍所在地）", "type": "text" },
+            { "id": "residence_address", "label": "经常居住地", "type": "text" },
+            { "id": "id_type", "label": "证件类型", "type": "text" },
+            { "id": "id_number", "label": "证件号码", "type": "text" }
+          ]
+        },
+        {
+          "id": "agent",
+          "title": "委托诉讼代理人",
+          "fields": [
+            { "id": "has_agent", "label": "有无", "type": "radio", "options": ["有", "无"], "required": true },
+            { "id": "agent_name", "label": "姓名", "type": "text" },
+            { "id": "agent_unit", "label": "单位", "type": "text" },
+            { "id": "agent_title", "label": "职务", "type": "text" },
+            { "id": "agent_phone", "label": "联系电话", "type": "text" },
+            { "id": "agent_authority", "label": "代理权限", "type": "radio", "options": ["一般授权", "特别授权"] }
+          ]
+        },
+        {
+          "id": "defendant",
+          "title": "被告",
+          "entityType": "natural",
+          "fields": [
+            { "id": "name", "label": "姓名", "type": "text", "required": true },
+            { "id": "gender", "label": "性别", "type": "radio", "options": ["男", "女"], "required": true },
+            { "id": "birth_year", "label": "出生年", "type": "text" },
+            { "id": "birth_month", "label": "出生月", "type": "text" },
+            { "id": "birth_day", "label": "出生日", "type": "text" },
+            { "id": "ethnicity", "label": "民族", "type": "text" },
+            { "id": "work_unit", "label": "工作单位", "type": "text" },
+            { "id": "job_title", "label": "职务", "type": "text" },
+            { "id": "phone", "label": "联系电话", "type": "text" },
+            { "id": "hukou_address", "label": "住所地（户籍所在地）", "type": "text" },
+            { "id": "residence_address", "label": "经常居住地", "type": "text" },
+            { "id": "id_type", "label": "证件类型", "type": "text" },
+            { "id": "id_number", "label": "证件号码", "type": "text" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claims",
+      "title": "诉讼请求",
+      "hasFreeText": true,
+      "fields": [
+        {
+          "id": "claim_1",
+          "label": "1. 解除婚姻关系",
+          "type": "textarea",
+          "placeholder": "可填写离婚请求的具体主张"
+        },
+        {
+          "id": "claim_2",
+          "label": "2. 夫妻共同财产",
+          "type": "group",
+          "fields": [
+            { "id": "property_none", "label": "无财产", "type": "checkbox" },
+            { "id": "property_yes", "label": "有财产", "type": "checkbox" },
+            { "id": "house_detail", "label": "房屋明细", "type": "text" },
+            { "id": "house_belong", "label": "房屋归属", "type": "radio", "options": ["原告", "被告", "其他"] },
+            { "id": "car_detail", "label": "汽车明细", "type": "text" },
+            { "id": "car_belong", "label": "汽车归属", "type": "radio", "options": ["原告", "被告", "其他"] },
+            { "id": "deposit_detail", "label": "存款明细", "type": "text" },
+            { "id": "deposit_belong", "label": "存款归属", "type": "radio", "options": ["原告", "被告", "其他"] },
+            { "id": "other_property", "label": "其他", "type": "text" }
+          ]
+        },
+        {
+          "id": "claim_3",
+          "label": "3. 夫妻共同债务",
+          "type": "group",
+          "fields": [
+            { "id": "debt_none", "label": "无债务", "type": "checkbox" },
+            { "id": "debt_yes", "label": "有债务", "type": "checkbox" },
+            { "id": "debt_1", "label": "债务1", "type": "text" },
+            { "id": "debt_1_bearer", "label": "承担主体", "type": "radio", "options": ["原告", "被告", "其他"] },
+            { "id": "debt_2", "label": "债务2", "type": "text" },
+            { "id": "debt_2_bearer", "label": "承担主体", "type": "radio", "options": ["原告", "被告", "其他"] }
+          ]
+        },
+        {
+          "id": "claim_4",
+          "label": "4. 子女直接抚养",
+          "type": "group",
+          "fields": [
+            { "id": "custody_none", "label": "无此问题", "type": "checkbox" },
+            { "id": "custody_yes", "label": "有此问题", "type": "checkbox" },
+            { "id": "child_1", "label": "子女1", "type": "text" },
+            { "id": "child_1_belong", "label": "归属", "type": "radio", "options": ["原告", "被告"] },
+            { "id": "child_2", "label": "子女2", "type": "text" },
+            { "id": "child_2_belong", "label": "归属", "type": "radio", "options": ["原告", "被告"] }
+          ]
+        },
+        {
+          "id": "claim_5",
+          "label": "5. 子女抚养费",
+          "type": "group",
+          "fields": [
+            { "id": "support_none", "label": "无此问题", "type": "checkbox" },
+            { "id": "support_yes", "label": "有此问题", "type": "checkbox" },
+            { "id": "support_bearer", "label": "抚养费承担主体", "type": "radio", "options": ["原告", "被告"] },
+            { "id": "support_amount", "label": "金额及明细", "type": "text" },
+            { "id": "support_method", "label": "支付方式", "type": "text" }
+          ]
+        },
+        {
+          "id": "claim_6",
+          "label": "6. 探望权",
+          "type": "group",
+          "fields": [
+            { "id": "visitation_none", "label": "无此问题", "type": "checkbox" },
+            { "id": "visitation_yes", "label": "有此问题", "type": "checkbox" },
+            { "id": "visitation_holder", "label": "探望权行使主体", "type": "radio", "options": ["原告", "被告"] },
+            { "id": "visitation_method", "label": "行使方式", "type": "text" }
+          ]
+        },
+        {
+          "id": "claim_7",
+          "label": "7. 离婚损害赔偿 / 离婚经济补偿 / 离婚经济帮助",
+          "type": "group",
+          "fields": [
+            { "id": "claim_7_none", "label": "无此问题", "type": "checkbox" },
+            { "id": "claim_7_damage", "label": "离婚损害赔偿", "type": "checkbox" },
+            { "id": "claim_7_damage_amount", "label": "金额", "type": "text" },
+            { "id": "claim_7_compensation", "label": "离婚经济补偿", "type": "checkbox" },
+            { "id": "claim_7_compensation_amount", "label": "金额", "type": "text" },
+            { "id": "claim_7_help", "label": "离婚经济帮助", "type": "checkbox" },
+            { "id": "claim_7_help_amount", "label": "金额", "type": "text" }
+          ]
+        },
+        {
+          "id": "claim_8",
+          "label": "8. 是否主张诉讼费用",
+          "type": "radio",
+          "options": ["是", "否"]
+        },
+        {
+          "id": "claim_9",
+          "label": "9. 其他请求",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "preservation",
+      "title": "诉前保全",
+      "type": "builtin_preservation",
+      "fields": [
+        { "id": "has_preservation", "label": "是否已经诉前保全", "type": "radio", "options": ["是", "否"] },
+        { "id": "preservation_court", "label": "保全法院", "type": "text" },
+        { "id": "preservation_time", "label": "保全时间", "type": "text" },
+        { "id": "preservation_case_no", "label": "保全案号", "type": "text" }
+      ]
+    },
+    {
+      "id": "facts",
+      "title": "事实与理由",
+      "hasFreeText": true,
+      "fields": [
+        {
+          "id": "fact_1",
+          "label": "1. 婚姻关系基本情况",
+          "type": "group",
+          "fields": [
+            { "id": "marriage_date", "label": "结婚时间", "type": "text" },
+            { "id": "children_status", "label": "生育子女情况", "type": "text" },
+            { "id": "family_life", "label": "双方生活情况", "type": "textarea" },
+            { "id": "divorce_reason", "label": "离婚事由", "type": "textarea" },
+            { "id": "prior_divorce_case", "label": "之前有无提起过离婚诉讼", "type": "text" }
+          ]
+        },
+        {
+          "id": "fact_2",
+          "label": "2. 夫妻共同财产情况",
+          "type": "textarea"
+        },
+        {
+          "id": "fact_3",
+          "label": "3. 夫妻共同债务情况",
+          "type": "textarea"
+        },
+        {
+          "id": "fact_4",
+          "label": "4. 子女直接抚养情况",
+          "type": "textarea"
+        },
+        {
+          "id": "fact_5",
+          "label": "5. 子女抚养费情况",
+          "type": "textarea"
+        },
+        {
+          "id": "fact_6",
+          "label": "6. 子女探望权情况",
+          "type": "textarea"
+        },
+        {
+          "id": "fact_7",
+          "label": "7. 赔偿 / 补偿 / 经济帮助相关情况",
+          "type": "textarea"
+        },
+        {
+          "id": "fact_8",
+          "label": "8. 其他",
+          "type": "textarea"
+        },
+        {
+          "id": "fact_9",
+          "label": "9. 请求依据",
+          "type": "textarea"
+        },
+        {
+          "id": "fact_10",
+          "label": "10. 证据清单（可另附页）",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "mediation",
+      "title": "调解意愿",
+      "type": "builtin_mediation",
+      "fields": [
+        {
+          "id": "mediation_awareness",
+          "label": "是否了解调解作为非诉讼纠纷解决方式",
+          "type": "radio",
+          "options": ["了解", "不了解"]
+        },
+        {
+          "id": "mediation_benefits",
+          "label": "是否了解先行调解解决纠纷的好处",
+          "type": "group",
+          "fields": [
+            { "id": "benefit_1", "label": "1. 立案后选择先行调解", "type": "radio", "options": ["了解", "不了解"] },
+            { "id": "benefit_2", "label": "2. 调解成功且自动履行", "type": "radio", "options": ["了解", "不了解"] },
+            { "id": "benefit_3", "label": "3. 首次调解不成功", "type": "radio", "options": ["了解", "不了解"] },
+            { "id": "benefit_4", "label": "4. 调解具有保密性要求", "type": "radio", "options": ["了解", "不了解"] },
+            { "id": "benefit_5", "label": "5. 调解达成的协议具有法律效力", "type": "radio", "options": ["了解", "不了解"] }
+          ]
+        },
+        {
+          "id": "mediation_intent",
+          "label": "是否考虑先行调解",
+          "type": "radio",
+          "options": ["是", "否", "暂不确定，想要了解更多内容"]
+        }
+      ]
+    },
+    {
+      "id": "sign",
+      "title": "签署信息",
+      "type": "builtin_signature",
+      "fields": [
+        { "id": "litigant", "label": "具状人（签字、盖章）", "type": "text" },
+        { "id": "date", "label": "日期", "type": "date" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,460 @@
+\documentclass[a4paper,12pt,twoside]{ctexart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+% 定义公函标准炭黑（K=92%，RGB约0.08）：权威稳重、高质量印刷感
+\definecolor{inkblack}{rgb}{0.08,0.08,0.08}
+
+\geometry{a4paper, left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm}
+
+% 配置页脚，实现奇数页右下角，偶数页左下角的页码
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % 清除所有页眉页脚的默认内容
+\renewcommand{\headrulewidth}{0pt} % 移除页眉的横线
+
+% 自定义页脚位置微调，完美还原绝对物理坐标（奇数页 x≈533.3，偶数页 x≈56.6，y≈788.5）
+% 右下角（RO）：由于右侧文本域边缘位于 505pt，我们需要让它继续往右突破边界约 33.45pt
+\fancyfoot[RO]{\makebox[0pt][l]{\hspace*{28.2pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+% 左下角（LE）：左侧文本域边缘位于 90.14pt，我们需要让它向左突破边界移到 56.69pt（向左33.45pt）
+\fancyfoot[LE]{\makebox[0pt][r]{\hspace*{33.45pt}\raisebox{2.81pt}{\rmfamily\fontsize{10.5bp}{10.5bp}\selectfont\thepage}}}
+
+% 声明使用本地的方正大标宋字体
+\newCJKfontfamily\fzdbs[Path=./]{FZDBS.ttf}
+% 声明使用本地的方正小标宋字体（正文）
+\newCJKfontfamily\fzssk[Path=./]{FZSSK.ttf}
+
+% 全局文档颜色设定：公函炭黑
+\AtBeginDocument{\color{inkblack}}
+
+% 定义复合标题样式，严格匹配 PDF 中的字号与间距
+% #1: 主标题（如：刑事（附带民事）自诉状） - 字号 22bp
+% #2: 副标题（如：（侮辱案）） - 字号 18bp
+\newcommand{\lawtitle}[2]{
+    % 原始 PDF 主标题顶部 y 坐标为 110.7
+    \vspace*{0.507cm} 
+    \begin{center}
+        {\fzdbs\fontsize{22bp}{22bp}\selectfont #1}\par
+        \vspace{10.37bp} % 调整主标题与副标题间距，以匹配副标题顶部 y 坐标 (~144.4)
+        {\fzdbs\fontsize{18bp}{18bp}\selectfont #2}\par
+    \end{center}
+    \vspace{18.4bp} % 标题下方的留白向下文中过渡
+}
+
+% 定义表框，严格对齐 PDF 中的表格宽度（467.72bp，对应原左 70.86，右 538.58）
+\newtcolorbox{notesection}[1][]{
+    width=467.72bp,      % 直接写出像素级宽度
+    sharp corners,       % 直角边框
+    colback=white,          % 背景白
+    colframe=inkblack,     % 边框炭黑（公函品质）
+    boxrule=0.5pt,         % 极细线条 0.5pt
+    fontupper=\color{inkblack}\fontsize{10.5bp}{10.5bp}\selectfont, % 基础字体设置，不强制黑体
+    enlarge left by=-19.28bp, % 修正左侧X坐标偏移对齐到70.86
+    before=\vspace*{-13.39bp}\noindent, % 修正Y坐标偏移对齐到180.48
+    after=\par,                          % 仅输出\par，消除默认后间距
+    boxsep=0pt,          % 清除一切额外内白
+    left=4bp,            % 严格内边距：左侧文字距黑线 4bp 达到绝对坐标 x=75.36
+    top=4.69bp,          % 严格内边距：顶部文字距黑线 4.69bp 达到绝对坐标 y=184.3
+    bottom=4.69bp,          % 严格内边距：底部文字距黑线 4.69bp，与顶部对称
+    right=0pt,           % 严格右侧内边距
+    #1
+}
+
+% 法律段落换行命令：等价于 \par + 修正 ctexart 额外行距的 -4.86bp 偏移
+% 用于在严格 16bp 等高网格中保持每行精确对齐原档坐标
+\newcommand{\lawpar}{\par\vspace*{-4.86bp}}
+
+% 定义区块副标题样式，仿照 PDF 中"当事人信息"等居中带框标题
+% 原档坐标：y≈539.1，字号约 15bp，方正大标宋，居中，有外框
+% 与 notesection 同宽（467.72bp）、同X偏移对齐，紧贴上方 section 下方
+% 用法：\subtitlesection{当事人信息}
+\newcommand{\subtitlesection}[1]{%
+    \begin{tcolorbox}[
+        width=467.72bp,
+        sharp corners,
+        colback=white,
+        colframe=inkblack,
+        boxrule=0.5pt,
+        boxsep=0pt,
+        left=0pt, right=0pt,
+        top=4bp, bottom=4bp,
+        halign=center,
+        fontupper=\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack},
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent},
+        after=\vspace{0pt}
+    ]
+    #1
+    \end{tcolorbox}%
+}
+
+% 定义左右分栏表单区块，仿照 PDF 中"自诉人"等表单布局
+% 左栏：标签垂直居中，右栏：表单字段，竖向分隔线
+% #1: 左栏标签文字，#2: 右栏表单内容
+% 用法：\pairsection{自诉人}{表单内容}
+\newcommand{\pairsection}[2]{%
+    \begin{tcolorbox}[
+        width=467.72bp,
+        sharp corners,
+        colback=white,
+        colframe=inkblack,
+        boxrule=0.5pt,
+        enlarge left by=-19.28bp,
+        before={\nointerlineskip\vspace{-0.5pt}\noindent},
+        after=\par,
+        boxsep=0pt,
+        left=0pt, right=0pt,
+        top=0pt, bottom=0pt
+    ]
+    % 内部用 minipage 实现左右分栏
+    \begin{minipage}[c]{112.9bp}%
+        \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont #1%
+    \end{minipage}%
+    \hspace{0pt}%
+    \vrule width 0.5pt%
+    \hspace{4bp}%
+    \begin{minipage}[c]{346.32bp}%
+        \vspace{4bp}%
+        \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+        \baselineskip=17bp%
+        \setlength{\parindent}{0pt}%
+        \color{inkblack}%
+        #2%
+        \vspace{4bp}%
+    \end{minipage}%
+    \end{tcolorbox}%
+}
+
+\begin{document}
+
+% 严格还原 PDF 第一页的标题结构
+\lawtitle{刑事（附带民事）自诉状}{（侮辱案）}
+
+% 插入一个精确位置和宽度匹配的表框（根据原档：上Y=180.48，左X=70.86）
+\begin{notesection}
+\hfuzz=50pt % 忽略因中文字体度量导致的虚假宽度警告，绝对排版坐标已手工对齐完美边界
+\color{inkblack}\heiti\fontsize{10.5bp}{16bp}\selectfont 说明：\par
+\vspace*{-0.2bp}
+\songti\mdseries\fontsize{10.5bp}{16bp}\selectfont % Fandol宋体，中等字重
+\setlength{\parindent}{20.7bp} % 首行缩进两字符
+\sloppy % 防止由于两端对齐导致的标点符号溢出越界
+
+\setlength{\parskip}{0pt}
+\vspace*{-5.1bp}为了方便您更好地参加诉讼，保护您的合法权利，请填写本表。
+\lawpar
+1.起诉时需提供自诉人、被告人的身份证或户口本等身份材料，如无法提供被告人的身份材料，\\[-4.86bp]
+需提供被告人的联系电话、住址等信息。
+\lawpar
+2.委托律师为诉讼代理人的，需提供授权委托书、律师事务所公函及律师证复印件。\\[-4.86bp]
+\hspace*{31.2bp}委托其他自然人为诉讼代理人的，需提供授权委托书、受托人身份材料、与自诉人关系的证\\[-4.86bp]
+明等。
+\lawpar
+3.如果被害人死亡、丧失行为能力或者因受强制、威吓等无法告诉，或者是限制行为能力人以\\[-4.86bp]
+及因年老、患病、盲、聋、哑等不能亲自告诉，其法定代理人、近亲属告诉或者代为告诉的，应当\\[-4.86bp]
+提供与被害人关系的证明和被害人不能亲自告诉的原因的证明。
+\lawpar
+4.证据材料需说明证据名称和来源，有证人的，需提供证人的姓名、住址、联系方式等；有多\\[-4.86bp]
+名证人的，请提供证人名单。
+\lawpar
+5.自诉人由于被告人的犯罪行为而遭受物质损失，同时提起附带民事诉讼的，需填写本表附带\\[-4.86bp]
+民事部分有关内容。
+\lawpar
+6.本表有些内容可能与您的案件无关，您认为与案件无关的项目可以填“无”或不填；对于本\\[-4.86bp]
+表中勾选项可以在对应项打“√”；您认为另有重要内容需要列明的，可以另附页填写。
+\lawpar
+7.本表word 电子版填写时，相关栏目可复制粘贴或扩容，但不得改变要素内容、格式设置。例\\[-4.86bp]
+如，多自诉人、多被告人或多诉讼代理人等情况，可根据实际情况复制粘贴；需填写文字较多时，\\[-4.86bp]
+可根据实际对栏目进行扩容等。
+\lawpar
+$\bigstar$特别提示$\bigstar$\\[-4.86bp]
+\hspace*{20.7bp}如果诉讼参与人违反有关规定，虚假诉讼、恶意诉讼、滥用诉权，人民法院将视违法情形依法\\[-4.86bp]
+追究责任。
+\end{notesection}
+
+% 当事人信息副标题
+\subtitlesection{当事人信息}
+
+% 自诉人表单
+\pairsection{自诉人}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\\
+民族：\\
+出生地：\\
+文化程度：\\
+\makebox[0.5\linewidth][l]{职业：}\makebox[0.5\linewidth][l]{工作单位：}\\
+户籍地：\\
+住址：\\
+联系电话：\\
+证件类型：\\
+证件号码：
+}
+
+\newpage
+
+% ===== 第 2 页 =====
+
+% 诉讼代理人
+\pairsection{诉讼代理人}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}\makebox[0.33\linewidth][l]{单位：}\makebox[0.33\linewidth][l]{职务：}\makebox[0.33\linewidth][l]{联系电话：}\\
+\hspace*{21bp}（诉讼代理人为非律师的自然人，请增加填写以下信息）\\
+\hspace*{21bp}住址：\\
+\hspace*{21bp}证件类型：\\
+\hspace*{21bp}证件号码：\\
+\hspace*{21bp}与自诉人的关系：\\
+无$\square$
+}
+
+% 法定代理人或代为告诉人
+\pairsection{法定代理人或\\代为告诉人}{
+有$\square$\\
+\hspace*{21bp}姓名：\\
+\hspace*{21bp}性别：男$\square$\hspace{1em}女$\square$\\
+\hspace*{21bp}出生日期：\\
+\hspace*{21bp}民族：\\
+\hspace*{21bp}文化程度：\\
+\hspace*{21bp}\makebox[0.5\linewidth][l]{职业：}\makebox[0.5\linewidth][l]{工作单位：}\\
+\hspace*{21bp}住址：\\
+\hspace*{21bp}联系电话：\\
+\hspace*{21bp}证件类型：\\
+\hspace*{21bp}证件号码：\\
+\hspace*{21bp}与自诉人的关系：\\
+无$\square$
+}
+
+% 被告人
+\pairsection{被告人}{
+姓名：\\
+性别：男$\square$\hspace{1em}女$\square$\\
+出生日期：\hspace{2em}年\hspace{2em}月\hspace{2em}日\\
+民族：\\
+出生地：\\
+文化程度：\\
+\makebox[0.5\linewidth][l]{职业：}\makebox[0.5\linewidth][l]{工作单位：}\\
+户籍地：\\
+住址：\\
+联系电话：\\
+证件类型：\\
+证件号码：\\
+发布侮辱信息的网络平台的名称及账号：
+}
+
+% 是否提起附带民事诉讼（单行条目，不使用 pairsection 以避免多余 padding）
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\par,
+    boxsep=0pt,
+    left=0pt, right=0pt,
+    top= 0pt, bottom=0pt
+]
+\begin{minipage}[c]{112.9bp}%
+    \vspace{4pt}%
+    \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont 是否提起附带民事诉讼%
+    \vspace{4pt}%
+\end{minipage}%
+\hspace{0pt}%
+\vrule width 0.5pt%
+\hspace{4bp}%
+\begin{minipage}[c]{346.32bp}%
+    \vspace{0.5pt}%
+    \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+    \setlength{\parindent}{0pt}%
+    \color{inkblack}%
+    \makebox[0.5\linewidth][l]{是$\square$}\makebox[0.5\linewidth][l]{否$\square$}%
+    \vspace{0.5pt}%
+\end{minipage}%
+\end{tcolorbox}
+
+\newpage
+
+% ===== 第 3 页 =====
+
+% 诉讼请求副标题
+\subtitlesection{诉讼请求}
+
+% 诉讼请求内容框
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\par,
+    boxsep=0pt,
+    left=4bp, right=0pt,
+    top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp%
+\parskip=0pt%
+\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}%
+\color{inkblack}%
+1. 请求对被告人×××\hspace{0.5em}以侮辱罪追究刑事责任。\\
+2.（提起附带民事诉讼的）请求被告人×××\hspace{0.5em}赔偿因犯罪行为给自诉人造成的物质损失。\\
+3.（其他请求）。\\
+通过信息网络实施侮辱行为，自诉人提供证据确有困难的，是否需要公安机关提供协助\\
+是$\square$（具体事项和线索）\rule{120bp}{0.5pt}\\
+否$\square$
+\end{tcolorbox}
+
+% 事实与理由副标题
+\subtitlesection{事实与理由}
+
+% 事实与理由内容框
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\par,
+    boxsep=0pt,
+    left=4bp, right=0pt,
+    top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp%
+\parskip=0pt%
+\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}%
+\color{inkblack}%
+1. 事实（被告人实施侮辱行为的时间、地点、手段、情节、危害后果等，被告人通过网络实施的，自诉人如果与网络平台存在相关诉讼，请一并写明诉讼情况）：\\[51bp]
+2. 理由（被告人涉嫌犯罪、承担附带民事赔偿责任的法律依据）：\\[51bp]
+\mbox{}
+\end{tcolorbox}
+
+% 证据清单副标题
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    boxsep=0pt,
+    left=0pt, right=0pt,
+    top=4bp, bottom=4bp,
+    halign=center,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\vspace{0pt}
+]
+{\fzdbs\fontsize{15bp}{15bp}\selectfont\color{inkblack}证据清单}\par\nointerlineskip
+\vspace{2bp}
+{\heiti\fontsize{10.5bp}{10.5bp}\selectfont\color{inkblack}（证据材料另附）}
+\end{tcolorbox}
+
+% 证据清单内容框
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\par,
+    boxsep=0pt,
+    left=4bp, right=0pt,
+    top=4bp, bottom=4bp
+]
+\songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+\baselineskip=17bp%
+\parskip=0pt%
+\lineskiplimit=-\maxdimen%
+\setlength{\parindent}{0pt}%
+\color{inkblack}%
+1.证明被告人实施侮辱行为、构成犯罪等证据材料\\
+2.（提起附带民事诉讼的）证明因被告人实施侮辱行为给自诉人造成物质损失的证据材料\\
+3.其他证据材料
+\end{tcolorbox}
+
+% 是否同意调解副标题
+\subtitlesection{是否同意调解}
+
+% 自诉部分
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\par,
+    boxsep=0pt,
+    left=0pt, right=0pt,
+    top=0pt, bottom=0pt
+]
+\begin{minipage}[c]{112.9bp}%
+    \vspace{4pt}%
+    \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont 自诉部分%
+    \vspace{4pt}%
+\end{minipage}%
+\hspace{0pt}%
+\vrule width 0.5pt%
+\hspace{4bp}%
+\begin{minipage}[c]{346.32bp}%
+    \vspace{0.5pt}%
+    \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+    \setlength{\parindent}{0pt}%
+    \color{inkblack}%
+    \makebox[0.33\linewidth][c]{同意$\square$}\makebox[0.33\linewidth][c]{不同意$\square$}\makebox[0.33\linewidth][c]{暂不确定$\square$}%
+    \vspace{0.5pt}%
+\end{minipage}%
+\end{tcolorbox}
+
+% 附带民事部分
+\begin{tcolorbox}[
+    width=467.72bp,
+    sharp corners,
+    colback=white,
+    colframe=inkblack,
+    boxrule=0.5pt,
+    enlarge left by=-19.28bp,
+    before={\nointerlineskip\vspace{-0.5pt}\noindent},
+    after=\par,
+    boxsep=0pt,
+    left=0pt, right=0pt,
+    top=0pt, bottom=0pt
+]
+\begin{minipage}[c]{112.9bp}%
+    \vspace{4pt}%
+    \centering\songti\fontsize{10.5bp}{10.5bp}\selectfont 附带民事部分%
+    \vspace{4pt}%
+\end{minipage}%
+\hspace{0pt}%
+\vrule width 0.5pt%
+\hspace{4bp}%
+\begin{minipage}[c]{346.32bp}%
+    \vspace{0.5pt}%
+    \songti\mdseries\fontsize{10.5bp}{17bp}\selectfont%
+    \setlength{\parindent}{0pt}%
+    \color{inkblack}%
+    \makebox[0.33\linewidth][c]{同意$\square$}\makebox[0.33\linewidth][c]{不同意$\square$}\makebox[0.33\linewidth][c]{暂不确定$\square$}%
+    \vspace{0.5pt}%
+\end{minipage}%
+\end{tcolorbox}
+
+% 具状人签字与日期
+\vspace{10bp}
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 具状人（签字）：}\par
+\noindent\hspace*{248bp}{\fzdbs\fontsize{15bp}{22bp}\selectfont 日期：}
+
+\end{document}

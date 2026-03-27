@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { exec } from "child_process";
-import { writeFile, readFile, mkdir, unlink } from "fs/promises";
+import { writeFile, readFile, mkdir, readdir, rm } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
 import { randomUUID } from "crypto";
@@ -14,7 +14,8 @@ const OLD_GENERATE_SCRIPT = path.join(OLD_TEMPLATE_DIR, "generate.py");
 
 // 新通用生成脚本
 const CIVIL_GENERATE_SCRIPT = path.resolve(process.cwd(), "..", "templates", "generate_civil.py");
-const TEMPLATES_BASE = path.resolve(process.cwd(), "..", "templates");
+const REFACTORED_TEMPLATES_BASE = path.resolve(process.cwd(), "..", "template_refactor");
+const LEGACY_TEMPLATES_BASE = path.resolve(process.cwd(), "..", "templates");
 
 export async function POST(req: NextRequest) {
     try {
@@ -36,8 +37,27 @@ export async function POST(req: NextRequest) {
         let cmd: string;
 
         if (civilTemplate) {
-            // 新民事起诉状模板 → 使用通用生成器
-            const templateDir = path.join(TEMPLATES_BASE, civilTemplate.dirName);
+            // 民事起诉状模板优先走重构版，未迁移时再回退到原目录。
+            const refactoredTemplateDir = path.join(REFACTORED_TEMPLATES_BASE, civilTemplate.dirName);
+            const legacyTemplateDir = path.join(LEGACY_TEMPLATES_BASE, civilTemplate.dirName);
+            const templateDir = existsSync(refactoredTemplateDir) ? refactoredTemplateDir : legacyTemplateDir;
+
+            if (!civilTemplate.available) {
+                return NextResponse.json({ error: `模板暂未上线: ${civilTemplate.subtitle}` }, { status: 400 });
+            }
+
+            if (!existsSync(templateDir)) {
+                return NextResponse.json({ error: `模板目录不存在: ${civilTemplate.dirName}` }, { status: 500 });
+            }
+
+            const texFiles = (await readdir(templateDir)).filter(name => name.endsWith(".tex"));
+            if (texFiles.length === 0) {
+                return NextResponse.json(
+                    { error: `模板目录缺少 .tex 文件，当前模板暂不可生成: ${civilTemplate.subtitle}` },
+                    { status: 500 }
+                );
+            }
+
             cmd = `python3 "${CIVIL_GENERATE_SCRIPT}" --template "${templateDir}" --data "${dataPath}" --output "${outputPath}"`;
         } else if (templateId === "xingshi-wuru") {
             // 旧侮辱案模板 → 使用专用生成器
@@ -98,9 +118,7 @@ export async function POST(req: NextRequest) {
 
         // 清理
         try {
-            await unlink(dataPath);
-            await unlink(outputPath);
-            await unlink(tmpDir).catch(() => { });
+            await rm(tmpDir, { recursive: true, force: true });
         } catch { }
 
         return new NextResponse(pdfBuffer, {

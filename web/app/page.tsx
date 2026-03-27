@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useConfirm } from "./ConfirmDialog";
@@ -63,6 +63,7 @@ interface AnalysisItem {
 
 type ZhijiTab = "cases" | "files";
 type FileSubTab = "documents" | "analyses";
+const ANALYSIS_FILE_MAX_BYTES = 20 * 1024 * 1024;
 
 // 合并模板数据：旧模板 + 新民事起诉状模板
 const OLD_TEMPLATES = [
@@ -484,19 +485,46 @@ function AnalysisPage({ onBack, onSelect }: { onBack: () => void; onSelect: (m: 
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedExample, setSelectedExample] = useState<{ title: string; desc: string } | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    if (!file) {
+      setSelectedFile(null);
+      setFileError("");
+      return;
+    }
+
+    if (file.size > ANALYSIS_FILE_MAX_BYTES) {
+      setSelectedFile(null);
+      setFileError("上传文件不能超过 20MB");
+      e.target.value = "";
+      return;
+    }
+
+    setSelectedFile(file);
+    setFileError("");
+  };
 
   const handleSubmit = async () => {
-    if ((!input.trim() && !selectedExample) || loading) return;
+    if ((!input.trim() && !selectedExample && !selectedFile) || loading) return;
     setLoading(true);
     setResult("");
     try {
+      const formData = new FormData();
+      formData.append("message", input.trim());
+      if (selectedExample?.title) {
+        formData.append("mode", selectedExample.title);
+      }
+      if (selectedFile) {
+        formData.append("file", selectedFile, selectedFile.name);
+      }
+
       const res = await fetch("/api/analyze", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message: input.trim(),
-          mode: selectedExample?.title || null,
-        }),
+        body: formData,
       });
       const data = await res.json();
       if (data.error) {
@@ -511,7 +539,7 @@ function AnalysisPage({ onBack, onSelect }: { onBack: () => void; onSelect: (m: 
     }
   };
 
-  const canSubmit = input.trim() || selectedExample;
+  const canSubmit = input.trim() || selectedExample || selectedFile;
 
   return (
     <div className="h-full overflow-auto px-6 pt-[6vh] fade-in relative">
@@ -545,20 +573,49 @@ function AnalysisPage({ onBack, onSelect }: { onBack: () => void; onSelect: (m: 
           <textarea
             className="w-full px-4 pt-3 pb-14 bg-transparent text-[14px] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)] outline-none resize-none leading-relaxed"
             style={{ minHeight: "160px" }}
-            placeholder={"请描述："}
+            placeholder={"请描述案情，或直接上传 PDF / 文档材料："}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey && canSubmit) { e.preventDefault(); handleSubmit(); } }}
             autoFocus
           />
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".pdf,.txt,.md,.csv,.json,.doc,.docx,.xls,.xlsx,.ppt,.pptx"
+            className="hidden"
+            onChange={handleFileChange}
+          />
           {/* 底部栏：选中标签 + 发送按钮 */}
           <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-3 pb-3 pt-1">
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 flex items-center gap-2 flex-wrap">
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={loading}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-[var(--color-border)] text-[12px] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                上传材料
+              </button>
               {selectedExample && (
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[var(--color-bg-warm)] border border-[var(--color-border)] text-[12px] text-[#c23b22] font-semibold fade-in">
                   {selectedExample.title}
                   <button
                     onClick={() => setSelectedExample(null)}
+                    className="text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors cursor-pointer leading-none"
+                  >×</button>
+                </span>
+              )}
+              {selectedFile && (
+                <span className="inline-flex max-w-full items-center gap-1.5 px-2.5 py-1 bg-[var(--color-bg-warm)] border border-[var(--color-border)] text-[12px] text-[var(--color-text-secondary)] fade-in">
+                  <span className="truncate max-w-[180px]">{selectedFile.name}</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedFile(null);
+                      setFileError("");
+                      if (fileInputRef.current) fileInputRef.current.value = "";
+                    }}
                     className="text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors cursor-pointer leading-none"
                   >×</button>
                 </span>
@@ -577,9 +634,13 @@ function AnalysisPage({ onBack, onSelect }: { onBack: () => void; onSelect: (m: 
             </button>
           </div>
         </div>
+        <div className="mb-6 flex items-center justify-between gap-3 text-[11px] text-[var(--color-text-muted)]">
+          <span>上传文件会直接交给 Kimi 官方文件接口抽取内容，不在本地做 PDF 解析。</span>
+          {fileError && <span className="text-[var(--color-error)]">{fileError}</span>}
+        </div>
 
         {/* 示例提示 */}
-        {!result && !selectedExample && (
+        {!result && !selectedExample && !selectedFile && (
           <div className="max-w-xs mx-auto fade-in">
             {[
               { title: "案情梳理", desc: "自动提取关键事实" },
@@ -705,6 +766,12 @@ function CasesPage({ onBack, onSelect }: { onBack: () => void; onSelect: (m: Mod
         fetch("/api/files/documents"),
         fetch("/api/files/analyses"),
       ]);
+      if (docRes.status === 401 || anaRes.status === 401) {
+        setNeedLogin(true);
+        setDocuments([]);
+        setAnalyses([]);
+        return;
+      }
       if (docRes.ok) { const d = await docRes.json(); setDocuments(d.documents || []); }
       if (anaRes.ok) { const d = await anaRes.json(); setAnalyses(d.analyses || []); }
     } catch { /* ignore */ } finally { setFilesLoading(false); }
